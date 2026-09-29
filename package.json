@@ -1,0 +1,13 @@
+{
+  "name": "xiaodu-intelligent-corporate-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Corporate website for Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
