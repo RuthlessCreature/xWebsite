@@ -1,17 +1,10 @@
-name: Deploy to Cloudflare
+name: Manual Cloudflare Deploy
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
   contents: read
-
-concurrency:
-  group: cloudflare-production
-  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -26,10 +19,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Deploy Workers Static Assets
         run: npm run deploy
