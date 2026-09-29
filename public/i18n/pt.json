@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "title": "Zhuhai Xiaodu Intelligent Technology | Automação Industrial e Manufatura Inteligente",
+    "description": "Robótica, visão computacional, amostragem automatizada, software industrial e integração de sistemas para manufatura, mineração, laboratórios e logística em projetos globais."
+  },
+  "topline": "Automação industrial · Entrega global de projetos",
+  "companyName": "Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
+  "nav": {
+    "solutions": "Soluções",
+    "cases": "Projetos",
+    "process": "Entrega",
+    "about": "Sobre nós",
+    "contact": "Contato",
+    "cta": "Consultar projeto"
+  },
+  "hero": {
+    "kicker": "Automação Industrial e Manufatura Inteligente",
+    "title": "Fazemos projetos complexos de automação funcionarem de verdade",
+    "desc": "Entregamos robótica, visão computacional, amostragem automatizada, software industrial e integração de sistemas para manufatura, mineração, laboratórios e logística. Engenharia na China para projetos no mundo inteiro.",
+    "cta1": "Conte-nos sobre seu projeto",
+    "cta2": "Ver projetos",
+    "proof1": {
+      "title": "Entrega completa",
+      "text": "Conceito, engenharia, integração e comissionamento"
+    },
+    "proof2": {
+      "title": "Projetos internacionais",
+      "text": "Coordenação entre países e suporte remoto"
+    },
+    "proof3": {
+      "title": "Projeto sob medida",
+      "text": "A solução se adapta ao processo"
+    },
+    "contactLabel": "Consulta de projeto",
+    "contactTitle": "Envie desenhos, fotos da planta ou requisitos. Podemos começar por aí.",
+    "contactRole": "Contato comercial e de projetos"
+  },
+  "pain": {
+    "1": {
+      "title": "Trabalho manual demais",
+      "text": "Movimentação, amostragem, inspeção e digitação repetitivas consomem mão de obra e aumentam a variação."
+    },
+    "2": {
+      "title": "Equipamentos desconectados",
+      "text": "Robôs, câmeras, PLCs, instrumentos e software operam isolados, dificultando a manutenção."
+    },
+    "3": {
+      "title": "Baixa rastreabilidade",
+      "text": "Quando há um problema, amostras, lotes, estados dos equipamentos e registros de operação podem ser difíceis de recuperar."
+    },
+    "4": {
+      "title": "Projetos internacionais são difíceis",
+      "text": "Requisitos, interfaces, aceitação e pós-venda precisam ser alinhados entre países e fusos horários."
+    }
+  },
+  "solutions": {
+    "eyebrow": "O que entregamos",
+    "title": "O que podemos resolver para você",
+    "desc": "Não vendemos apenas tecnologia. Integramos equipamentos, controle, visão e software ao redor do seu processo para criar um sistema utilizável e sustentável."
+  },
+  "solution": {
+    "1": {
+      "title": "Automação Robótica",
+      "text": "Carga e descarga, movimentação, montagem, paletização, operações de laboratório e células robóticas personalizadas.",
+      "a": "Engenharia de células robóticas",
+      "b": "Integração de garras e periféricos",
+      "c": "Ciclo, segurança e intertravamentos"
+    },
+    "2": {
+      "title": "Visão Computacional e Inspeção",
+      "text": "Defeitos, medição dimensional, OCR, códigos, posicionamento e orientação de robôs.",
+      "a": "Visão 2D / 3D",
+      "b": "Inspeção e decisão em linha",
+      "c": "Rastreabilidade de inspeção"
+    },
+    "3": {
+      "title": "Amostragem e Laboratório Automatizados",
+      "text": "Para carvão, minério e materiais a granel: amostragem, preparação, transporte, análise e rastreabilidade integrados.",
+      "a": "Módulos de amostragem e preparação",
+      "b": "Identificação e fluxo de amostras",
+      "c": "Integração de instrumentos e ensaios"
+    },
+    "4": {
+      "title": "Equipamentos Especiais e Integração de Linha",
+      "text": "Desenvolvemos máquinas, dispositivos e controles para processos específicos e integramos com linhas existentes.",
+      "a": "Máquinas e mecanismos customizados",
+      "b": "Integração PLC / IO / comunicação",
+      "c": "Modernização de linhas existentes"
+    },
+    "5": {
+      "title": "Software Industrial e Plataformas de Dados",
+      "text": "Status de equipamentos, produção, qualidade, alarmes e relatórios em uma única plataforma.",
+      "a": "Dashboards de produção e equipamentos",
+      "b": "Rastreabilidade de qualidade e lotes",
+      "c": "Interfaces e integração de dados"
+    },
+    "6": {
+      "title": "Assistência Inteligente e Automação de Fluxos",
+      "text": "Integramos conhecimento, regras, sistemas e ferramentas inteligentes para reduzir decisões e tarefas repetitivas.",
+      "a": "Busca de conhecimento e documentos",
+      "b": "Suporte à manutenção e análise de anomalias",
+      "c": "Automação de fluxos operacionais"
+    }
+  },
+  "cases": {
+    "eyebrow": "Mercados internacionais",
+    "title": "Casos de projeto",
+    "desc": "Apresentamos necessidades e abordagens de entrega por setor, cenário e mercado. Nomes de clientes e informações sensíveis não são exibidos publicamente."
+  },
+  "case": {
+    "1": {
+      "market": "Oriente Médio / Mineração e granel",
+      "title": "Sistema automático de amostragem e preparação de carvão e minerais",
+      "text": "Para fluxo contínuo, variação da amostragem manual e baixa rastreabilidade: amostragem, britagem, divisão, selagem, transporte e identificação automatizados."
+    },
+    "2": {
+      "market": "Europa / Manufatura de precisão",
+      "title": "Célula de alimentação robótica e inspeção em linha",
+      "text": "Para produção de múltiplas peças: robô, troca de dispositivos, inspeção visual e coleta de estado da máquina na mesma célula."
+    },
+    "3": {
+      "market": "Sudeste Asiático / Laboratório",
+      "title": "Automação robótica de laboratório",
+      "text": "Automatiza transporte de amostras, operações de estação, carregamento de instrumentos e registro de resultados."
+    },
+    "4": {
+      "market": "México / Manufatura",
+      "title": "Estação robótica flexível",
+      "text": "Para baixo volume e alta variedade: dispositivos intercambiáveis e receitas de programa reduzem o tempo de setup."
+    },
+    "5": {
+      "market": "CEI / Indústria pesada",
+      "title": "Retrofit de transportador e robô",
+      "text": "Adiciona robótica, inspeção e controle mantendo equipamentos existentes para reduzir paradas e escopo de reforma."
+    },
+    "6": {
+      "market": "América do Sul / Indústria de processo",
+      "title": "Plataforma de dados de produção e equipamentos",
+      "text": "Integra status, alarmes, produção e qualidade para que operação e manutenção compartilhem uma única visão da planta."
+    },
+    "7": {
+      "market": "Global / Logística e armazenagem",
+      "title": "Movimentação de armazém e identificação visual",
+      "text": "Conecta identificação, picking, transporte e localização para elevar o nível de automação."
+    },
+    "8": {
+      "market": "Exterior / Operação remota",
+      "title": "Monitoramento remoto e suporte de serviço",
+      "text": "Acesso remoto a status, logs e alarmes reduz o tempo de diagnóstico e a coordenação entre fusos horários."
+    },
+    "tag": {
+      "sampling": "Amostragem automática",
+      "robot": "Robótica",
+      "trace": "Rastreabilidade",
+      "vision": "Visão computacional",
+      "integration": "Integração"
+    }
+  },
+  "reasons": {
+    "eyebrow": "Por que Xiaodu",
+    "title": "Em projetos complexos, o maior risco é cada fornecedor cuidar apenas da sua pequena parte",
+    "desc": "Somos adequados para projetos com vários equipamentos, interfaces e processos. Você não precisa coordenar separadamente fornecedores de robôs, visão, software e controle.",
+    "cta": "Envie seus requisitos"
+  },
+  "reason": {
+    "1": {
+      "title": "Um único time responsável pelo sistema",
+      "text": "Do conceito ao comissionamento, problemas de interface continuam sob nossa responsabilidade."
+    },
+    "2": {
+      "title": "Engenharia personalizada faz parte do trabalho",
+      "text": "Projetamos equipamentos e software ao redor do processo, e não o contrário."
+    },
+    "3": {
+      "title": "Entendemos chão de fábrica e software",
+      "text": "Mecânica, elétrica, controle, visão e software são projetados como um único sistema."
+    },
+    "4": {
+      "title": "Preparados para projetos internacionais",
+      "text": "Alinhamento de requisitos, documentação, comissionamento remoto e suporte pós-venda."
+    }
+  },
+  "process": {
+    "1": {
+      "title": "Requisitos e dados de campo",
+      "text": "Desenhos, vídeos, ciclo, produto, interfaces, equipamentos existentes e objetivos."
+    },
+    "2": {
+      "title": "Proposta e cotação",
+      "text": "Escopo, arquitetura, seleção de equipamentos, prazo, entregáveis e critérios de aceitação."
+    },
+    "3": {
+      "title": "Projeto e fabricação",
+      "text": "Mecânica, elétrica, software, visão e controle avançam em paralelo."
+    },
+    "4": {
+      "title": "FAT e teste de integração",
+      "text": "Validamos funções, falhas, ciclo e interfaces antes do embarque."
+    },
+    "5": {
+      "title": "Entrega em campo e suporte",
+      "text": "Instalação, SAT, treinamento, documentação, recomendação de peças e suporte contínuo."
+    },
+    "eyebrow": "Entrega de projetos",
+    "title": "Como conduzimos um projeto",
+    "desc": "Definimos escopo e critérios de aceitação antes do projeto detalhado. Isso é ainda mais importante em projetos internacionais."
+  },
+  "global": {
+    "1": "Coordenação técnica remota",
+    "2": "Documentação técnica em inglês",
+    "3": "Suporte FAT / SAT",
+    "4": "Coordenação remota de manutenção",
+    "eyebrow": "Suporte global a projetos",
+    "title": "Engenharia em Zhuhai para projetos no mundo inteiro",
+    "desc": "Para clientes internacionais, começamos pela definição remota de requisitos, seguimos com engenharia, fabricação, testes e preparação de entrega, e apoiamos instalação, comissionamento e suporte contínuo."
+  },
+  "about": {
+    "eyebrow": "Sobre nós",
+    "title": "Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
+    "p1": "Somos uma empresa de tecnologia industrial focada em robótica, visão computacional, equipamentos de automação, software industrial e integração de sistemas.",
+    "p2": "Mais importante do que vender um produto é fazer o projeto funcionar: conexão de equipamentos, ciclo, tratamento de falhas, rastreabilidade e manutenção.",
+    "p3": "Se o seu projeto precisa da cadeia de suprimentos chinesa, equipe de engenharia e coordenação com uma planta no exterior, podemos participar desde a fase conceitual."
+  },
+  "contact": {
+    "eyebrow": "Iniciar um projeto",
+    "title": "Envie fotos da planta, desenhos ou requisitos.",
+    "desc": "Primeiro avaliamos viabilidade, abordagem e riscos; depois avançamos para uma proposta formal. Quanto antes as restrições reais forem claras, mais rápido o projeto avança.",
+    "call": "Ligar para Nicole",
+    "email": "Enviar projeto por e-mail",
+    "personLabel": "Contato comercial",
+    "note": "Para projetos de automação, visão computacional, automação de laboratório e software industrial."
+  },
+  "mobileContact": "Falar com Nicole"
+}
