@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "title": "Zhuhai Xiaodu Intelligent Technology | Industrial Automation & Smart Manufacturing",
+    "description": "Automation, machine vision, automated sampling, industrial software and system integration for manufacturers, mines, laboratories and logistics operations worldwide."
+  },
+  "topline": "Industrial Automation · Global Project Delivery",
+  "companyName": "Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
+  "nav": {
+    "solutions": "Solutions",
+    "cases": "Projects",
+    "process": "Delivery",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Start a Project"
+  },
+  "hero": {
+    "kicker": "Industrial Automation & Smart Manufacturing",
+    "title": "Make complex automation projects work — and keep working",
+    "desc": "We deliver robotics, machine vision, automated sampling, industrial software and system integration for manufacturing, mining, laboratories and logistics. Engineered in China for projects worldwide.",
+    "cta1": "Tell Us About Your Project",
+    "cta2": "View Project Cases",
+    "proof1": {
+      "title": "One Team, Full Delivery",
+      "text": "Concept, engineering, integration, commissioning"
+    },
+    "proof2": {
+      "title": "Built for Overseas Projects",
+      "text": "Cross-border coordination and remote support"
+    },
+    "proof3": {
+      "title": "Designed Around Your Process",
+      "text": "No forcing standard products onto the site"
+    },
+    "contactLabel": "Project Enquiry",
+    "contactTitle": "Send us your drawings, site photos or requirements. We can start from there.",
+    "contactRole": "Business & Project Contact"
+  },
+  "pain": {
+    "1": {
+      "title": "Too Much Manual Work",
+      "text": "Repeated handling, sampling, inspection and data entry consume labor and introduce variation."
+    },
+    "2": {
+      "title": "Disconnected Equipment",
+      "text": "Robots, cameras, PLCs, instruments and software do not communicate, making maintenance difficult."
+    },
+    "3": {
+      "title": "Poor Traceability",
+      "text": "When something goes wrong, sample history, batch records, equipment states and actions are hard to recover."
+    },
+    "4": {
+      "title": "Cross-Border Delivery Is Hard",
+      "text": "Requirements, interfaces, acceptance and after-sales support become harder when teams work across locations and time zones."
+    }
+  },
+  "solutions": {
+    "eyebrow": "What We Deliver",
+    "title": "What We Can Solve for You",
+    "desc": "We do not sell a pile of buzzwords. We connect equipment, controls, vision and software around your production process into a system that works and can be maintained."
+  },
+  "solution": {
+    "1": {
+      "title": "Robotic Automation",
+      "text": "Machine tending, material handling, assembly, palletizing, laboratory operations and custom robotic cells.",
+      "a": "Robotic cell engineering",
+      "b": "Grippers and peripheral integration",
+      "c": "Cycle time, safety and interlocks"
+    },
+    "2": {
+      "title": "Machine Vision & Inspection",
+      "text": "Defect inspection, dimensional measurement, OCR, barcode reading, positioning and robot guidance.",
+      "a": "2D / 3D vision",
+      "b": "In-line inspection and decision",
+      "c": "Inspection data traceability"
+    },
+    "3": {
+      "title": "Automated Sampling & Laboratory Automation",
+      "text": "For coal, ore and bulk materials: connect sampling, preparation, transfer, testing and traceability.",
+      "a": "Sampling and preparation modules",
+      "b": "Sample identity and movement tracking",
+      "c": "Instrument and test-process integration"
+    },
+    "4": {
+      "title": "Custom Equipment & Line Integration",
+      "text": "Develop special-purpose equipment, tooling and controls for unique processes and connect them to existing lines.",
+      "a": "Custom machines and mechanisms",
+      "b": "PLC / IO / communication integration",
+      "c": "Legacy line upgrades"
+    },
+    "5": {
+      "title": "Industrial Software & Data Platforms",
+      "text": "Bring equipment status, production, quality, alarms and reports into one usable platform.",
+      "a": "Production and equipment dashboards",
+      "b": "Quality and batch traceability",
+      "c": "System interfaces and data integration"
+    },
+    "6": {
+      "title": "Intelligent Assistance & Workflow Automation",
+      "text": "Connect knowledge, rules, business systems and intelligent tools into daily operations to reduce repetitive decisions and actions.",
+      "a": "Knowledge and document retrieval",
+      "b": "Maintenance support and anomaly analysis",
+      "c": "Automated business workflows"
+    }
+  },
+  "cases": {
+    "eyebrow": "International Project Directions",
+    "title": "Project Cases",
+    "desc": "Project needs and delivery approaches are presented by industry, scenario and overseas market. Customer names and sensitive information are not displayed publicly."
+  },
+  "case": {
+    "1": {
+      "market": "Middle East / Mining & Bulk Materials",
+      "title": "Automated Coal & Mineral Sampling System",
+      "text": "For continuous material flow, unstable manual sampling and difficult sample tracking: automated sampling, crushing, dividing, sealing, transfer and identity management."
+    },
+    "2": {
+      "market": "Europe / Precision Manufacturing",
+      "title": "Robot Machine-Tending & In-Line Inspection Cell",
+      "text": "For mixed-part production: combine robot loading, fixture changeover, vision inspection and machine-status collection in one cell."
+    },
+    "3": {
+      "market": "Southeast Asia / Laboratory",
+      "title": "Laboratory Robotic Automation",
+      "text": "Automate sample transport, workstation tasks, instrument loading and result recording to reduce repetitive manual operations."
+    },
+    "4": {
+      "market": "Mexico / Manufacturing",
+      "title": "Flexible Robotic Workstation",
+      "text": "For low-volume, high-mix production: use changeable tooling and recipe-based programs to shorten changeovers."
+    },
+    "5": {
+      "market": "CIS / Heavy Industry",
+      "title": "Conveyor & Robot Retrofit",
+      "text": "Add robotics, inspection and controls while keeping existing equipment, reducing the scope and downtime of line modifications."
+    },
+    "6": {
+      "market": "South America / Process Industry",
+      "title": "Production & Equipment Data Platform",
+      "text": "Bring machine status, alarms, output and quality data together so operations and maintenance teams share one view of the plant."
+    },
+    "7": {
+      "market": "Global / Logistics & Warehousing",
+      "title": "Warehouse Handling & Vision Identification",
+      "text": "Connect material identification, picking, transfer and location data to increase warehouse automation."
+    },
+    "8": {
+      "market": "Overseas / Remote Operations",
+      "title": "Remote Monitoring & Service Support",
+      "text": "Create remote access to status, logs and alarms for overseas equipment to reduce troubleshooting and time-zone coordination costs."
+    },
+    "tag": {
+      "sampling": "Automated Sampling",
+      "robot": "Robotics",
+      "trace": "Traceability",
+      "vision": "Machine Vision",
+      "integration": "Integration"
+    }
+  },
+  "reasons": {
+    "eyebrow": "Why Xiaodu",
+    "title": "Complex projects fail when every supplier only owns one small piece",
+    "desc": "We are best suited to projects involving multiple devices, interfaces and processes. You do not need to coordinate separate robot, vision, software and controls vendors on your own.",
+    "cta": "Send Us Your Requirements"
+  },
+  "reason": {
+    "1": {
+      "title": "One Team Owns the Whole System",
+      "text": "From concept to site commissioning, interface problems stay with us instead of being pushed back to the customer."
+    },
+    "2": {
+      "title": "Custom Engineering Is Normal for Us",
+      "text": "We design equipment and software around the process instead of forcing the process to fit a product."
+    },
+    "3": {
+      "title": "We Understand Both the Shop Floor and Software",
+      "text": "Mechanical, electrical, controls, vision and software are designed as one system."
+    },
+    "4": {
+      "title": "Ready for International Coordination",
+      "text": "Support for cross-border requirement alignment, technical documentation, remote commissioning and after-sales coordination."
+    }
+  },
+  "process": {
+    "1": {
+      "title": "Requirements & Site Information",
+      "text": "Drawings, videos, cycle time, products, interfaces, existing equipment and target outcomes."
+    },
+    "2": {
+      "title": "Proposal & Quotation",
+      "text": "Confirm scope, architecture, equipment selection, schedule, deliverables and acceptance criteria."
+    },
+    "3": {
+      "title": "Design & Build",
+      "text": "Mechanical, electrical, software, vision and controls progress in parallel."
+    },
+    "4": {
+      "title": "FAT & Integration Test",
+      "text": "Validate functions, abnormal conditions, cycle time and interfaces before shipment."
+    },
+    "5": {
+      "title": "Site Delivery & Support",
+      "text": "Installation, SAT, training, documentation, spare-parts recommendations and ongoing support."
+    },
+    "eyebrow": "Project Delivery",
+    "title": "How We Move a Project Forward",
+    "desc": "We define scope and acceptance criteria before detailed design and development. This matters even more for international projects."
+  },
+  "global": {
+    "1": "Remote technical coordination",
+    "2": "English technical documentation",
+    "3": "FAT / SAT support",
+    "4": "Remote service coordination",
+    "eyebrow": "Global Project Support",
+    "title": "Engineered in Zhuhai for Projects Worldwide",
+    "desc": "For overseas customers, we can start with remote requirement clarification, then complete engineering, design, manufacturing, testing and delivery preparation, followed by site installation, commissioning and ongoing support as required."
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "title": "Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
+    "p1": "We are an industrial technology company focused on robotics, machine vision, automation equipment, industrial software and system integration.",
+    "p2": "We care less about selling one product and more about whether the project actually works: whether equipment connects, cycle time is achieved, abnormal conditions are handled, data is traceable and the system remains maintainable.",
+    "p3": "If your project needs Chinese supply-chain resources, an engineering team and coordination with an overseas site, we can join from the early concept stage."
+  },
+  "contact": {
+    "eyebrow": "Start a Project",
+    "title": "Send us your site photos, drawings or requirements.",
+    "desc": "We first assess feasibility, approach and risk before moving into a formal proposal. The earlier real constraints are made clear, the faster the project moves.",
+    "call": "Call Nicole",
+    "email": "Email Your Project",
+    "personLabel": "Business Contact",
+    "note": "For automation, machine vision, laboratory automation and industrial software projects."
+  },
+  "mobileContact": "Contact Nicole"
+}
