@@ -18,7 +18,8 @@
 - 纯静态 HTML / CSS / JavaScript
 - UI：复用 `UI-Templates/enterprise/soe-steady-business-a` 的“国企稳健商务”设计语言
 - 托管：Cloudflare Workers Static Assets
-- CI/CD：GitHub Actions + Wrangler
+- 推荐 CI/CD：Cloudflare Workers Builds 直接连接 GitHub
+- 备用部署：仓库内 GitHub Actions 手动工作流
 
 ## 本地预览
 
@@ -27,13 +28,25 @@ npm install
 npm run dev
 ```
 
-## 部署
+## Cloudflare 推荐部署
 
-```bash
-npm run deploy
-```
+在 Cloudflare Dashboard：
 
-GitHub Actions 自动部署需要在仓库 Actions Secrets 中配置：
+1. Workers & Pages → Create application
+2. Import a repository
+3. 连接 GitHub 并选择 `RuthlessCreature/xWebsite`
+4. Worker 名称使用 `xiaodu-intelligent-website`
+5. Root directory 留空
+6. Build command 留空
+7. Deploy command 使用 `npx wrangler deploy`
+8. Production branch 使用 `main`
+9. Save and Deploy
+
+Workers Builds 会自动安装依赖，并在 main 分支后续更新时自动部署。
+
+## 备用手动部署
+
+GitHub Actions 的 `Manual Cloudflare Deploy` 需要仓库 Actions Secrets：
 
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
