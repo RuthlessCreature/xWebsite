@@ -1,58 +1,83 @@
 (() => {
+  const supported = ["zh-CN","zh-TW","en","ja","es","pt","ru"];
+  const selector = document.querySelector("[data-language]");
   const header = document.querySelector("[data-header]");
   const toggle = document.querySelector("[data-menu-toggle]");
   const nav = document.querySelector("[data-nav]");
   const year = document.querySelector("[data-year]");
 
+  const getPath = (obj, path) => path.split(".").reduce((acc, key) => acc && acc[key], obj);
+
+  const detectLanguage = () => {
+    const urlLang = new URLSearchParams(location.search).get("lang");
+    if (urlLang && supported.includes(urlLang)) return urlLang;
+
+    const saved = localStorage.getItem("site-language");
+    if (saved && supported.includes(saved)) return saved;
+
+    const raw = navigator.language || "en";
+    if (/^zh-(TW|HK|MO)/i.test(raw)) return "zh-TW";
+    if (/^zh/i.test(raw)) return "zh-CN";
+    if (/^ja/i.test(raw)) return "ja";
+    if (/^es/i.test(raw)) return "es";
+    if (/^pt/i.test(raw)) return "pt";
+    if (/^ru/i.test(raw)) return "ru";
+    return "en";
+  };
+
+  const applyLanguage = async (lang) => {
+    try {
+      const response = await fetch(`/i18n/${lang}.json`, { cache: "no-cache" });
+      if (!response.ok) throw new Error("translation load failed");
+      const dictionary = await response.json();
+
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const value = getPath(dictionary, node.dataset.i18n);
+        if (typeof value === "string") node.textContent = value;
+      });
+
+      if (dictionary.meta?.title) document.title = dictionary.meta.title;
+      const description = document.querySelector('meta[name="description"]');
+      if (description && dictionary.meta?.description) {
+        description.setAttribute("content", dictionary.meta.description);
+      }
+
+      if (selector) selector.value = lang;
+      localStorage.setItem("site-language", lang);
+      history.replaceState(null, "", `${location.pathname}?lang=${encodeURIComponent(lang)}${location.hash}`);
+    } catch (error) {
+      console.error("Language switch failed:", error);
+    }
+  };
+
   if (year) year.textContent = new Date().getFullYear();
 
-  const syncHeader = () => {
-    if (!header) return;
-    header.classList.toggle("scrolled", window.scrollY > 8);
-  };
+  const syncHeader = () => header?.classList.toggle("scrolled", window.scrollY > 8);
   syncHeader();
-  window.addEventListener("scroll", syncHeader, { passive: true });
+  addEventListener("scroll", syncHeader, { passive: true });
 
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
       const open = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "关闭导航" : "打开导航");
     });
 
     nav.addEventListener("click", (event) => {
       if (event.target.closest("a")) {
         nav.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "打开导航");
       }
     });
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) {
+    addEventListener("resize", () => {
+      if (innerWidth > 1100) {
         nav.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       }
     });
   }
 
-  const revealItems = document.querySelectorAll("[data-reveal]");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-  } else {
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-    revealItems.forEach((item) => observer.observe(item));
-  }
+  selector?.addEventListener("change", (event) => applyLanguage(event.target.value));
+  applyLanguage(detectLanguage());
 })();
