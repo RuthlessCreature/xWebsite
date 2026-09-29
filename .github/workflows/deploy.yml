@@ -1,10 +1,17 @@
-name: Manual Cloudflare Deploy
+name: Deploy to Cloudflare
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: true
 
 jobs:
   deploy:
