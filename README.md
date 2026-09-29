@@ -2,24 +2,58 @@
 
 > Zhuhai Xiaodu Intelligent Technology Co., Ltd.
 
-本仓库为珠海小度智能科技有限公司企业官网。网站定位聚焦工业智能化、人工智能、机器人自动化、机器视觉与数字化平台，不承载与公司主业无关的个人业务。
+面向全球工业客户的企业官网。网站聚焦工业自动化、机器人、机器视觉、自动取制样、实验室自动化、工业软件与系统集成。
 
-## 核心业务
+## Website v2.0
 
-1. 工业智能化系统集成
-2. 机器人自动化
-3. 机器视觉与三维感知
-4. 智能制样与自动化验
-5. 工业 AI Agent 与知识应用
-6. 数字孪生与工业数据平台
+本轮重构目标：从“技术说明型官网”改为“客户销售型官网”。
 
-## 技术与部署
+### 页面结构
 
-- 纯静态 HTML / CSS / JavaScript
-- UI：复用 `UI-Templates/enterprise/soe-steady-business-a` 的“国企稳健商务”设计语言
-- 托管：Cloudflare Workers Static Assets
-- 推荐 CI/CD：Cloudflare Workers Builds 直接连接 GitHub
-- 备用部署：仓库内 GitHub Actions 手动工作流
+1. 客户价值主张
+2. 客户常见痛点
+3. 六大解决方案
+4. 海外项目案例
+5. 项目合作优势
+6. 五阶段交付流程
+7. 全球项目支持
+8. 公司介绍
+9. Nicole Fan 项目联系入口
+
+### 多语言
+
+- 简体中文
+- 繁體中文
+- English
+- 日本語
+- Español
+- Português
+- Русский
+
+语言文件位于 `public/i18n/`，前端会根据浏览器语言自动选择，并记住用户选择。
+
+## Business Contact
+
+**Nicole Fan**
+
+- Tel: +86 139 2338 7986
+- Email: 13923387986@163.com
+
+## UI
+
+设计基线继续使用：
+
+`UI-Templates/enterprise/soe-steady-business-a`
+
+保留国企稳健商务的深蓝灰、低圆角、清晰信息层级，但针对企业官网改为更强的客户导向、案例展示与销售转化结构。
+
+## 技术
+
+- Static HTML / CSS / JavaScript
+- JSON i18n
+- Cloudflare Workers Static Assets
+- GitHub Actions deployment guard
+- Responsive: desktop / tablet / mobile
 
 ## 本地预览
 
@@ -28,32 +62,11 @@ npm install
 npm run dev
 ```
 
-## Cloudflare 推荐部署
+## 正式 Cloudflare 自动部署
 
-在 Cloudflare Dashboard：
-
-1. Workers & Pages → Create application
-2. Import a repository
-3. 连接 GitHub 并选择 `RuthlessCreature/xWebsite`
-4. Worker 名称使用 `xiaodu-intelligent-website`
-5. Root directory 留空
-6. Build command 留空
-7. Deploy command 使用 `npx wrangler deploy`
-8. Production branch 使用 `main`
-9. Save and Deploy
-
-Workers Builds 会自动安装依赖，并在 main 分支后续更新时自动部署。
-
-## 备用手动部署
-
-GitHub Actions 的 `Manual Cloudflare Deploy` 需要仓库 Actions Secrets：
+GitHub Actions 需要：
 
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-## 目录
-
-- `public/`：网站静态文件
-- `docs/BUSINESS_SCOPE.md`：业务边界与官网内容约束
-- `docs/DESIGN_SYSTEM.md`：UI 设计规范
-- `wrangler.jsonc`：Cloudflare Workers Static Assets 配置
+当两个 Secrets 均存在时，main 分支更新会部署至正式 Cloudflare Worker。
