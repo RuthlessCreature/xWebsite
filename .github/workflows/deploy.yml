@@ -1,4 +1,4 @@
-name: Deploy Preview
+name: Deploy to Cloudflare
 
 on:
   push:
@@ -9,8 +9,13 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: true
+
 jobs:
-  deploy-preview:
+  deploy:
+    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -19,5 +24,8 @@ jobs:
         with:
           node-version: 22
       - run: npm install --no-audit --no-fund
-      - name: Deploy preview to Cloudflare
-        run: npx wrangler deploy --temporary
+      - name: Deploy Workers Static Assets
+        run: npm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
