@@ -1,8 +1,28 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "xiaodu-intelligent-website",
-  "compatibility_date": "2026-09-29",
+  "main": "./src/index.js",
+  "compatibility_date": "2026-09-30",
+  "routes": [
+    {
+      "pattern": "xiaodu.tech",
+      "custom_domain": true
+    }
+  ],
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/",
+      "/zh-cn/*",
+      "/zh-tw/*",
+      "/en/*",
+      "/ja/*",
+      "/es/*",
+      "/pt/*",
+      "/ru/*",
+      "/sitemap.xml",
+      "/robots.txt"
+    ]
   }
 }
