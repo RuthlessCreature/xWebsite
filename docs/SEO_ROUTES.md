@@ -26,7 +26,7 @@ Each language exposes:
 - 6 solution pages
 - 8 project-case pages
 
-Total indexable localized pages: **161**.
+Total indexable localized pages: **168**.
 
 ## Solution slugs
 
@@ -83,9 +83,10 @@ Nicole Fan
 Per language:
 
 - 1 homepage
+- 1 project inquiry page
 - 3 library index pages
 - 6 solution detail pages
 - 8 project case-study pages
 - 5 industry landing pages
 
-Total: **23 pages per language × 7 languages = 161 localized pages**.
+Total: **24 pages per language × 7 languages = 168 localized pages**.
