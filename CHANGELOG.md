@@ -57,3 +57,18 @@
 - Added multilingual industry library index.
 - Added homepage industry navigation cards.
 - Updated dynamic sitemap coverage to 161 localized pages.
+
+
+## 2.4.0 — 2026-09-30
+
+### Added
+- FAQPage structured data for project case studies.
+- BreadcrumbList structured data for solution, case and industry detail pages.
+- Open Graph image metadata for share previews.
+- Twitter Card metadata.
+- Localized Open Graph locale metadata.
+
+### Verification
+- Worker JavaScript syntax independently validated.
+- 148 homepage translation keys checked across all seven languages with zero missing values.
+- Cloudflare Workers production deployment succeeded before release documentation update.
