@@ -72,3 +72,23 @@
 - Worker JavaScript syntax independently validated.
 - 148 homepage translation keys checked across all seven languages with zero missing values.
 - Cloudflare Workers production deployment succeeded before release documentation update.
+
+
+## 2.5.0 — 2026-09-30
+
+### Added
+- Seven-language project inquiry pages.
+- Server-side `POST /api/inquiry` endpoint.
+- Unique `XD-YYYYMMDD-XXXXXXXX` inquiry IDs.
+- Company, contact, country, project type, budget, timeline and requirement fields.
+- Up to five engineering-file uploads with a 4 MiB automatic-email attachment ceiling.
+- Cloudflare Email Service integration path through optional `EMAIL` binding.
+- D1 inquiry archive integration path through optional `DB` binding.
+- Automatic prefilled-email fallback when Cloudflare Email Service is not enabled.
+- D1 schema and inquiry-system operations documentation.
+- Homepage primary CTAs now enter the inquiry funnel.
+
+### Verification
+- Worker JavaScript syntax check passed.
+- Inquiry API route included in Worker-first routing.
+- Localized indexable URL count increased to 168.
