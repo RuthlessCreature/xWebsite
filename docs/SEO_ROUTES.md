@@ -65,9 +65,9 @@ Total indexable localized pages: **168**.
 
 Every detail page includes direct contact paths to:
 
-Nicole Fan  
-+86 139 2338 7986  
-13923387986@163.com
+Yusuf<br>
++86 132 4269 4270<br>
+abd.yusuf.ibrahim.mustafa@gmail.com
 
 
 ## Industry slugs

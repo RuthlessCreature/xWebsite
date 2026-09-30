@@ -7,7 +7,7 @@
 - Reorganized the information architecture around customer problems, deliverables, project cases and conversion.
 - Reworked the visual system while retaining the SOE Steady Business design DNA.
 - Added eight international project case cards with high-fidelity industrial photography.
-- Added persistent and mobile project contact entry points for Nicole Fan.
+- Added persistent and mobile project contact entry points for Yusuf.
 - Added seven-language switching: Simplified Chinese, Traditional Chinese, English, Japanese, Spanish, Portuguese and Russian.
 - Added browser-language detection and language preference persistence.
 - Reworked overseas project messaging for manufacturing, mining, laboratories, logistics and process industries.
@@ -43,7 +43,7 @@
 - Added project overview, customer situation, system approach, engineering scope, acceptance criteria, deliverables, project process and related-solution sections.
 - Added seven-language project FAQs.
 - Added dedicated multilingual project-case and solution library index pages.
-- Added stronger project-specific email and phone CTAs for Nicole Fan.
+- Added stronger project-specific email and phone CTAs for Yusuf.
 
 ## 2.3.0 — 2026-09-30
 

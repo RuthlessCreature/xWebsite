@@ -18,7 +18,7 @@
 6. 五阶段交付流程
 7. 全球项目支持
 8. 公司介绍
-9. Nicole Fan 项目联系入口
+9. Yusuf 项目联系入口
 
 ### 多语言
 
@@ -34,10 +34,10 @@
 
 ## Business Contact
 
-**Nicole Fan**
+**Yusuf**
 
-- Tel: +86 139 2338 7986
-- Email: 13923387986@163.com
+- Tel: +86 132 4269 4270
+- Email: abd.yusuf.ibrahim.mustafa@gmail.com
 
 ## UI
 
@@ -145,7 +145,7 @@ Every project case is expanded into a full case-study sales page with:
 - delivery process
 - related solutions
 - multilingual FAQ
-- direct Nicole Fan project CTA
+- direct Yusuf project CTA
 
 Current localized SEO page count: **168 pages** across 7 languages.
 

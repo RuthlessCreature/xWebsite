@@ -89,7 +89,7 @@
     }catch(error){
       result.hidden=false;
       result.className="inquiry-result error";
-      result.textContent="Submission failed. Please email Nicole directly at 13923387986@163.com.";
+      result.textContent="Submission failed. Please email Yusuf directly at abd.yusuf.ibrahim.mustafa@gmail.com.";
     }finally{
       if(submit){
         submit.disabled=false;

@@ -24,15 +24,15 @@ The Worker:
 4. Limits automatic-email attachments to 4 MiB total.
 5. Generates a unique ID in the format `XD-YYYYMMDD-XXXXXXXX`.
 6. Builds a normalized project summary.
-7. If an `EMAIL` binding exists, emails the inquiry and attachments to Nicole Fan.
+7. If an `EMAIL` binding exists, emails the inquiry and attachments to Yusuf.
 8. If a `DB` D1 binding exists, archives the normalized inquiry record.
 9. If Email Service is not configured, returns a prefilled `mailto:` fallback so the customer can still complete the inquiry.
 
 ## Contact destination
 
-Nicole Fan  
-+86 139 2338 7986  
-13923387986@163.com
+Yusuf<br>
++86 132 4269 4270<br>
+abd.yusuf.ibrahim.mustafa@gmail.com
 
 ## Enable automatic email delivery
 
@@ -48,7 +48,7 @@ Worker binding name:
 
 Destination:
 
-`13923387986@163.com`
+`abd.yusuf.ibrahim.mustafa@gmail.com`
 
 After Cloudflare Email Service has a verified sender domain and verified destination address, add a Workers Email binding named `EMAIL`. No front-end code changes are required.
 
