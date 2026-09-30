@@ -15,3 +15,22 @@
 ### Deployment
 - Cloudflare Workers Static Assets configuration retained.
 - Production GitHub workflow now runs only when permanent Cloudflare credentials are present.
+
+
+## 2.1.0 — 2026-09-30
+
+### Added
+- Cloudflare Worker SSR layer for multilingual SEO routes.
+- Seven localized homepage paths.
+- Six solution detail pages per language.
+- Eight project-case detail pages per language.
+- 105 crawlable localized URLs in the dynamic sitemap.
+- Canonical and hreflang metadata.
+- Organization, Service and Article structured data.
+- SEO-aware language switching that preserves the current page.
+- Direct homepage links from solution and project cards to detail pages.
+
+### Deployment
+- Verified SSR Worker deployment independently before domain binding.
+- Bound `xiaodu.tech/*` to `xiaodu-intelligent-website` using a Cloudflare Worker Route.
+- Cloudflare Workers Build succeeded with Version ID `6f2e0027-884b-4f59-bfa3-2ac809e6eebe`.
