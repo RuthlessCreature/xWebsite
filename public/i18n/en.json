@@ -230,5 +230,15 @@
     "personLabel": "Business Contact",
     "note": "For automation, machine vision, laboratory automation and industrial software projects."
   },
-  "mobileContact": "Contact Nicole"
+  "mobileContact": "Contact Nicole",
+  "industries": {
+    "eyebrow": "INDUSTRIES",
+    "title": "Industrial environments we know well",
+    "desc": "Start from your industry and go directly to relevant project cases and solutions.",
+    "mining": "Mining & Bulk Materials",
+    "manufacturing": "Precision Manufacturing",
+    "laboratory": "Laboratory Automation",
+    "logistics": "Logistics & Warehousing",
+    "heavy": "Process & Heavy Industry"
+  }
 }
