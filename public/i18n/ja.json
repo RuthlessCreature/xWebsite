@@ -230,5 +230,15 @@
     "personLabel": "営業窓口",
     "note": "自動化、マシンビジョン、ラボ自動化、産業ソフトウェア案件に対応します。"
   },
-  "mobileContact": "Nicoleに連絡"
+  "mobileContact": "Nicoleに連絡",
+  "industries": {
+    "eyebrow": "INDUSTRIES",
+    "title": "実績を活かせる産業分野",
+    "desc": "業界から入り、関連プロジェクトとソリューションを直接ご覧いただけます。",
+    "mining": "鉱業・バルク材",
+    "manufacturing": "精密製造",
+    "laboratory": "ラボ自動化",
+    "logistics": "物流・倉庫",
+    "heavy": "プロセス・重工業"
+  }
 }
