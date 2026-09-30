@@ -25,5 +25,11 @@
       "/sitemap.xml",
       "/robots.txt"
     ]
-  }
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "13923387986@163.com"
+    }
+  ]
 }
