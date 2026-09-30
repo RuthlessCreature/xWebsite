@@ -34,3 +34,26 @@
 - Verified SSR Worker deployment independently before domain binding.
 - Bound `xiaodu.tech/*` to `xiaodu-intelligent-website` using a Cloudflare Worker Route.
 - Cloudflare Workers Build succeeded with Version ID `6f2e0027-884b-4f59-bfa3-2ac809e6eebe`.
+
+
+## 2.2.0 — 2026-09-30
+
+### Added
+- Expanded all eight overseas project pages into full case studies.
+- Added project overview, customer situation, system approach, engineering scope, acceptance criteria, deliverables, project process and related-solution sections.
+- Added seven-language project FAQs.
+- Added dedicated multilingual project-case and solution library index pages.
+- Added stronger project-specific email and phone CTAs for Nicole Fan.
+
+## 2.3.0 — 2026-09-30
+
+### Added
+- Five multilingual industry landing-page families:
+  - Mining & Bulk Materials
+  - Precision Manufacturing
+  - Laboratory Automation
+  - Logistics & Warehousing
+  - Process & Heavy Industry
+- Added multilingual industry library index.
+- Added homepage industry navigation cards.
+- Updated dynamic sitemap coverage to 161 localized pages.
