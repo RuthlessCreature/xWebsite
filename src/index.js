@@ -645,6 +645,13 @@ export default {
     const url=new URL(request.url);
     const path=url.pathname;
 
+    if(path==="/__health") return Response.json({
+      ok:true,
+      service:"xiaodu-intelligent-website",
+      domain:url.hostname,
+      protocol:url.protocol,
+      version:"redirect-loop-fix-20260930"
+    },{headers:{"cache-control":"no-store"}});
     if(path==="/api/inquiry" && request.method==="POST") return handleInquiry(request,env);
     if(path==="/"){
       const dict=await loadDict(env,"zh-cn");
