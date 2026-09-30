@@ -192,6 +192,31 @@ function alternates(path) {
   return items + `<link rel="alternate" hreflang="x-default" href="${BASE}/en/${path}">`;
 }
 
+function breadcrumbJsonLd(lang, items) {
+  return {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement": items.map((item,index)=>({
+      "@type":"ListItem",
+      "position":index+1,
+      "name":item.name,
+      "item":BASE + item.path
+    }))
+  };
+}
+
+function faqJsonLd(du) {
+  return {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":du.faqs.map(([q,a])=>({
+      "@type":"Question",
+      "name":q,
+      "acceptedAnswer":{"@type":"Answer","text":a}
+    }))
+  };
+}
+
 function orgJsonLd() {
   return JSON.stringify({
     "@context":"https://schema.org",
@@ -227,7 +252,7 @@ function contact(lang, ui) {
   </section>`;
 }
 
-function shellPage({lang, title, description, canonicalPath, body, dict, ui, schema}) {
+function shellPage({lang, title, description, canonicalPath, body, dict, ui, schema, image}) {
   const canonical = `${BASE}/${lang}/${canonicalPath}`;
   return `<!doctype html>
 <html lang="${esc(LANGS[lang].asset)}">
@@ -237,10 +262,11 @@ function shellPage({lang, title, description, canonicalPath, body, dict, ui, sch
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">
 ${alternates(canonicalPath)}
-<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}">
+<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${esc(LANGS[lang].asset)}">
+${image ? `<meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${esc(image)}">` : `<meta name="twitter:card" content="summary">`}
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">${orgJsonLd()}</script>
-${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
+${schema ? (Array.isArray(schema) ? schema : [schema]).map(x=>`<script type="application/ld+json">${JSON.stringify(x)}</script>`).join("") : ""}
 </head>
 <body class="detail-page">
 ${header(lang,ui,dict)}
@@ -264,8 +290,11 @@ function solutionPage(lang, dict, item) {
   <section class="section process-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">PROJECT DELIVERY</span><h2>${esc(ui.delivery)}</h2></div><p>${esc(dict.process.desc)}</p></div><div class="process-grid">${processCards(dict)}</div></div></section>
   ${related.length ? `<section class="section cases-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">PROJECTS</span><h2>${esc(ui.relatedCases)}</h2></div></div><div class="detail-related-grid">${related.map(c=>`<a class="case-card" href="/${lang}/cases/${c.slug}/"><img src="${c.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(dict.case[c.id].market)}</span><h3>${esc(dict.case[c.id].title)}</h3><p>${esc(dict.case[c.id].text)}</p></div></a>`).join("")}</div></div></section>` : ""}
   `;
-  const schema={"@context":"https://schema.org","@type":"Service","name":data.title,"description":data.text,"provider":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd."},"areaServed":"Worldwide"};
-  return shellPage({lang,title:data.title,description:data.text,canonicalPath:`solutions/${item.slug}/`,body,dict,ui,schema});
+  const schema=[
+    {"@context":"https://schema.org","@type":"Service","name":data.title,"description":data.text,"provider":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd."},"areaServed":"Worldwide"},
+    breadcrumbJsonLd(lang,[{name:ui.home,path:`/${lang}/`},{name:ui.solutions,path:`/${lang}/solutions/`},{name:data.title,path:`/${lang}/solutions/${item.slug}/`}])
+  ];
+  return shellPage({lang,title:data.title,description:data.text,canonicalPath:`solutions/${item.slug}/`,body,dict,ui,schema,image:item.image});
 }
 
 function casePage(lang, dict, item) {
@@ -306,8 +335,12 @@ function casePage(lang, dict, item) {
 
   <section class="section faq-section"><div class="shell faq-layout"><div><span class="eyebrow">FAQ</span><h2>${esc(du.faqTitle)}</h2></div><div class="faq-list">${faqs}</div></div></section>
   `;
-  const schema={"@context":"https://schema.org","@type":"Article","headline":data.title,"description":data.text,"author":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd."},"about":data.market};
-  return shellPage({lang,title:data.title,description:data.text,canonicalPath:`cases/${item.slug}/`,body,dict,ui,schema});
+  const schema=[
+    {"@context":"https://schema.org","@type":"Article","headline":data.title,"description":data.text,"image":[item.image],"author":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd."},"about":data.market},
+    faqJsonLd(du),
+    breadcrumbJsonLd(lang,[{name:ui.home,path:`/${lang}/`},{name:ui.cases,path:`/${lang}/cases/`},{name:data.title,path:`/${lang}/cases/${item.slug}/`}])
+  ];
+  return shellPage({lang,title:data.title,description:data.text,canonicalPath:`cases/${item.slug}/`,body,dict,ui,schema,image:item.image});
 }
 
 function casesIndexPage(lang, dict) {
@@ -350,7 +383,7 @@ function industryPage(lang, dict, item) {
   <section class="section process-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">SOLUTIONS</span><h2>${esc(du.industrySolutions)}</h2></div></div><div class="detail-related-grid">${solutionCards}</div></div></section>
   `;
   const schema={"@context":"https://schema.org","@type":"CollectionPage","name":title,"description":summary,"about":title};
-  return shellPage({lang,title,description:summary,canonicalPath:`industries/${item.slug}/`,body,dict,ui,schema});
+  return shellPage({lang,title,description:summary,canonicalPath:`industries/${item.slug}/`,body,dict,ui,schema:[schema,breadcrumbJsonLd(lang,[{name:ui.home,path:`/${lang}/`},{name:du.industriesTitle,path:`/${lang}/industries/`},{name:title,path:`/${lang}/industries/${item.slug}/`}])],image:heroImage});
 }
 
 async function homePage(request, env, lang, dict) {
