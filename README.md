@@ -116,3 +116,35 @@ Cloudflare production routing:
 - Route: `xiaodu.tech/*`
 - Zone: `xiaodu.tech`
 - Cloudflare Workers Builds deploy automatically from GitHub `main`.
+
+
+## v2.3 Sales Architecture
+
+The site now includes three multilingual content libraries:
+
+- Solution Center
+- International Project Case Library
+- Industries We Serve
+
+Industry landing pages:
+
+- Mining & Bulk Materials
+- Precision Manufacturing
+- Laboratory Automation
+- Logistics & Warehousing
+- Process & Heavy Industry
+
+Every project case is expanded into a full case-study sales page with:
+
+- project overview
+- customer situation
+- system approach
+- engineering scope
+- acceptance focus
+- deliverables
+- delivery process
+- related solutions
+- multilingual FAQ
+- direct Nicole Fan project CTA
+
+Current localized SEO page count: **161 pages** across 7 languages.
