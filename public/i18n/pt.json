@@ -230,5 +230,15 @@
     "personLabel": "Contato comercial",
     "note": "Para projetos de automação, visão computacional, automação de laboratório e software industrial."
   },
-  "mobileContact": "Falar com Nicole"
+  "mobileContact": "Falar com Nicole",
+  "industries": {
+    "eyebrow": "INDUSTRIES",
+    "title": "Ambientes industriais que conhecemos bem",
+    "desc": "Comece pela sua indústria e veja diretamente projetos e soluções relevantes.",
+    "mining": "Mineração e materiais a granel",
+    "manufacturing": "Manufatura de precisão",
+    "laboratory": "Automação de laboratório",
+    "logistics": "Logística e armazenagem",
+    "heavy": "Indústria de processo e pesada"
+  }
 }
