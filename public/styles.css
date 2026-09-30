@@ -331,3 +331,21 @@ button,select{font:inherit}
   .faq-list summary{padding:16px}
   .faq-list details p{padding:0 16px 16px}
 }
+
+/* v2.3 homepage industry entry */
+.industries-section{background:#edf2f5}
+.industry-home-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.industry-home-card{position:relative;min-height:260px;grid-column:span 2;overflow:hidden;border:1px solid var(--line);background:#173d59}
+.industry-home-card-wide{grid-column:span 3}
+.industry-home-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.industry-home-card:hover img{transform:scale(1.035)}
+.industry-home-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,23,35,.05),rgba(7,23,35,.78))}
+.industry-home-card strong{position:absolute;left:22px;right:22px;bottom:20px;color:#fff;font-size:19px;line-height:1.3}
+@media(max-width:900px){
+  .industry-home-grid{grid-template-columns:repeat(2,1fr)}
+  .industry-home-card,.industry-home-card-wide{grid-column:span 1}
+}
+@media(max-width:600px){
+  .industry-home-grid{grid-template-columns:1fr}
+  .industry-home-card,.industry-home-card-wide{min-height:230px}
+}
