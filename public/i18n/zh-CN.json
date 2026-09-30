@@ -230,5 +230,15 @@
     "personLabel": "商务联系人",
     "note": "适用于自动化、机器视觉、实验室自动化和工业软件项目。"
   },
-  "mobileContact": "联系 Nicole"
+  "mobileContact": "联系 Nicole",
+  "industries": {
+    "eyebrow": "INDUSTRIES",
+    "title": "我们更熟悉这些工业场景",
+    "desc": "按行业进入，直接看相关案例和解决方案。",
+    "mining": "矿业与大宗物料",
+    "manufacturing": "精密制造",
+    "laboratory": "实验室自动化",
+    "logistics": "物流与仓储",
+    "heavy": "流程与重工业"
+  }
 }
