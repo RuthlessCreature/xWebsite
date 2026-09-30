@@ -24,7 +24,8 @@
       "/ru/*",
       "/sitemap.xml",
       "/robots.txt"
-    ]
+    ],
+    "html_handling": "none"
   },
   "send_email": [
     {
