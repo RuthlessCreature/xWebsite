@@ -48,6 +48,86 @@ const UI = {
   "ru": {home:"Главная", solutions:"Решения", cases:"Проекты", process:"Реализация", about:"О компании", contact:"Контакты", scope:"Типовой объём поставки", delivery:"Как ведётся проект", relatedCases:"Связанные проекты", relatedSolutions:"Связанные решения", discuss:"Обсудить проект", ctaTitle:"Пришлите Nicole фото площадки, чертежи или требования.", ctaText:"Сначала оцениваем реализуемость, подход и риски, затем готовим формальное предложение.", back:"На главную", global:"Готовы к международным проектам", project:"Проектный кейс", solution:"Решение", contactNicole:"Связаться с Nicole"}
 };
 
+const INQUIRY_UI = {
+  "zh-cn": {
+    title:"告诉我们你的项目", intro:"有现场照片、图纸、设备清单或一个还没完全想清楚的需求，都可以先发。我们先判断可行性、边界和主要风险。",
+    eyebrow:"PROJECT INQUIRY", basics:"基本信息", project:"项目需求", files:"项目资料", company:"公司名称", name:"联系人", email:"邮箱", phone:"电话 / WhatsApp / 微信", country:"国家 / 地区",
+    type:"项目类型", budget:"预算范围", timeline:"期望时间", contact:"首选联系方式", description:"请描述现场、问题、目标和已知约束", upload:"上传现场照片 / PDF / 图纸 / 资料", uploadHint:"最多 5 个文件；自动邮件模式下附件总量不超过 4 MB。STEP/DWG 等大文件可先提交询盘后再邮件发送。",
+    consent:"我同意珠海小度智能科技有限公司使用这些信息与我联系并评估项目。", submit:"提交项目询盘", sending:"正在提交…", required:"请填写必填项并同意联系。",
+    success:"询盘已生成", emailed:"项目资料已自动发送给 Nicole。", fallback:"Cloudflare 邮件通道尚未启用。询盘编号已生成，请点下面按钮打开邮件客户端完成发送。",
+    openEmail:"打开邮件客户端", copy:"复制项目摘要", copied:"已复制", attachNote:"如果你选择了附件，请在邮件客户端里把这些文件重新附上。",
+    id:"询盘编号", direct:"也可以直接联系 Nicole", projectTypes:["机器人自动化","机器视觉与检测","自动取制样 / 实验室自动化","定制设备 / 产线集成","工业软件 / 数据平台","流程自动化","其他"],
+    budgets:["待评估","USD 10k 以下","USD 10k–50k","USD 50k–200k","USD 200k–500k","USD 500k 以上"],
+    timelines:["待评估","1个月内","1–3个月","3–6个月","6–12个月","12个月以上"]
+  },
+  "zh-tw": {
+    title:"告訴我們你的專案", intro:"有現場照片、圖紙、設備清單或尚未完全定義的需求，都可以先發。我們先判斷可行性、邊界與主要風險。",
+    eyebrow:"PROJECT INQUIRY", basics:"基本資訊", project:"專案需求", files:"專案資料", company:"公司名稱", name:"聯絡人", email:"Email", phone:"電話 / WhatsApp / 微信", country:"國家 / 地區",
+    type:"專案類型", budget:"預算範圍", timeline:"期望時間", contact:"首選聯絡方式", description:"請描述現場、問題、目標與已知限制", upload:"上傳現場照片 / PDF / 圖紙 / 資料", uploadHint:"最多 5 個檔案；自動郵件模式下附件總量不超過 4 MB。STEP/DWG 等大檔案可先提交詢盤後再寄送。",
+    consent:"我同意珠海小度智能科技有限公司使用這些資訊與我聯絡並評估專案。", submit:"提交專案詢盤", sending:"正在提交…", required:"請填寫必填欄位並同意聯絡。",
+    success:"詢盤已建立", emailed:"專案資料已自動寄給 Nicole。", fallback:"Cloudflare 郵件通道尚未啟用。詢盤編號已建立，請點下方按鈕開啟郵件客戶端完成寄送。",
+    openEmail:"開啟郵件客戶端", copy:"複製專案摘要", copied:"已複製", attachNote:"如果你選擇了附件，請在郵件客戶端重新附上這些檔案。",
+    id:"詢盤編號", direct:"也可以直接聯絡 Nicole", projectTypes:["機器人自動化","機器視覺與檢測","自動取製樣 / 實驗室自動化","客製設備 / 產線整合","工業軟體 / 資料平台","流程自動化","其他"],
+    budgets:["待評估","USD 10k 以下","USD 10k–50k","USD 50k–200k","USD 200k–500k","USD 500k 以上"],
+    timelines:["待評估","1個月內","1–3個月","3–6個月","6–12個月","12個月以上"]
+  },
+  "en": {
+    title:"Tell us about your project", intro:"Send site photos, drawings, an equipment list, or even an early-stage requirement. We will first assess feasibility, boundaries and the main engineering risks.",
+    eyebrow:"PROJECT INQUIRY", basics:"Contact Details", project:"Project Requirements", files:"Project Files", company:"Company", name:"Contact Name", email:"Email", phone:"Phone / WhatsApp / WeChat", country:"Country / Region",
+    type:"Project Type", budget:"Budget Range", timeline:"Target Timeline", contact:"Preferred Contact", description:"Describe the site, problem, target outcome and known constraints", upload:"Upload site photos / PDF / drawings / project files", uploadHint:"Up to 5 files; automatic email mode supports up to 4 MB total attachments. Large STEP/DWG files can be sent separately after the inquiry is created.",
+    consent:"I agree that Zhuhai Xiaodu Intelligent Technology may use this information to contact me and assess the project.", submit:"Submit Project Inquiry", sending:"Submitting…", required:"Please complete the required fields and consent to contact.",
+    success:"Inquiry created", emailed:"The project information has been sent to Nicole automatically.", fallback:"Cloudflare email delivery is not enabled yet. Your inquiry ID has been created; use the button below to send the prepared email.",
+    openEmail:"Open Email Client", copy:"Copy Project Summary", copied:"Copied", attachNote:"If you selected files, please attach them again in your email client.",
+    id:"Inquiry ID", direct:"You can also contact Nicole directly", projectTypes:["Robotic Automation","Machine Vision & Inspection","Automated Sampling / Laboratory Automation","Custom Equipment / Line Integration","Industrial Software / Data Platform","Workflow Automation","Other"],
+    budgets:["To be assessed","Under USD 10k","USD 10k–50k","USD 50k–200k","USD 200k–500k","Above USD 500k"],
+    timelines:["To be assessed","Within 1 month","1–3 months","3–6 months","6–12 months","More than 12 months"]
+  },
+  "ja": {
+    title:"プロジェクトについてお聞かせください", intro:"現場写真、図面、設備リスト、まだ整理途中の要件でも構いません。まず実現可能性、範囲、主要リスクを確認します。",
+    eyebrow:"PROJECT INQUIRY", basics:"基本情報", project:"プロジェクト要件", files:"プロジェクト資料", company:"会社名", name:"ご担当者", email:"メール", phone:"電話 / WhatsApp / WeChat", country:"国 / 地域",
+    type:"プロジェクト種別", budget:"予算範囲", timeline:"希望時期", contact:"希望連絡方法", description:"現場、課題、目標、既知の制約をご記入ください", upload:"現場写真 / PDF / 図面 / 資料をアップロード", uploadHint:"最大5ファイル。自動メール時の添付合計は4MBまで。大きなSTEP/DWGファイルは問い合わせ作成後に別送できます。",
+    consent:"珠海小度智能科技有限公司が本情報を使用して連絡し、プロジェクトを評価することに同意します。", submit:"プロジェクト相談を送信", sending:"送信中…", required:"必須項目と連絡への同意をご確認ください。",
+    success:"問い合わせを作成しました", emailed:"プロジェクト情報は Nicole に自動送信されました。", fallback:"Cloudflareのメール送信はまだ有効化されていません。問い合わせ番号は作成済みです。下のボタンからメールを送信してください。",
+    openEmail:"メールを開く", copy:"プロジェクト概要をコピー", copied:"コピー済み", attachNote:"ファイルを選択した場合は、メールソフトで再度添付してください。",
+    id:"問い合わせ番号", direct:"Nicole へ直接ご連絡いただけます", projectTypes:["ロボット自動化","マシンビジョン・検査","自動サンプリング / ラボ自動化","専用設備 / ライン統合","産業ソフトウェア / データ基盤","業務フロー自動化","その他"],
+    budgets:["要評価","USD 10k 未満","USD 10k–50k","USD 50k–200k","USD 200k–500k","USD 500k 以上"],
+    timelines:["要評価","1か月以内","1–3か月","3–6か月","6–12か月","12か月以上"]
+  },
+  "es": {
+    title:"Cuéntenos su proyecto", intro:"Puede enviar fotos de planta, planos, una lista de equipos o incluso un requisito aún inicial. Primero evaluaremos viabilidad, alcance y riesgos principales.",
+    eyebrow:"PROJECT INQUIRY", basics:"Datos de contacto", project:"Requisitos del proyecto", files:"Archivos del proyecto", company:"Empresa", name:"Contacto", email:"Email", phone:"Teléfono / WhatsApp / WeChat", country:"País / Región",
+    type:"Tipo de proyecto", budget:"Presupuesto", timeline:"Plazo objetivo", contact:"Contacto preferido", description:"Describa planta, problema, objetivo y restricciones conocidas", upload:"Subir fotos / PDF / planos / archivos", uploadHint:"Hasta 5 archivos; el modo de email automático admite hasta 4 MB en total. Los archivos STEP/DWG grandes pueden enviarse después.",
+    consent:"Acepto que Zhuhai Xiaodu Intelligent Technology utilice esta información para contactarme y evaluar el proyecto.", submit:"Enviar consulta", sending:"Enviando…", required:"Complete los campos obligatorios y acepte el contacto.",
+    success:"Consulta creada", emailed:"La información del proyecto se ha enviado automáticamente a Nicole.", fallback:"El envío de correo de Cloudflare aún no está habilitado. Su ID ya fue creado; use el botón para enviar el correo preparado.",
+    openEmail:"Abrir correo", copy:"Copiar resumen", copied:"Copiado", attachNote:"Si seleccionó archivos, vuelva a adjuntarlos en su cliente de correo.",
+    id:"ID de consulta", direct:"También puede contactar directamente con Nicole", projectTypes:["Automatización robótica","Visión artificial e inspección","Muestreo / laboratorio automatizado","Equipos especiales / integración de línea","Software industrial / plataforma de datos","Automatización de flujos","Otro"],
+    budgets:["Por evaluar","Menos de USD 10k","USD 10k–50k","USD 50k–200k","USD 200k–500k","Más de USD 500k"],
+    timelines:["Por evaluar","Dentro de 1 mes","1–3 meses","3–6 meses","6–12 meses","Más de 12 meses"]
+  },
+  "pt": {
+    title:"Conte-nos sobre seu projeto", intro:"Envie fotos da planta, desenhos, lista de equipamentos ou até um requisito ainda inicial. Primeiro avaliamos viabilidade, limites e principais riscos.",
+    eyebrow:"PROJECT INQUIRY", basics:"Dados de contato", project:"Requisitos do projeto", files:"Arquivos do projeto", company:"Empresa", name:"Contato", email:"Email", phone:"Telefone / WhatsApp / WeChat", country:"País / Região",
+    type:"Tipo de projeto", budget:"Faixa de orçamento", timeline:"Prazo desejado", contact:"Contato preferido", description:"Descreva a planta, problema, objetivo e restrições conhecidas", upload:"Enviar fotos / PDF / desenhos / arquivos", uploadHint:"Até 5 arquivos; o modo de email automático aceita até 4 MB no total. Arquivos STEP/DWG grandes podem ser enviados depois.",
+    consent:"Concordo que a Zhuhai Xiaodu Intelligent Technology use estas informações para entrar em contato e avaliar o projeto.", submit:"Enviar consulta", sending:"Enviando…", required:"Preencha os campos obrigatórios e aceite o contato.",
+    success:"Consulta criada", emailed:"As informações do projeto foram enviadas automaticamente para Nicole.", fallback:"O envio de email pelo Cloudflare ainda não está habilitado. Seu ID já foi criado; use o botão abaixo para enviar o email preparado.",
+    openEmail:"Abrir email", copy:"Copiar resumo", copied:"Copiado", attachNote:"Se selecionou arquivos, anexe-os novamente no cliente de email.",
+    id:"ID da consulta", direct:"Você também pode falar diretamente com Nicole", projectTypes:["Automação robótica","Visão computacional e inspeção","Amostragem / laboratório automatizado","Equipamentos especiais / integração de linha","Software industrial / plataforma de dados","Automação de fluxo","Outro"],
+    budgets:["A avaliar","Abaixo de USD 10k","USD 10k–50k","USD 50k–200k","USD 200k–500k","Acima de USD 500k"],
+    timelines:["A avaliar","Dentro de 1 mês","1–3 meses","3–6 meses","6–12 meses","Mais de 12 meses"]
+  },
+  "ru": {
+    title:"Расскажите о вашем проекте", intro:"Можно прислать фото площадки, чертежи, список оборудования или даже предварительные требования. Сначала мы оценим реализуемость, границы и основные риски.",
+    eyebrow:"PROJECT INQUIRY", basics:"Контактные данные", project:"Требования проекта", files:"Файлы проекта", company:"Компания", name:"Контактное лицо", email:"Email", phone:"Телефон / WhatsApp / WeChat", country:"Страна / Регион",
+    type:"Тип проекта", budget:"Бюджет", timeline:"Желаемый срок", contact:"Предпочтительный канал", description:"Опишите площадку, проблему, цель и известные ограничения", upload:"Загрузить фото / PDF / чертежи / файлы", uploadHint:"До 5 файлов; в режиме автоматической почты общий размер вложений до 4 МБ. Большие STEP/DWG можно отправить отдельно.",
+    consent:"Я согласен, что Zhuhai Xiaodu Intelligent Technology использует эти данные для связи со мной и оценки проекта.", submit:"Отправить запрос", sending:"Отправка…", required:"Заполните обязательные поля и подтвердите согласие на связь.",
+    success:"Запрос создан", emailed:"Информация по проекту автоматически отправлена Nicole.", fallback:"Отправка почты Cloudflare пока не включена. Номер запроса создан; используйте кнопку ниже для отправки подготовленного письма.",
+    openEmail:"Открыть почту", copy:"Копировать описание", copied:"Скопировано", attachNote:"Если вы выбрали файлы, приложите их повторно в почтовом клиенте.",
+    id:"Номер запроса", direct:"Также можно связаться с Nicole напрямую", projectTypes:["Роботизация","Машинное зрение и контроль","Автоотбор проб / лабораторная автоматизация","Спецоборудование / интеграция линий","Промышленное ПО / платформа данных","Автоматизация процессов","Другое"],
+    budgets:["Оценить позже","До USD 10k","USD 10k–50k","USD 50k–200k","USD 200k–500k","Свыше USD 500k"],
+    timelines:["Оценить позже","До 1 месяца","1–3 месяца","3–6 месяцев","6–12 месяцев","Более 12 месяцев"]
+  }
+};
+
 const DETAIL_UI = {
   "zh-cn": {
     industriesTitle:"行业应用", industriesIntro:"按行业查看我们如何把自动化、视觉、控制和软件组合成完整项目。", industryLabel:"行业解决方案", industryCases:"相关行业项目", industrySolutions:"推荐解决方案", industryNames:{mining:"矿业与大宗物料",manufacturing:"精密制造",laboratory:"实验室自动化",logistics:"物流与仓储",heavy:"流程与重工业"},
@@ -237,7 +317,7 @@ function header(lang, ui, dict) {
     <div class="shell nav-shell detail-nav-shell">
       <a class="brand" href="/${lang}/"><span class="brand-mark">XD</span><span class="brand-copy"><strong>${esc(dict.companyName)}</strong><small>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</small></span></a>
       <nav class="detail-nav"><a href="/${lang}/solutions/">${esc(ui.solutions)}</a><a href="/${lang}/cases/">${esc(ui.cases)}</a><a href="/${lang}/industries/">${esc(du?.industriesTitle || "Industries")}</a><a href="/${lang}/#about">${esc(ui.about)}</a></nav>
-      <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language>${languageOptions(lang)}</select></label><a class="header-cta" href="#contact">${esc(ui.contact)}</a></div>
+      <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language>${languageOptions(lang)}</select></label><a class="header-cta" href="/${lang}/inquiry/">${esc(ui.contact)}</a></div>
     </div>
   </header>`;
 }
@@ -386,6 +466,150 @@ function industryPage(lang, dict, item) {
   return shellPage({lang,title,description:summary,canonicalPath:`industries/${item.slug}/`,body,dict,ui,schema:[schema,breadcrumbJsonLd(lang,[{name:ui.home,path:`/${lang}/`},{name:du.industriesTitle,path:`/${lang}/industries/`},{name:title,path:`/${lang}/industries/${item.slug}/`}])],image:heroImage});
 }
 
+function optionList(values) {
+  return values.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join("");
+}
+
+function inquiryPage(lang, dict) {
+  const ui=UI[lang], q=INQUIRY_UI[lang];
+  const body=`
+  <section class="inquiry-hero"><div class="shell inquiry-hero-grid">
+    <div><span class="eyebrow">${esc(q.eyebrow)}</span><h1>${esc(q.title)}</h1><p>${esc(q.intro)}</p></div>
+    <aside><span>${esc(q.direct)}</span><strong>Nicole Fan</strong><a href="tel:+8613923387986">+86 139 2338 7986</a><a href="mailto:13923387986@163.com">13923387986@163.com</a></aside>
+  </div></section>
+  <section class="section inquiry-section"><div class="shell inquiry-layout">
+    <form class="inquiry-form" data-inquiry-form
+      data-required="${esc(q.required)}" data-sending="${esc(q.sending)}" data-success="${esc(q.success)}"
+      data-emailed="${esc(q.emailed)}" data-fallback="${esc(q.fallback)}" data-open-email="${esc(q.openEmail)}"
+      data-copy="${esc(q.copy)}" data-copied="${esc(q.copied)}" data-attach-note="${esc(q.attachNote)}" data-id-label="${esc(q.id)}">
+      <input type="hidden" name="language" value="${esc(lang)}"><input type="hidden" name="sourcePage" value="/${esc(lang)}/inquiry/">
+      <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset><legend><span>01</span>${esc(q.basics)}</legend><div class="form-grid">
+        <label><span>${esc(q.company)} *</span><input name="company" required maxlength="160"></label>
+        <label><span>${esc(q.name)} *</span><input name="name" required maxlength="120"></label>
+        <label><span>${esc(q.email)} *</span><input name="email" type="email" required maxlength="180"></label>
+        <label><span>${esc(q.phone)}</span><input name="phone" maxlength="120"></label>
+        <label><span>${esc(q.country)} *</span><input name="country" required maxlength="120"></label>
+        <label><span>${esc(q.contact)}</span><select name="preferredContact"><option>Email</option><option>WhatsApp</option><option>Phone</option><option>WeChat</option></select></label>
+      </div></fieldset>
+
+      <fieldset><legend><span>02</span>${esc(q.project)}</legend><div class="form-grid">
+        <label><span>${esc(q.type)} *</span><select name="projectType" required><option value=""></option>${optionList(q.projectTypes)}</select></label>
+        <label><span>${esc(q.budget)}</span><select name="budget">${optionList(q.budgets)}</select></label>
+        <label><span>${esc(q.timeline)}</span><select name="timeline">${optionList(q.timelines)}</select></label>
+        <label class="form-span-2"><span>${esc(q.description)} *</span><textarea name="description" required minlength="20" maxlength="5000" rows="8"></textarea></label>
+      </div></fieldset>
+
+      <fieldset><legend><span>03</span>${esc(q.files)}</legend>
+        <label class="file-drop"><input type="file" name="files" multiple data-files accept=".pdf,.jpg,.jpeg,.png,.webp,.zip,.step,.stp,.iges,.igs,.dxf,.dwg,.doc,.docx,.xls,.xlsx"><strong>${esc(q.upload)}</strong><small>${esc(q.uploadHint)}</small><span data-file-list></span></label>
+      </fieldset>
+
+      <label class="consent-row"><input type="checkbox" name="consent" value="yes" required><span>${esc(q.consent)}</span></label>
+      <button class="btn inquiry-submit" type="submit" data-submit>${esc(q.submit)} <b>→</b></button>
+      <div class="inquiry-result" data-result hidden></div>
+    </form>
+
+    <aside class="inquiry-side">
+      <span class="eyebrow">DIRECT CONTACT</span><h2>Nicole Fan</h2>
+      <a href="tel:+8613923387986">+86 139 2338 7986</a><a href="mailto:13923387986@163.com">13923387986@163.com</a>
+      <p>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</p>
+    </aside>
+  </div></section>
+  <script src="/inquiry.js" defer></script>`;
+  const schema={"@context":"https://schema.org","@type":"ContactPage","name":q.title,"description":q.intro,"mainEntity":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.","email":"13923387986@163.com","telephone":"+86 139 2338 7986"}};
+  return shellPage({lang,title:q.title,description:q.intro,canonicalPath:"inquiry/",body,dict,ui,schema});
+}
+
+function inquiryId() {
+  const d=new Date();
+  const stamp=`${d.getUTCFullYear()}${String(d.getUTCMonth()+1).padStart(2,"0")}${String(d.getUTCDate()).padStart(2,"0")}`;
+  const bytes=new Uint8Array(4); crypto.getRandomValues(bytes);
+  const code=[...bytes].map(x=>x.toString(16).padStart(2,"0")).join("").toUpperCase();
+  return `XD-${stamp}-${code}`;
+}
+
+function safeText(v,max=5000){ return String(v||"").trim().slice(0,max); }
+
+async function handleInquiry(request, env) {
+  try {
+    const form=await request.formData();
+    if(safeText(form.get("website"),200)) return Response.json({ok:true,inquiryId:inquiryId(),emailSent:false,archived:false});
+
+    const id=inquiryId();
+    const company=safeText(form.get("company"),160), name=safeText(form.get("name"),120), email=safeText(form.get("email"),180);
+    const phone=safeText(form.get("phone"),120), country=safeText(form.get("country"),120), projectType=safeText(form.get("projectType"),160);
+    const budget=safeText(form.get("budget"),120), timeline=safeText(form.get("timeline"),120), preferredContact=safeText(form.get("preferredContact"),80);
+    const description=safeText(form.get("description"),5000), language=safeText(form.get("language"),20), sourcePage=safeText(form.get("sourcePage"),240);
+    const consent=safeText(form.get("consent"),20);
+
+    if(!company||!name||!email||!country||!projectType||description.length<20||consent!=="yes"||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      return Response.json({ok:false,error:"validation_error"},{status:400});
+    }
+
+    const rawFiles=form.getAll("files").filter(x=>x && typeof x==="object" && typeof x.arrayBuffer==="function" && x.size>0);
+    if(rawFiles.length>5) return Response.json({ok:false,error:"too_many_files"},{status:400});
+    const totalBytes=rawFiles.reduce((n,x)=>n+x.size,0);
+    if(totalBytes>4*1024*1024) return Response.json({ok:false,error:"files_too_large"},{status:400});
+
+    const fileMeta=rawFiles.map(x=>({name:x.name,size:x.size,type:x.type||"application/octet-stream"}));
+    const summary=[
+      `Inquiry ID: ${id}`,`Company: ${company}`,`Contact: ${name}`,`Email: ${email}`,`Phone: ${phone||"-"}`,
+      `Country/Region: ${country}`,`Preferred contact: ${preferredContact||"-"}`,`Project type: ${projectType}`,
+      `Budget: ${budget||"-"}`,`Timeline: ${timeline||"-"}`,`Language: ${language||"-"}`,
+      `Files: ${fileMeta.map(x=>x.name).join(", ")||"None"}`,`Source: ${sourcePage||"-"}`,"","Project description:",description
+    ].join("\n");
+
+    let archived=false;
+    if(env.DB && typeof env.DB.prepare==="function"){
+      try{
+        await env.DB.prepare(`CREATE TABLE IF NOT EXISTS inquiries (
+          id TEXT PRIMARY KEY, created_at TEXT NOT NULL, company TEXT, contact_name TEXT, email TEXT, phone TEXT,
+          country TEXT, preferred_contact TEXT, project_type TEXT, budget TEXT, timeline TEXT, language TEXT,
+          source_page TEXT, description TEXT, files_json TEXT, email_sent INTEGER DEFAULT 0
+        )`).run();
+        await env.DB.prepare(`INSERT INTO inquiries
+          (id,created_at,company,contact_name,email,phone,country,preferred_contact,project_type,budget,timeline,language,source_page,description,files_json)
+          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
+          .bind(id,new Date().toISOString(),company,name,email,phone,country,preferredContact,projectType,budget,timeline,language,sourcePage,description,JSON.stringify(fileMeta)).run();
+        archived=true;
+      }catch(e){ console.error("D1 inquiry archive failed",e); }
+    }
+
+    let emailSent=false, messageId=null;
+    if(env.EMAIL && typeof env.EMAIL.send==="function"){
+      try{
+        const attachments=[];
+        for(const file of rawFiles){
+          attachments.push({content:await file.arrayBuffer(),filename:file.name,type:file.type||"application/octet-stream",disposition:"attachment"});
+        }
+        const result=await env.EMAIL.send({
+          to:"13923387986@163.com",
+          from:{email:"inquiry@xiaodu.tech",name:"Xiaodu Project Inquiry"},
+          replyTo:{email,name},
+          subject:`[${id}] ${projectType} — ${company} / ${country}`,
+          text:summary,
+          html:`<h2>New Project Inquiry — ${id}</h2><pre style="white-space:pre-wrap;font-family:Arial,sans-serif">${esc(summary)}</pre>`,
+          attachments
+        });
+        emailSent=true; messageId=result?.messageId||null;
+        if(archived&&env.DB) await env.DB.prepare("UPDATE inquiries SET email_sent=1 WHERE id=?").bind(id).run();
+      }catch(e){ console.error("Inquiry email failed",e); }
+    }
+
+    const subject=encodeURIComponent(`[${id}] Project Inquiry — ${projectType} — ${company}`);
+    const body=encodeURIComponent(summary+"\n\nSelected files must be attached manually if this email fallback is used.");
+    return Response.json({
+      ok:true,inquiryId:id,emailSent,archived,messageId,summary,
+      fallbackMailto:`mailto:13923387986@163.com?subject=${subject}&body=${body}`,
+      files:fileMeta
+    },{headers:{"cache-control":"no-store"}});
+  }catch(e){
+    console.error("Inquiry handler failed",e);
+    return Response.json({ok:false,error:"server_error"},{status:500,headers:{"cache-control":"no-store"}});
+  }
+}
+
 async function homePage(request, env, lang, dict) {
   const assetReq = new Request(new URL("/index.html", request.url), request);
   const baseRes = await env.ASSETS.fetch(assetReq);
@@ -405,6 +629,7 @@ function sitemap() {
   const urls=[];
   for(const lang of Object.keys(LANGS)){
     urls.push(`${BASE}/${lang}/`);
+    urls.push(`${BASE}/${lang}/inquiry/`);
     urls.push(`${BASE}/${lang}/solutions/`);
     urls.push(`${BASE}/${lang}/cases/`);
     urls.push(`${BASE}/${lang}/industries/`);
@@ -420,6 +645,7 @@ export default {
     const url=new URL(request.url);
     const path=url.pathname;
 
+    if(path==="/api/inquiry" && request.method==="POST") return handleInquiry(request,env);
     if(path==="/") return Response.redirect(BASE+"/zh-cn/",301);
     if(path==="/sitemap.xml") return new Response(sitemap(),{headers:{"content-type":"application/xml; charset=utf-8","cache-control":"public, max-age=3600"}});
     if(path==="/robots.txt") return new Response(`User-agent: *\nAllow: /\nSitemap: ${BASE}/sitemap.xml\n`,{headers:{"content-type":"text/plain; charset=utf-8"}});
@@ -431,6 +657,7 @@ export default {
     const dict=await loadDict(env,lang);
 
     if(!rest) return homePage(request,env,lang,dict);
+    if(rest==="inquiry") return new Response(inquiryPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     if(rest==="cases") return new Response(casesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     if(rest==="solutions") return new Response(solutionsIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     if(rest==="industries") return new Response(industriesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
