@@ -70,3 +70,14 @@ GitHub Actions 需要：
 - `CLOUDFLARE_ACCOUNT_ID`
 
 当两个 Secrets 均存在时，main 分支更新会部署至正式 Cloudflare Worker。
+
+
+## Production Deployment
+
+Cloudflare Workers Builds is connected directly to the GitHub `main` branch.
+
+- Production: https://xiaodu-intelligent-website.nostalgia-ho.workers.dev
+- Preview pattern: https://*-xiaodu-intelligent-website.nostalgia-ho.workers.dev
+- Worker: `xiaodu-intelligent-website`
+
+Production deploys are handled by Cloudflare's native Git integration. GitHub Actions is retained only as a manual fallback and does not deploy automatically on push.
