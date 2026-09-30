@@ -81,3 +81,38 @@ Cloudflare Workers Builds is connected directly to the GitHub `main` branch.
 - Worker: `xiaodu-intelligent-website`
 
 Production deploys are handled by Cloudflare's native Git integration. GitHub Actions is retained only as a manual fallback and does not deploy automatically on push.
+
+
+## v2.1 Routing & SEO
+
+Production domain: https://xiaodu.tech
+
+The site now uses a Cloudflare Worker script plus Static Assets:
+
+- `/zh-cn/`
+- `/zh-tw/`
+- `/en/`
+- `/ja/`
+- `/es/`
+- `/pt/`
+- `/ru/`
+
+Each language has server-rendered solution and project-case URLs, for example:
+
+- `/en/solutions/robotic-automation/`
+- `/en/cases/automated-coal-mineral-sampling/`
+
+SEO endpoints:
+
+- `/sitemap.xml`
+- `/robots.txt`
+- canonical URLs
+- hreflang alternates
+- Organization / Service / Article structured data
+
+Cloudflare production routing:
+
+- Worker: `xiaodu-intelligent-website`
+- Route: `xiaodu.tech/*`
+- Zone: `xiaodu.tech`
+- Cloudflare Workers Builds deploy automatically from GitHub `main`.
