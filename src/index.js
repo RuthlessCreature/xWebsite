@@ -19,6 +19,14 @@ const SOLUTIONS = [
   { slug:"intelligent-workflow-automation", id:"6", image:"https://images.pexels.com/photos/32529341/pexels-photo-32529341/free-photo-of-advanced-control-room-in-el-agustino-lima.jpeg?auto=compress&dpr=1&h=900&w=1600" }
 ];
 
+const INDUSTRIES = [
+  { slug:"mining-bulk-materials", key:"mining", cases:["1","5"], solutions:["3","4","5"] },
+  { slug:"precision-manufacturing", key:"manufacturing", cases:["2","4"], solutions:["1","2","4"] },
+  { slug:"laboratory-automation", key:"laboratory", cases:["3","1"], solutions:["1","3","5"] },
+  { slug:"logistics-warehousing", key:"logistics", cases:["7","8"], solutions:["1","2","5"] },
+  { slug:"process-heavy-industry", key:"heavy", cases:["5","6","8"], solutions:["4","5","6"] }
+];
+
 const CASES = [
   { slug:"automated-coal-mineral-sampling", id:"1", image:"https://images.pexels.com/photos/2101137/pexels-photo-2101137.jpeg?auto=compress&cs=tinysrgb&w=1600", related:["3","5"], scope:["solution.3.a","solution.3.b","solution.3.c","solution.5.b"] },
   { slug:"robot-machine-tending-inspection", id:"2", image:"https://images.pexels.com/photos/18471441/pexels-photo-18471441/free-photo-of-robots-are-working-in-a-factory-with-a-machine.jpeg?auto=compress&dpr=1&h=900&w=1600", related:["1","2"], scope:["solution.1.a","solution.1.b","solution.2.b","solution.2.c"] },
@@ -42,7 +50,8 @@ const UI = {
 
 const DETAIL_UI = {
   "zh-cn": {
-    challenge:"客户场景与核心问题", architecture:"系统方案", scope:"主要系统组成", acceptance:"验收关注点",
+    industriesTitle:"行业应用", industriesIntro:"按行业查看我们如何把自动化、视觉、控制和软件组合成完整项目。", industryLabel:"行业解决方案", industryCases:"相关行业项目", industrySolutions:"推荐解决方案", industryNames:{mining:"矿业与大宗物料",manufacturing:"精密制造",laboratory:"实验室自动化",logistics:"物流与仓储",heavy:"流程与重工业"},
+        challenge:"客户场景与核心问题", architecture:"系统方案", scope:"主要系统组成", acceptance:"验收关注点",
     deliverables:"客户最终拿到什么", fit:"适合什么样的项目", casesTitle:"海外项目案例库", casesIntro:"按行业和应用场景查看项目思路、系统组成和交付方式。",
     solutionsTitle:"解决方案中心", solutionsIntro:"围绕工业现场，把机器人、视觉、自动化设备、控制和软件组合成可交付系统。",
     projectFacts:"项目概览", market:"市场 / 行业", application:"应用场景", deliveryModel:"交付模式", turnkey:"定制工程 + 系统集成",
@@ -57,7 +66,8 @@ const DETAIL_UI = {
     ]
   },
   "zh-tw": {
-    challenge:"客戶場景與核心問題", architecture:"系統方案", scope:"主要系統組成", acceptance:"驗收關注點",
+    industriesTitle:"產業應用", industriesIntro:"依產業查看我們如何把自動化、視覺、控制與軟體組合成完整專案。", industryLabel:"產業解決方案", industryCases:"相關產業專案", industrySolutions:"推薦解決方案", industryNames:{mining:"礦業與大宗物料",manufacturing:"精密製造",laboratory:"實驗室自動化",logistics:"物流與倉儲",heavy:"流程與重工業"},
+        challenge:"客戶場景與核心問題", architecture:"系統方案", scope:"主要系統組成", acceptance:"驗收關注點",
     deliverables:"客戶最終拿到什麼", fit:"適合什麼樣的專案", casesTitle:"海外專案案例庫", casesIntro:"依產業與應用場景查看專案思路、系統組成與交付方式。",
     solutionsTitle:"解決方案中心", solutionsIntro:"圍繞工業現場，把機器人、視覺、自動化設備、控制與軟體組合成可交付系統。",
     projectFacts:"專案概覽", market:"市場 / 產業", application:"應用場景", deliveryModel:"交付模式", turnkey:"客製工程 + 系統整合",
@@ -72,7 +82,8 @@ const DETAIL_UI = {
     ]
   },
   "en": {
-    challenge:"Customer Situation & Core Problem", architecture:"System Approach", scope:"Main System Scope", acceptance:"Acceptance Focus",
+    industriesTitle:"Industries We Serve", industriesIntro:"See how automation, vision, controls and software are combined for specific industrial environments.", industryLabel:"Industry Solution", industryCases:"Relevant Project Cases", industrySolutions:"Recommended Solutions", industryNames:{mining:"Mining & Bulk Materials",manufacturing:"Precision Manufacturing",laboratory:"Laboratory Automation",logistics:"Logistics & Warehousing",heavy:"Process & Heavy Industry"},
+        challenge:"Customer Situation & Core Problem", architecture:"System Approach", scope:"Main System Scope", acceptance:"Acceptance Focus",
     deliverables:"What the Customer Receives", fit:"Where This Approach Fits", casesTitle:"International Project Case Library", casesIntro:"Explore project approaches, system scope and delivery models by industry and application.",
     solutionsTitle:"Solution Center", solutionsIntro:"Robotics, vision, automation equipment, controls and software engineered as one deliverable industrial system.",
     projectFacts:"Project Overview", market:"Market / Industry", application:"Application", deliveryModel:"Delivery Model", turnkey:"Custom Engineering + System Integration",
@@ -87,7 +98,8 @@ const DETAIL_UI = {
     ]
   },
   "ja": {
-    challenge:"顧客現場と主要課題", architecture:"システムアプローチ", scope:"主なシステム構成", acceptance:"検収の重点",
+    industriesTitle:"対応業界", industriesIntro:"業界ごとに、オートメーション、ビジョン、制御、ソフトウェアをどのように組み合わせるかをご覧いただけます。", industryLabel:"業界ソリューション", industryCases:"関連プロジェクト", industrySolutions:"推奨ソリューション", industryNames:{mining:"鉱業・バルク材",manufacturing:"精密製造",laboratory:"ラボ自動化",logistics:"物流・倉庫",heavy:"プロセス・重工業"},
+        challenge:"顧客現場と主要課題", architecture:"システムアプローチ", scope:"主なシステム構成", acceptance:"検収の重点",
     deliverables:"お客様に納入するもの", fit:"適したプロジェクト", casesTitle:"海外プロジェクト事例", casesIntro:"業界・用途別に、プロジェクトの考え方、システム構成、納入方式をご覧いただけます。",
     solutionsTitle:"ソリューションセンター", solutionsIntro:"ロボット、ビジョン、自動化設備、制御、ソフトウェアを一つの産業システムとして設計・納入します。",
     projectFacts:"プロジェクト概要", market:"市場 / 業界", application:"用途", deliveryModel:"納入方式", turnkey:"カスタム設計 + システム統合",
@@ -102,7 +114,8 @@ const DETAIL_UI = {
     ]
   },
   "es": {
-    challenge:"Situación del cliente y problema principal", architecture:"Enfoque del sistema", scope:"Alcance principal del sistema", acceptance:"Puntos de aceptación",
+    industriesTitle:"Industrias que atendemos", industriesIntro:"Vea cómo combinamos automatización, visión, control y software para entornos industriales específicos.", industryLabel:"Solución por industria", industryCases:"Proyectos relacionados", industrySolutions:"Soluciones recomendadas", industryNames:{mining:"Minería y materiales a granel",manufacturing:"Manufactura de precisión",laboratory:"Automatización de laboratorio",logistics:"Logística y almacenes",heavy:"Industria de proceso y pesada"},
+        challenge:"Situación del cliente y problema principal", architecture:"Enfoque del sistema", scope:"Alcance principal del sistema", acceptance:"Puntos de aceptación",
     deliverables:"Qué recibe el cliente", fit:"Dónde encaja este enfoque", casesTitle:"Biblioteca de proyectos internacionales", casesIntro:"Consulte enfoques de proyecto, alcance de sistema y modelos de entrega por industria y aplicación.",
     solutionsTitle:"Centro de soluciones", solutionsIntro:"Robótica, visión, equipos de automatización, control y software diseñados como un único sistema industrial entregable.",
     projectFacts:"Resumen del proyecto", market:"Mercado / Industria", application:"Aplicación", deliveryModel:"Modelo de entrega", turnkey:"Ingeniería a medida + Integración de sistemas",
@@ -117,7 +130,8 @@ const DETAIL_UI = {
     ]
   },
   "pt": {
-    challenge:"Situação do cliente e problema principal", architecture:"Abordagem do sistema", scope:"Escopo principal do sistema", acceptance:"Foco de aceitação",
+    industriesTitle:"Indústrias atendidas", industriesIntro:"Veja como combinamos automação, visão, controle e software para ambientes industriais específicos.", industryLabel:"Solução por indústria", industryCases:"Projetos relacionados", industrySolutions:"Soluções recomendadas", industryNames:{mining:"Mineração e materiais a granel",manufacturing:"Manufatura de precisão",laboratory:"Automação de laboratório",logistics:"Logística e armazenagem",heavy:"Indústria de processo e pesada"},
+        challenge:"Situação do cliente e problema principal", architecture:"Abordagem do sistema", scope:"Escopo principal do sistema", acceptance:"Foco de aceitação",
     deliverables:"O que o cliente recebe", fit:"Onde esta abordagem se aplica", casesTitle:"Biblioteca de projetos internacionais", casesIntro:"Veja abordagens, escopo de sistema e modelos de entrega por indústria e aplicação.",
     solutionsTitle:"Centro de soluções", solutionsIntro:"Robótica, visão, equipamentos de automação, controle e software projetados como um único sistema industrial entregável.",
     projectFacts:"Visão geral do projeto", market:"Mercado / Indústria", application:"Aplicação", deliveryModel:"Modelo de entrega", turnkey:"Engenharia personalizada + Integração de sistemas",
@@ -132,7 +146,8 @@ const DETAIL_UI = {
     ]
   },
   "ru": {
-    challenge:"Ситуация заказчика и ключевая проблема", architecture:"Системный подход", scope:"Основной состав системы", acceptance:"Критерии приёмки",
+    industriesTitle:"Отрасли", industriesIntro:"Посмотрите, как мы объединяем автоматизацию, машинное зрение, управление и ПО для конкретных промышленных условий.", industryLabel:"Отраслевое решение", industryCases:"Связанные проекты", industrySolutions:"Рекомендуемые решения", industryNames:{mining:"Горная отрасль и сыпучие материалы",manufacturing:"Точное производство",laboratory:"Лабораторная автоматизация",logistics:"Логистика и склады",heavy:"Процессные и тяжёлые отрасли"},
+        challenge:"Ситуация заказчика и ключевая проблема", architecture:"Системный подход", scope:"Основной состав системы", acceptance:"Критерии приёмки",
     deliverables:"Что получает заказчик", fit:"Для каких проектов подходит", casesTitle:"Библиотека международных проектов", casesIntro:"Проектные подходы, состав систем и модели поставки по отраслям и применениям.",
     solutionsTitle:"Центр решений", solutionsIntro:"Роботизация, машинное зрение, автоматизированное оборудование, управление и ПО как единая поставляемая промышленная система.",
     projectFacts:"Обзор проекта", market:"Рынок / Отрасль", application:"Применение", deliveryModel:"Модель поставки", turnkey:"Индивидуальный инжиниринг + Системная интеграция",
@@ -190,12 +205,13 @@ function orgJsonLd() {
 }
 
 function header(lang, ui, dict) {
+  const du=DETAIL_UI[lang];
   return `
   <header class="site-header">
     <div class="header-top"><div class="shell header-top-inner"><span>${esc(ui.global)}</span><div class="header-contact"><a href="tel:+8613923387986">Nicole Fan · +86 139 2338 7986</a><a href="mailto:13923387986@163.com">13923387986@163.com</a></div></div></div>
     <div class="shell nav-shell detail-nav-shell">
       <a class="brand" href="/${lang}/"><span class="brand-mark">XD</span><span class="brand-copy"><strong>${esc(dict.companyName)}</strong><small>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</small></span></a>
-      <nav class="detail-nav"><a href="/${lang}/#solutions">${esc(ui.solutions)}</a><a href="/${lang}/#cases">${esc(ui.cases)}</a><a href="/${lang}/#process">${esc(ui.process)}</a><a href="/${lang}/#about">${esc(ui.about)}</a></nav>
+      <nav class="detail-nav"><a href="/${lang}/solutions/">${esc(ui.solutions)}</a><a href="/${lang}/cases/">${esc(ui.cases)}</a><a href="/${lang}/industries/">${esc(du?.industriesTitle || "Industries")}</a><a href="/${lang}/#about">${esc(ui.about)}</a></nav>
       <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language>${languageOptions(lang)}</select></label><a class="header-cta" href="#contact">${esc(ui.contact)}</a></div>
     </div>
   </header>`;
@@ -308,6 +324,35 @@ function solutionsIndexPage(lang, dict) {
   return shellPage({lang,title:du.solutionsTitle,description:du.solutionsIntro,canonicalPath:"solutions/",body,dict,ui});
 }
 
+function industriesIndexPage(lang, dict) {
+  const ui=UI[lang], du=DETAIL_UI[lang];
+  const cards=INDUSTRIES.map((x,i)=>{
+    const firstCase=CASES.find(c=>c.id===x.cases[0]);
+    const title=du.industryNames[x.key];
+    const desc=dict.case[x.cases[0]].text;
+    return `<a class="case-card industry-card" href="/${lang}/industries/${x.slug}/"><img src="${firstCase.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(du.industryLabel)}</span><h3>${esc(title)}</h3><p>${esc(desc)}</p></div></a>`;
+  }).join("");
+  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">INDUSTRIES</span><h1>${esc(du.industriesTitle)}</h1><p>${esc(du.industriesIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>`;
+  return shellPage({lang,title:du.industriesTitle,description:du.industriesIntro,canonicalPath:"industries/",body,dict,ui});
+}
+
+function industryPage(lang, dict, item) {
+  const ui=UI[lang], du=DETAIL_UI[lang], title=du.industryNames[item.key];
+  const caseItems=item.cases.map(id=>CASES.find(c=>c.id===id)).filter(Boolean);
+  const solutionItems=item.solutions.map(id=>SOLUTIONS.find(x=>x.id===id)).filter(Boolean);
+  const heroImage=caseItems[0]?.image || solutionItems[0]?.image;
+  const summary=caseItems.map(c=>dict.case[c.id].text).join(" ");
+  const caseCards=caseItems.map(c=>`<a class="case-card" href="/${lang}/cases/${c.slug}/"><img src="${c.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(dict.case[c.id].market)}</span><h3>${esc(dict.case[c.id].title)}</h3><p>${esc(dict.case[c.id].text)}</p></div></a>`).join("");
+  const solutionCards=solutionItems.map(x=>`<a class="case-card" href="/${lang}/solutions/${x.slug}/"><img src="${x.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(ui.solution)}</span><h3>${esc(dict.solution[x.id].title)}</h3><p>${esc(dict.solution[x.id].text)}</p></div></a>`).join("");
+  const body=`
+  <section class="detail-hero"><div class="detail-hero-image" style="background-image:linear-gradient(90deg,rgba(9,27,40,.93),rgba(9,27,40,.22)),url('${heroImage}')"></div><div class="shell detail-hero-inner"><div><a class="breadcrumb" href="/${lang}/industries/">← ${esc(ui.back)}</a><span class="detail-type">${esc(du.industryLabel)}</span><h1>${esc(title)}</h1><p>${esc(summary)}</p><a class="btn btn-primary" href="#contact">${esc(ui.discuss)} →</a></div></div></section>
+  <section class="section cases-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">PROJECTS</span><h2>${esc(du.industryCases)}</h2></div><p>${esc(du.industriesIntro)}</p></div><div class="detail-related-grid">${caseCards}</div></div></section>
+  <section class="section process-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">SOLUTIONS</span><h2>${esc(du.industrySolutions)}</h2></div></div><div class="detail-related-grid">${solutionCards}</div></div></section>
+  `;
+  const schema={"@context":"https://schema.org","@type":"CollectionPage","name":title,"description":summary,"about":title};
+  return shellPage({lang,title,description:summary,canonicalPath:`industries/${item.slug}/`,body,dict,ui,schema});
+}
+
 async function homePage(request, env, lang, dict) {
   const assetReq = new Request(new URL("/index.html", request.url), request);
   const baseRes = await env.ASSETS.fetch(assetReq);
@@ -329,6 +374,8 @@ function sitemap() {
     urls.push(`${BASE}/${lang}/`);
     urls.push(`${BASE}/${lang}/solutions/`);
     urls.push(`${BASE}/${lang}/cases/`);
+    urls.push(`${BASE}/${lang}/industries/`);
+    for(const i of INDUSTRIES) urls.push(`${BASE}/${lang}/industries/${i.slug}/`);
     for(const s of SOLUTIONS) urls.push(`${BASE}/${lang}/solutions/${s.slug}/`);
     for(const c of CASES) urls.push(`${BASE}/${lang}/cases/${c.slug}/`);
   }
@@ -353,6 +400,12 @@ export default {
     if(!rest) return homePage(request,env,lang,dict);
     if(rest==="cases") return new Response(casesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     if(rest==="solutions") return new Response(solutionsIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
+    if(rest==="industries") return new Response(industriesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
+    const industryMatch=rest.match(/^industries\/([^/]+)$/);
+    if(industryMatch){
+      const item=INDUSTRIES.find(x=>x.slug===industryMatch[1]);
+      if(item) return new Response(industryPage(lang,dict,item),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
+    }
 
     const solutionMatch=rest.match(/^solutions\/([^/]+)$/);
     if(solutionMatch){
