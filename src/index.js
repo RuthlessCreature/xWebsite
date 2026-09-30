@@ -40,6 +40,114 @@ const UI = {
   "ru": {home:"Главная", solutions:"Решения", cases:"Проекты", process:"Реализация", about:"О компании", contact:"Контакты", scope:"Типовой объём поставки", delivery:"Как ведётся проект", relatedCases:"Связанные проекты", relatedSolutions:"Связанные решения", discuss:"Обсудить проект", ctaTitle:"Пришлите Nicole фото площадки, чертежи или требования.", ctaText:"Сначала оцениваем реализуемость, подход и риски, затем готовим формальное предложение.", back:"На главную", global:"Готовы к международным проектам", project:"Проектный кейс", solution:"Решение", contactNicole:"Связаться с Nicole"}
 };
 
+const DETAIL_UI = {
+  "zh-cn": {
+    challenge:"客户场景与核心问题", architecture:"系统方案", scope:"主要系统组成", acceptance:"验收关注点",
+    deliverables:"客户最终拿到什么", fit:"适合什么样的项目", casesTitle:"海外项目案例库", casesIntro:"按行业和应用场景查看项目思路、系统组成和交付方式。",
+    solutionsTitle:"解决方案中心", solutionsIntro:"围绕工业现场，把机器人、视觉、自动化设备、控制和软件组合成可交付系统。",
+    projectFacts:"项目概览", market:"市场 / 行业", application:"应用场景", deliveryModel:"交付模式", turnkey:"定制工程 + 系统集成",
+    keyPoints:["功能和节拍按约定工况验证","异常、联锁和恢复逻辑必须可测试","设备接口与数据记录可追溯","FAT / SAT、培训和技术资料完整交付"],
+    clientGets:["完整方案与接口边界","机械 / 电气 / 控制 / 软件协同交付","出厂测试与现场验收支持","技术文档、培训与后续运维接口"],
+    faqTitle:"常见项目问题",
+    faqs:[
+      ["没有完整技术规格书，可以先沟通吗？","可以。现场照片、视频、现有设备清单、目标节拍和主要痛点就足以开始第一轮技术判断。"],
+      ["海外项目怎么做前期沟通？","通常先远程澄清需求和接口，再确认方案、交付边界、FAT / SAT 和现场支持方式。"],
+      ["能否对接客户现有 PLC、设备或业务系统？","可以，前提是前期明确通讯协议、信号表、数据接口和责任边界。"],
+      ["如何减少项目后期扯皮？","在设计前把输入输出、异常工况、验收标准、交付资料和变更机制写清楚。"]
+    ]
+  },
+  "zh-tw": {
+    challenge:"客戶場景與核心問題", architecture:"系統方案", scope:"主要系統組成", acceptance:"驗收關注點",
+    deliverables:"客戶最終拿到什麼", fit:"適合什麼樣的專案", casesTitle:"海外專案案例庫", casesIntro:"依產業與應用場景查看專案思路、系統組成與交付方式。",
+    solutionsTitle:"解決方案中心", solutionsIntro:"圍繞工業現場，把機器人、視覺、自動化設備、控制與軟體組合成可交付系統。",
+    projectFacts:"專案概覽", market:"市場 / 產業", application:"應用場景", deliveryModel:"交付模式", turnkey:"客製工程 + 系統整合",
+    keyPoints:["功能與節拍依約定工況驗證","異常、聯鎖與恢復邏輯必須可測試","設備介面與資料紀錄可追溯","FAT / SAT、培訓與技術資料完整交付"],
+    clientGets:["完整方案與介面邊界","機械 / 電氣 / 控制 / 軟體協同交付","出廠測試與現場驗收支援","技術文件、培訓與後續運維介面"],
+    faqTitle:"常見專案問題",
+    faqs:[
+      ["沒有完整技術規格書，可以先溝通嗎？","可以。現場照片、影片、既有設備清單、目標節拍與主要痛點就足以開始第一輪技術判斷。"],
+      ["海外專案怎麼做前期溝通？","通常先遠端澄清需求與介面，再確認方案、交付邊界、FAT / SAT 與現場支援方式。"],
+      ["能否對接客戶既有 PLC、設備或業務系統？","可以，前提是前期明確通訊協議、信號表、資料介面與責任邊界。"],
+      ["如何減少專案後期爭議？","在設計前把輸入輸出、異常工況、驗收標準、交付資料與變更機制寫清楚。"]
+    ]
+  },
+  "en": {
+    challenge:"Customer Situation & Core Problem", architecture:"System Approach", scope:"Main System Scope", acceptance:"Acceptance Focus",
+    deliverables:"What the Customer Receives", fit:"Where This Approach Fits", casesTitle:"International Project Case Library", casesIntro:"Explore project approaches, system scope and delivery models by industry and application.",
+    solutionsTitle:"Solution Center", solutionsIntro:"Robotics, vision, automation equipment, controls and software engineered as one deliverable industrial system.",
+    projectFacts:"Project Overview", market:"Market / Industry", application:"Application", deliveryModel:"Delivery Model", turnkey:"Custom Engineering + System Integration",
+    keyPoints:["Functions and cycle time verified under agreed operating conditions","Abnormal conditions, interlocks and recovery logic must be testable","Equipment interfaces and critical records remain traceable","FAT / SAT, training and technical documentation are delivered as part of the project"],
+    clientGets:["Defined solution architecture and interface boundaries","Coordinated mechanical, electrical, controls and software delivery","Factory testing and site acceptance support","Technical documentation, training and maintainable service interfaces"],
+    faqTitle:"Common Project Questions",
+    faqs:[
+      ["Can we start without a complete technical specification?","Yes. Site photos, videos, an equipment list, target cycle time and the main pain points are enough for an initial engineering assessment."],
+      ["How do you handle early-stage communication for overseas projects?","We normally clarify requirements and interfaces remotely first, then agree the solution, delivery boundaries, FAT / SAT and site-support model."],
+      ["Can you integrate with our existing PLCs, machines or business systems?","Yes, provided communication protocols, signal lists, data interfaces and ownership boundaries are defined early."],
+      ["How do you reduce disputes late in the project?","Inputs, outputs, abnormal conditions, acceptance criteria, deliverables and change control are documented before detailed design."]
+    ]
+  },
+  "ja": {
+    challenge:"顧客現場と主要課題", architecture:"システムアプローチ", scope:"主なシステム構成", acceptance:"検収の重点",
+    deliverables:"お客様に納入するもの", fit:"適したプロジェクト", casesTitle:"海外プロジェクト事例", casesIntro:"業界・用途別に、プロジェクトの考え方、システム構成、納入方式をご覧いただけます。",
+    solutionsTitle:"ソリューションセンター", solutionsIntro:"ロボット、ビジョン、自動化設備、制御、ソフトウェアを一つの産業システムとして設計・納入します。",
+    projectFacts:"プロジェクト概要", market:"市場 / 業界", application:"用途", deliveryModel:"納入方式", turnkey:"カスタム設計 + システム統合",
+    keyPoints:["合意した稼働条件で機能とタクトを検証","異常、インターロック、復帰ロジックを試験可能にする","設備インターフェースと重要記録を追跡可能にする","FAT / SAT、教育、技術資料をプロジェクト成果物として納入"],
+    clientGets:["明確なシステム構成とインターフェース境界","機械・電気・制御・ソフトウェアの一体納入","出荷前試験と現地検収支援","技術資料、教育、保守可能なサービスインターフェース"],
+    faqTitle:"よくあるご質問",
+    faqs:[
+      ["完全な仕様書がなくても相談できますか？","はい。現場写真、動画、既存設備リスト、目標タクト、主な課題があれば初期技術検討を開始できます。"],
+      ["海外案件の初期打合せはどう進めますか？","通常は遠隔で要件とインターフェースを整理し、その後に方案、納入範囲、FAT / SAT、現地支援方法を確定します。"],
+      ["既存 PLC、設備、業務システムと接続できますか？","可能です。通信プロトコル、信号表、データインターフェース、責任分界を早期に明確にすることが前提です。"],
+      ["後工程での認識違いを減らすには？","詳細設計前に入出力、異常条件、検収基準、成果物、変更管理を文書化します。"]
+    ]
+  },
+  "es": {
+    challenge:"Situación del cliente y problema principal", architecture:"Enfoque del sistema", scope:"Alcance principal del sistema", acceptance:"Puntos de aceptación",
+    deliverables:"Qué recibe el cliente", fit:"Dónde encaja este enfoque", casesTitle:"Biblioteca de proyectos internacionales", casesIntro:"Consulte enfoques de proyecto, alcance de sistema y modelos de entrega por industria y aplicación.",
+    solutionsTitle:"Centro de soluciones", solutionsIntro:"Robótica, visión, equipos de automatización, control y software diseñados como un único sistema industrial entregable.",
+    projectFacts:"Resumen del proyecto", market:"Mercado / Industria", application:"Aplicación", deliveryModel:"Modelo de entrega", turnkey:"Ingeniería a medida + Integración de sistemas",
+    keyPoints:["Funciones y tiempo de ciclo verificados bajo condiciones acordadas","Las anomalías, interbloqueos y recuperación deben ser verificables","Interfaces de equipos y registros críticos trazables","FAT / SAT, formación y documentación técnica incluidos en la entrega"],
+    clientGets:["Arquitectura definida y límites claros de interfaces","Entrega coordinada de mecánica, electricidad, control y software","Pruebas de fábrica y soporte para aceptación en planta","Documentación, formación e interfaces mantenibles"],
+    faqTitle:"Preguntas frecuentes",
+    faqs:[
+      ["¿Podemos empezar sin una especificación técnica completa?","Sí. Fotos, vídeos, lista de equipos, ciclo objetivo y principales problemas son suficientes para una primera evaluación."],
+      ["¿Cómo gestionan la comunicación inicial en proyectos internacionales?","Primero aclaramos requisitos e interfaces a distancia y después acordamos solución, límites de entrega, FAT / SAT y soporte en planta."],
+      ["¿Pueden integrarse con nuestros PLC, máquinas o sistemas existentes?","Sí, siempre que protocolos, listas de señales, interfaces de datos y responsabilidades se definan desde el principio."],
+      ["¿Cómo reducen conflictos al final del proyecto?","Documentamos entradas, salidas, condiciones anómalas, criterios de aceptación, entregables y control de cambios antes del diseño detallado."]
+    ]
+  },
+  "pt": {
+    challenge:"Situação do cliente e problema principal", architecture:"Abordagem do sistema", scope:"Escopo principal do sistema", acceptance:"Foco de aceitação",
+    deliverables:"O que o cliente recebe", fit:"Onde esta abordagem se aplica", casesTitle:"Biblioteca de projetos internacionais", casesIntro:"Veja abordagens, escopo de sistema e modelos de entrega por indústria e aplicação.",
+    solutionsTitle:"Centro de soluções", solutionsIntro:"Robótica, visão, equipamentos de automação, controle e software projetados como um único sistema industrial entregável.",
+    projectFacts:"Visão geral do projeto", market:"Mercado / Indústria", application:"Aplicação", deliveryModel:"Modelo de entrega", turnkey:"Engenharia personalizada + Integração de sistemas",
+    keyPoints:["Funções e tempo de ciclo verificados nas condições acordadas","Falhas, intertravamentos e lógica de recuperação devem ser testáveis","Interfaces e registros críticos devem ser rastreáveis","FAT / SAT, treinamento e documentação técnica fazem parte da entrega"],
+    clientGets:["Arquitetura definida e limites claros de interface","Entrega coordenada de mecânica, elétrica, controle e software","Testes de fábrica e suporte à aceitação em campo","Documentação, treinamento e interfaces de manutenção"],
+    faqTitle:"Perguntas frequentes",
+    faqs:[
+      ["Podemos começar sem uma especificação técnica completa?","Sim. Fotos, vídeos, lista de equipamentos, ciclo desejado e principais problemas já permitem uma avaliação inicial."],
+      ["Como funciona a comunicação inicial em projetos internacionais?","Primeiro alinhamos requisitos e interfaces remotamente e depois confirmamos solução, limites de entrega, FAT / SAT e suporte em campo."],
+      ["Vocês integram com nossos PLCs, máquinas ou sistemas existentes?","Sim, desde que protocolos, listas de sinais, interfaces de dados e responsabilidades sejam definidos cedo."],
+      ["Como reduzir conflitos no final do projeto?","Entradas, saídas, condições anormais, critérios de aceitação, entregáveis e controle de mudanças são documentados antes do projeto detalhado."]
+    ]
+  },
+  "ru": {
+    challenge:"Ситуация заказчика и ключевая проблема", architecture:"Системный подход", scope:"Основной состав системы", acceptance:"Критерии приёмки",
+    deliverables:"Что получает заказчик", fit:"Для каких проектов подходит", casesTitle:"Библиотека международных проектов", casesIntro:"Проектные подходы, состав систем и модели поставки по отраслям и применениям.",
+    solutionsTitle:"Центр решений", solutionsIntro:"Роботизация, машинное зрение, автоматизированное оборудование, управление и ПО как единая поставляемая промышленная система.",
+    projectFacts:"Обзор проекта", market:"Рынок / Отрасль", application:"Применение", deliveryModel:"Модель поставки", turnkey:"Индивидуальный инжиниринг + Системная интеграция",
+    keyPoints:["Функции и такт проверяются в согласованных режимах","Аварийные режимы, блокировки и восстановление должны быть тестируемыми","Интерфейсы оборудования и критические записи должны быть прослеживаемыми","FAT / SAT, обучение и техническая документация входят в комплект поставки"],
+    clientGets:["Определённая архитектура и границы интерфейсов","Скоординированная поставка механики, электрики, управления и ПО","Заводские испытания и поддержка приёмки на площадке","Техническая документация, обучение и обслуживаемые интерфейсы"],
+    faqTitle:"Частые вопросы",
+    faqs:[
+      ["Можно начать без полного технического задания?","Да. Фото, видео, перечень оборудования, целевой такт и основные проблемы достаточны для первичной инженерной оценки."],
+      ["Как организуется ранняя коммуникация по зарубежным проектам?","Сначала удалённо уточняем требования и интерфейсы, затем согласуем решение, границы поставки, FAT / SAT и поддержку на площадке."],
+      ["Можно интегрироваться с нашими PLC, оборудованием и ИТ-системами?","Да, если заранее определены протоколы, таблицы сигналов, интерфейсы данных и зоны ответственности."],
+      ["Как снизить споры на поздних стадиях проекта?","До детального проектирования фиксируются входы, выходы, нештатные режимы, критерии приёмки, комплект поставки и порядок изменений."]
+    ]
+  }
+};
+
 function esc(value="") {
   return String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 }
@@ -145,17 +253,59 @@ function solutionPage(lang, dict, item) {
 }
 
 function casePage(lang, dict, item) {
-  const ui=UI[lang], data=dict.case[item.id];
+  const ui=UI[lang], du=DETAIL_UI[lang], data=dict.case[item.id];
   const scopes=item.scope.map((path,i)=>`<article><span>${String(i+1).padStart(2,"0")}</span><strong>${esc(get(dict,path) || "")}</strong></article>`).join("");
   const related=item.related.map(id=>SOLUTIONS.find(s=>s.id===id)).filter(Boolean);
+  const solutionNarrative=related.map(s=>`<article><span class="case-step-no">0${s.id}</span><div><strong>${esc(dict.solution[s.id].title)}</strong><p>${esc(dict.solution[s.id].text)}</p></div></article>`).join("");
+  const acceptance=du.keyPoints.map((x,i)=>`<li><span>${String(i+1).padStart(2,"0")}</span><strong>${esc(x)}</strong></li>`).join("");
+  const deliverables=du.clientGets.map((x,i)=>`<article><span>${String(i+1).padStart(2,"0")}</span><strong>${esc(x)}</strong></article>`).join("");
+  const faqs=du.faqs.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
+  const emailSubject=encodeURIComponent("Project inquiry - "+data.title);
   const body=`
-  <section class="detail-hero"><div class="detail-hero-image" style="background-image:linear-gradient(90deg,rgba(9,27,40,.91),rgba(9,27,40,.2)),url('${item.image}')"></div><div class="shell detail-hero-inner"><div><a class="breadcrumb" href="/${lang}/">← ${esc(ui.back)}</a><span class="detail-type">${esc(data.market)}</span><h1>${esc(data.title)}</h1><p>${esc(data.text)}</p><a class="btn btn-primary" href="#contact">${esc(ui.discuss)} →</a></div></div></section>
-  <section class="section detail-scope"><div class="shell"><div class="section-head"><div><span class="eyebrow">${esc(ui.project)}</span><h2>${esc(ui.scope)}</h2></div><p>${esc(data.text)}</p></div><div class="detail-cap-grid detail-cap-grid-four">${scopes}</div></div></section>
-  <section class="section process-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">DELIVERY</span><h2>${esc(ui.delivery)}</h2></div><p>${esc(dict.process.desc)}</p></div><div class="process-grid">${processCards(dict)}</div></div></section>
+  <section class="detail-hero case-study-hero"><div class="detail-hero-image" style="background-image:linear-gradient(90deg,rgba(9,27,40,.93),rgba(9,27,40,.18)),url('${item.image}')"></div><div class="shell detail-hero-inner"><div><a class="breadcrumb" href="/${lang}/cases/">← ${esc(ui.back)}</a><span class="detail-type">${esc(data.market)}</span><h1>${esc(data.title)}</h1><p>${esc(data.text)}</p><div class="hero-actions"><a class="btn btn-primary" href="mailto:13923387986@163.com?subject=${emailSubject}">${esc(ui.discuss)} →</a><a class="btn btn-ghost" href="tel:+8613923387986">Nicole · +86 139 2338 7986</a></div></div></div></section>
+
+  <section class="case-facts"><div class="shell case-facts-grid">
+    <div><span>${esc(du.market)}</span><strong>${esc(data.market)}</strong></div>
+    <div><span>${esc(du.application)}</span><strong>${esc(data.title)}</strong></div>
+    <div><span>${esc(du.deliveryModel)}</span><strong>${esc(du.turnkey)}</strong></div>
+  </div></section>
+
+  <section class="section case-story-section"><div class="shell case-story-grid">
+    <div class="case-story-copy"><span class="eyebrow">01 · CONTEXT</span><h2>${esc(du.challenge)}</h2><p>${esc(data.text)}</p></div>
+    <aside class="case-story-panel"><span class="eyebrow">02 · SYSTEM</span><h3>${esc(du.architecture)}</h3><div class="case-solution-stack">${solutionNarrative}</div></aside>
+  </div></section>
+
+  <section class="section detail-scope"><div class="shell"><div class="section-head"><div><span class="eyebrow">03 · SCOPE</span><h2>${esc(du.scope)}</h2></div><p>${esc(data.text)}</p></div><div class="detail-cap-grid detail-cap-grid-four">${scopes}</div></div></section>
+
+  <section class="section acceptance-section"><div class="shell acceptance-layout">
+    <div><span class="eyebrow">04 · ACCEPTANCE</span><h2>${esc(du.acceptance)}</h2></div>
+    <ol class="acceptance-list">${acceptance}</ol>
+  </div></section>
+
+  <section class="section deliverables-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">05 · DELIVERABLES</span><h2>${esc(du.deliverables)}</h2></div><p>${esc(dict.process.desc)}</p></div><div class="detail-cap-grid detail-cap-grid-four">${deliverables}</div></div></section>
+
+  <section class="section process-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">06 · DELIVERY</span><h2>${esc(ui.delivery)}</h2></div><p>${esc(dict.process.desc)}</p></div><div class="process-grid">${processCards(dict)}</div></div></section>
+
   <section class="section cases-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">SOLUTIONS</span><h2>${esc(ui.relatedSolutions)}</h2></div></div><div class="detail-related-grid">${related.map(s=>`<a class="case-card" href="/${lang}/solutions/${s.slug}/"><img src="${s.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(ui.solution)}</span><h3>${esc(dict.solution[s.id].title)}</h3><p>${esc(dict.solution[s.id].text)}</p></div></a>`).join("")}</div></div></section>
+
+  <section class="section faq-section"><div class="shell faq-layout"><div><span class="eyebrow">FAQ</span><h2>${esc(du.faqTitle)}</h2></div><div class="faq-list">${faqs}</div></div></section>
   `;
   const schema={"@context":"https://schema.org","@type":"Article","headline":data.title,"description":data.text,"author":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd."},"about":data.market};
   return shellPage({lang,title:data.title,description:data.text,canonicalPath:`cases/${item.slug}/`,body,dict,ui,schema});
+}
+
+function casesIndexPage(lang, dict) {
+  const ui=UI[lang], du=DETAIL_UI[lang];
+  const cards=CASES.map(c=>`<a class="case-card" href="/${lang}/cases/${c.slug}/"><img src="${c.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(dict.case[c.id].market)}</span><h3>${esc(dict.case[c.id].title)}</h3><p>${esc(dict.case[c.id].text)}</p></div></a>`).join("");
+  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">PROJECT CASES</span><h1>${esc(du.casesTitle)}</h1><p>${esc(du.casesIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>`;
+  return shellPage({lang,title:du.casesTitle,description:du.casesIntro,canonicalPath:"cases/",body,dict,ui});
+}
+
+function solutionsIndexPage(lang, dict) {
+  const ui=UI[lang], du=DETAIL_UI[lang];
+  const cards=SOLUTIONS.map(s=>`<a class="case-card" href="/${lang}/solutions/${s.slug}/"><img src="${s.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(ui.solution)}</span><h3>${esc(dict.solution[s.id].title)}</h3><p>${esc(dict.solution[s.id].text)}</p></div></a>`).join("");
+  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">SOLUTIONS</span><h1>${esc(du.solutionsTitle)}</h1><p>${esc(du.solutionsIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>`;
+  return shellPage({lang,title:du.solutionsTitle,description:du.solutionsIntro,canonicalPath:"solutions/",body,dict,ui});
 }
 
 async function homePage(request, env, lang, dict) {
@@ -177,6 +327,8 @@ function sitemap() {
   const urls=[];
   for(const lang of Object.keys(LANGS)){
     urls.push(`${BASE}/${lang}/`);
+    urls.push(`${BASE}/${lang}/solutions/`);
+    urls.push(`${BASE}/${lang}/cases/`);
     for(const s of SOLUTIONS) urls.push(`${BASE}/${lang}/solutions/${s.slug}/`);
     for(const c of CASES) urls.push(`${BASE}/${lang}/cases/${c.slug}/`);
   }
@@ -199,6 +351,8 @@ export default {
     const dict=await loadDict(env,lang);
 
     if(!rest) return homePage(request,env,lang,dict);
+    if(rest==="cases") return new Response(casesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
+    if(rest==="solutions") return new Response(solutionsIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
 
     const solutionMatch=rest.match(/^solutions\/([^/]+)$/);
     if(solutionMatch){
