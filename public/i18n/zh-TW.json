@@ -230,5 +230,15 @@
     "personLabel": "商務聯絡人",
     "note": "適用於自動化、機器視覺、實驗室自動化和工業軟體專案。"
   },
-  "mobileContact": "聯絡 Nicole"
+  "mobileContact": "聯絡 Nicole",
+  "industries": {
+    "eyebrow": "INDUSTRIES",
+    "title": "我們更熟悉這些工業場景",
+    "desc": "依產業進入，直接查看相關案例與解決方案。",
+    "mining": "礦業與大宗物料",
+    "manufacturing": "精密製造",
+    "laboratory": "實驗室自動化",
+    "logistics": "物流與倉儲",
+    "heavy": "流程與重工業"
+  }
 }
