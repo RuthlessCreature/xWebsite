@@ -646,7 +646,10 @@ export default {
     const path=url.pathname;
 
     if(path==="/api/inquiry" && request.method==="POST") return handleInquiry(request,env);
-    if(path==="/") return Response.redirect(BASE+"/zh-cn/",301);
+    if(path==="/"){
+      const dict=await loadDict(env,"zh-cn");
+      return homePage(request,env,"zh-cn",dict);
+    }
     if(path==="/sitemap.xml") return new Response(sitemap(),{headers:{"content-type":"application/xml; charset=utf-8","cache-control":"public, max-age=3600"}});
     if(path==="/robots.txt") return new Response(`User-agent: *\nAllow: /\nSitemap: ${BASE}/sitemap.xml\n`,{headers:{"content-type":"text/plain; charset=utf-8"}});
 
