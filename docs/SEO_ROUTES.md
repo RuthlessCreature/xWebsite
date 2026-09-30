@@ -26,7 +26,7 @@ Each language exposes:
 - 6 solution pages
 - 8 project-case pages
 
-Total indexable localized pages: **105**.
+Total indexable localized pages: **161**.
 
 ## Solution slugs
 
@@ -68,3 +68,24 @@ Every detail page includes direct contact paths to:
 Nicole Fan  
 +86 139 2338 7986  
 13923387986@163.com
+
+
+## Industry slugs
+
+- mining-bulk-materials
+- precision-manufacturing
+- laboratory-automation
+- logistics-warehousing
+- process-heavy-industry
+
+## Current page count
+
+Per language:
+
+- 1 homepage
+- 3 library index pages
+- 6 solution detail pages
+- 8 project case-study pages
+- 5 industry landing pages
+
+Total: **23 pages per language × 7 languages = 161 localized pages**.
