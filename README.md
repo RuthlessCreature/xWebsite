@@ -147,4 +147,20 @@ Every project case is expanded into a full case-study sales page with:
 - multilingual FAQ
 - direct Nicole Fan project CTA
 
-Current localized SEO page count: **161 pages** across 7 languages.
+Current localized SEO page count: **168 pages** across 7 languages.
+
+
+## v2.5 Project Inquiry Funnel
+
+Seven localized inquiry pages are available under `/<language>/inquiry/`.
+
+The Worker endpoint `POST /api/inquiry`:
+
+- validates inquiry data
+- generates a unique inquiry ID
+- accepts up to 5 project files
+- supports optional Cloudflare Email Service delivery
+- supports optional D1 archive storage
+- returns a mail-client fallback when automatic email delivery is not yet configured
+
+See `docs/INQUIRY_SYSTEM.md` for the production setup.
