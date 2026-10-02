@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   deploy:
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -19,7 +18,22 @@ jobs:
         with:
           node-version: 22
       - run: npm install --no-audit --no-fund
+      - name: Check deployment credentials
+        id: credentials
+        shell: bash
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [[ -n "$CF_API_TOKEN" && -n "$CF_ACCOUNT_ID" ]]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare deploy secrets are missing; deployment will be skipped while public smoke checks still run."
+          fi
       - name: Deploy Workers Static Assets
+        id: deploy_worker
+        if: steps.credentials.outputs.available == 'true'
         run: npm run deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -27,5 +41,6 @@ jobs:
       - name: Verify all production sites
         run: node scripts/seo-live-check.mjs
       - name: Notify IndexNow
+        if: steps.deploy_worker.outcome == 'success'
         continue-on-error: true
         run: node scripts/notify-indexnow.mjs
