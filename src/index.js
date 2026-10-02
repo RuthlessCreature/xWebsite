@@ -317,7 +317,7 @@ function header(lang, ui, dict) {
     <div class="shell nav-shell detail-nav-shell">
       <a class="brand" href="/${lang}/"><span class="brand-mark">XD</span><span class="brand-copy"><strong>${esc(dict.companyName)}</strong><small>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</small></span></a>
       <nav class="detail-nav"><a href="/${lang}/solutions/">${esc(ui.solutions)}</a><a href="/${lang}/cases/">${esc(ui.cases)}</a><a href="/${lang}/industries/">${esc(du?.industriesTitle || "Industries")}</a><a href="/${lang}/#about">${esc(ui.about)}</a></nav>
-      <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language>${languageOptions(lang)}</select></label><a class="header-cta" href="/${lang}/inquiry/">${esc(ui.contact)}</a></div>
+      <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language>${languageOptions(lang)}</select></label><a class="header-cta" href="/${lang}/contact/">${esc(ui.contact)}</a></div>
     </div>
   </header>`;
 }
@@ -482,7 +482,7 @@ function inquiryPage(lang, dict) {
       data-required="${esc(q.required)}" data-sending="${esc(q.sending)}" data-success="${esc(q.success)}"
       data-emailed="${esc(q.emailed)}" data-fallback="${esc(q.fallback)}" data-open-email="${esc(q.openEmail)}"
       data-copy="${esc(q.copy)}" data-copied="${esc(q.copied)}" data-attach-note="${esc(q.attachNote)}" data-id-label="${esc(q.id)}">
-      <input type="hidden" name="language" value="${esc(lang)}"><input type="hidden" name="sourcePage" value="/${esc(lang)}/inquiry/">
+      <input type="hidden" name="language" value="${esc(lang)}"><input type="hidden" name="sourcePage" value="/${esc(lang)}/contact/">
       <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <fieldset><legend><span>01</span>${esc(q.basics)}</legend><div class="form-grid">
@@ -518,7 +518,7 @@ function inquiryPage(lang, dict) {
   </div></section>
   <script src="/inquiry.js" defer></script>`;
   const schema={"@context":"https://schema.org","@type":"ContactPage","name":q.title,"description":q.intro,"mainEntity":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.","email":"abd.yusuf.ibrahim.mustafa@gmail.com","telephone":"+86 132 4269 4270"}};
-  return shellPage({lang,title:q.title,description:q.intro,canonicalPath:"inquiry/",body,dict,ui,schema});
+  return shellPage({lang,title:q.title,description:q.intro,canonicalPath:"contact/",body,dict,ui,schema});
 }
 
 function inquiryId() {
@@ -629,7 +629,7 @@ function sitemap() {
   const urls=[];
   for(const lang of Object.keys(LANGS)){
     urls.push(`${BASE}/${lang}/`);
-    urls.push(`${BASE}/${lang}/inquiry/`);
+    urls.push(`${BASE}/${lang}/contact/`);
     urls.push(`${BASE}/${lang}/solutions/`);
     urls.push(`${BASE}/${lang}/cases/`);
     urls.push(`${BASE}/${lang}/industries/`);
@@ -657,8 +657,9 @@ export default {
       const dict=await loadDict(env,"zh-cn");
       return homePage(request,env,"zh-cn",dict);
     }
+    if(path==="/contact" || path==="/contact/" || path==="/inquiry" || path==="/inquiry/") return Response.redirect(`${BASE}/zh-cn/contact/`,301);
     if(path==="/sitemap.xml") return new Response(sitemap(),{headers:{"content-type":"application/xml; charset=utf-8","cache-control":"public, max-age=3600"}});
-    if(path==="/robots.txt") return new Response(`User-agent: *\nAllow: /\nSitemap: ${BASE}/sitemap.xml\n`,{headers:{"content-type":"text/plain; charset=utf-8"}});
+    if(path==="/robots.txt") return new Response(`User-agent: *\nAllow: /\nDisallow: /api/\n\nUser-agent: OAI-SearchBot\nAllow: /\nDisallow: /api/\n\nUser-agent: ChatGPT-User\nAllow: /\nDisallow: /api/\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\nDisallow: /api/\n\nUser-agent: Claude-User\nAllow: /\nDisallow: /api/\n\nUser-agent: ClaudeBot\nDisallow: /\n\nUser-agent: PerplexityBot\nAllow: /\nDisallow: /api/\n\nUser-agent: Perplexity-User\nAllow: /\nDisallow: /api/\n\nSitemap: ${BASE}/sitemap.xml\n`,{headers:{"content-type":"text/plain; charset=utf-8","cache-control":"public, max-age=300"}});
 
     const match=path.match(/^\/(zh-cn|zh-tw|en|ja|es|pt|ru)(?:\/(.*))?$/);
     if(!match) return env.ASSETS.fetch(request);
@@ -667,7 +668,8 @@ export default {
     const dict=await loadDict(env,lang);
 
     if(!rest) return homePage(request,env,lang,dict);
-    if(rest==="inquiry") return new Response(inquiryPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
+    if(rest==="contact") return new Response(inquiryPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
+    if(rest==="inquiry") return Response.redirect(`${BASE}/${lang}/contact/`,301);
     if(rest==="cases") return new Response(casesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     if(rest==="solutions") return new Response(solutionsIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     if(rest==="industries") return new Response(industriesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
