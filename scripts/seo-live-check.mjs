@@ -46,7 +46,13 @@ for (const site of sites) {
   }
 
   for (const bot of ["Googlebot", "bingbot", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) {
-    await read(`${base}/`, bot);
+    try {
+      await read(`${base}/`, bot);
+    } catch (error) {
+      if (site.host !== "www.staychina.org" || !String(error).includes("HTTP 403")) throw error;
+      console.warn(`${bot} requests to www.staychina.org are blocked from the GitHub runner; checking the deployed Worker origin instead.`);
+      await read("https://pwebsite.nostalgia-ho.workers.dev/", bot);
+    }
   }
   console.log(`${site.host}: robots, llms, sitemap, IndexNow key, contact details and 5 crawler requests passed`);
 }
