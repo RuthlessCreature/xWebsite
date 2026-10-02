@@ -2,13 +2,13 @@
 
 ## Production URLs
 
-- Simplified Chinese: `https://xiaodu.tech/zh-cn/inquiry/`
-- English: `https://xiaodu.tech/en/inquiry/`
-- Traditional Chinese: `https://xiaodu.tech/zh-tw/inquiry/`
-- Japanese: `https://xiaodu.tech/ja/inquiry/`
-- Spanish: `https://xiaodu.tech/es/inquiry/`
-- Portuguese: `https://xiaodu.tech/pt/inquiry/`
-- Russian: `https://xiaodu.tech/ru/inquiry/`
+- Simplified Chinese: `https://xiaodu.tech/zh-cn/contact/`
+- English: `https://xiaodu.tech/en/contact/`
+- Traditional Chinese: `https://xiaodu.tech/zh-tw/contact/`
+- Japanese: `https://xiaodu.tech/ja/contact/`
+- Spanish: `https://xiaodu.tech/es/contact/`
+- Portuguese: `https://xiaodu.tech/pt/contact/`
+- Russian: `https://xiaodu.tech/ru/contact/`
 
 ## Current production behavior
 
@@ -96,3 +96,4 @@ If project volume later justifies permanent file storage, add an R2 bucket and s
 - R2 for large engineering files
 - D1 admin dashboard
 - automatic acknowledgement email to customer
+
