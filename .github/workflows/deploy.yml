@@ -1,6 +1,8 @@
-name: Manual Cloudflare Deploy
+name: Cloudflare Deploy and SEO Smoke Check
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -22,7 +24,8 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Verify all production sites
+        run: node scripts/seo-live-check.mjs
       - name: Notify IndexNow
         continue-on-error: true
         run: node scripts/notify-indexnow.mjs
-
