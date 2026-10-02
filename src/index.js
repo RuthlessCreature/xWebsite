@@ -297,15 +297,50 @@ function faqJsonLd(du) {
   };
 }
 
-function orgJsonLd() {
-  return JSON.stringify({
-    "@context":"https://schema.org",
+function organizationJsonLd() {
+  return {
     "@type":"Organization",
+    "@id":BASE + "/#organization",
     "name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
-    "url":BASE,
+    "url":BASE + "/",
     "email":"abd.yusuf.ibrahim.mustafa@gmail.com",
     "telephone":"+86 132 4269 4270",
     "contactPoint":{"@type":"ContactPoint","name":"Yusuf","telephone":"+86 132 4269 4270","email":"abd.yusuf.ibrahim.mustafa@gmail.com","contactType":"sales"}
+  };
+}
+
+function orgJsonLd() {
+  return JSON.stringify({
+    "@context":"https://schema.org",
+    ...organizationJsonLd()
+  });
+}
+
+function homeJsonLd(lang, dict) {
+  const websiteId=BASE + "/#website";
+  const organizationId=BASE + "/#organization";
+  return JSON.stringify({
+    "@context":"https://schema.org",
+    "@graph":[
+      organizationJsonLd(),
+      {
+        "@type":"WebSite",
+        "@id":websiteId,
+        "url":BASE + "/",
+        "name":"Zhuhai Xiaodu Intelligent Technology",
+        "alternateName":"珠海小度智能科技有限公司",
+        "publisher":{"@id":organizationId}
+      },
+      {
+        "@type":"WebPage",
+        "@id":BASE + "/" + lang + "/#webpage",
+        "url":BASE + "/" + lang + "/",
+        "name":dict.meta.title,
+        "inLanguage":LANGS[lang].asset,
+        "isPartOf":{"@id":websiteId},
+        "about":{"@id":organizationId}
+      }
+    ]
   });
 }
 
@@ -617,7 +652,7 @@ async function homePage(request, env, lang, dict) {
   const links = Object.keys(LANGS).map(code => `<link rel="alternate" hreflang="${LANGS[code].asset}" href="${BASE}/${code}/">`).join("") + `<link rel="canonical" href="${BASE}/${lang}/"><link rel="alternate" hreflang="x-default" href="${BASE}/en/">`;
   return new HTMLRewriter()
     .on("html",{element(e){e.setAttribute("lang",LANGS[lang].asset)}})
-    .on("head",{element(e){e.append(links,{html:true});e.append(`<script type="application/ld+json">${orgJsonLd()}</script>`,{html:true})}})
+    .on("head",{element(e){e.append(links,{html:true});e.append(`<meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><script type="application/ld+json">${homeJsonLd(lang,dict)}</script>`,{html:true})}})
     .on("title",{element(e){e.setInnerContent(dict.meta.title)}})
     .on('meta[name="description"]',{element(e){e.setAttribute("content",dict.meta.description)}})
     .on("[data-i18n]",{element(e){const v=get(dict,e.getAttribute("data-i18n"));if(typeof v==="string")e.setInnerContent(v)}})
