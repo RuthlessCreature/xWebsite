@@ -34,7 +34,7 @@ for (const site of sites) {
     throw new Error(`${site.host}: llms.txt or sitemap is empty/mis-hosted`);
   }
   if (keyFile.trim() !== key) throw new Error(`${site.host}: IndexNow key verification failed`);
-  if (!contact.includes("abd.yusuf.ibrahim.mustafa@gmail.com") || !/132\\D*4269\\D*4270/.test(contact) || !/Yusuf/i.test(contact)) {
+  if (!contact.includes("abd.yusuf.ibrahim.mustafa@gmail.com") || !/132\D*4269\D*4270/.test(contact) || !/Yusuf/i.test(contact)) {
     throw new Error(`${site.host}: contact page does not contain the unified contact details`);
   }
 
