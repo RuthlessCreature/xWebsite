@@ -20,7 +20,14 @@ for (const site of sites) {
   const base = `https://${site.host}`;
   const robots = await read(`${base}/robots.txt`);
   const llms = await read(`${base}/llms.txt`);
-  const sitemap = await read(site.sitemap);
+  let sitemap;
+  try {
+    sitemap = await read(site.sitemap);
+  } catch (error) {
+    if (site.host !== "www.staychina.org" || !String(error).includes("HTTP 403")) throw error;
+    console.warn("www.staychina.org sitemap blocks the GitHub runner; checking the same deployed Worker route via its workers.dev origin.");
+    sitemap = await read("https://pwebsite.nostalgia-ho.workers.dev/sitemap-index.xml");
+  }
   const contact = await read(site.contact);
   const keyFile = await read(`${base}/${key}.txt`);
 
