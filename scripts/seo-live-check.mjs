@@ -1,7 +1,7 @@
 const sites = [
-  { host: "xiaodu.tech", contact: "https://xiaodu.tech/zh-cn/contact/", sitemap: "https://xiaodu.tech/sitemap.xml" },
-  { host: "www.staychina.org", contact: "https://www.staychina.org/en/contact", sitemap: "https://www.staychina.org/sitemap-index.xml" },
-  { host: "pomerol.trade", contact: "https://pomerol.trade/contact/", sitemap: "https://pomerol.trade/sitemap.xml" },
+  { host: "xiaodu.tech", home: "https://xiaodu.tech/en/", topic: "industrial automation", contact: "https://xiaodu.tech/zh-cn/contact/", sitemap: "https://xiaodu.tech/sitemap.xml" },
+  { host: "www.staychina.org", home: "https://www.staychina.org/en/", topic: "company setup in China", contact: "https://www.staychina.org/en/contact", sitemap: "https://www.staychina.org/sitemap-index.xml" },
+  { host: "pomerol.trade", home: "https://pomerol.trade/en/", topic: "China sourcing agent", contact: "https://pomerol.trade/contact/", sitemap: "https://pomerol.trade/sitemap.xml" },
 ];
 
 const key = "6ef27e4a81efe1ff6c679ee852d012f2";
@@ -44,6 +44,17 @@ for (const site of sites) {
   if (!contact.includes("abd.yusuf.ibrahim.mustafa@gmail.com") || !/132\D*4269\D*4270/.test(contact) || !/Yusuf/i.test(contact)) {
     throw new Error(`${site.host}: contact page does not contain the unified contact details`);
   }
+
+  const homepage = await read(site.home);
+  const title = homepage.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)?.[1] || "";
+  const headings = [...homepage.matchAll(/<h1\\b[^>]*>([\\s\\S]*?)<\\/h1>/gi)];
+  const visibleHeading = headings[0]?.[1]?.replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").trim() || "";
+  const canonicalTag = homepage.match(/<link\\b[^>]*\\brel=["']canonical["'][^>]*>/i)?.[0] || "";
+  const canonical = canonicalTag.match(/\\bhref=["']([^"']+)["']/i)?.[1] || "";
+  if (headings.length !== 1 || !title.toLowerCase().includes(site.topic.toLowerCase()) || !visibleHeading.toLowerCase().includes(site.topic.toLowerCase())) {
+    throw new Error(`${site.host}: homepage must have one H1 and title/H1 covering "${site.topic}"`);
+  }
+  if (canonical !== site.home) throw new Error(`${site.host}: homepage canonical "${canonical}" does not match "${site.home}"`);
 
   for (const bot of ["Googlebot", "bingbot", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) {
     try {
