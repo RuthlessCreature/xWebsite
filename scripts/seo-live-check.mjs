@@ -18,15 +18,15 @@ async function read(url, userAgent = "SEO-Monitor/1.0") {
 
 for (const site of sites) {
   const base = `https://${site.host}`;
-  const [robots, llms, sitemap, contact, keyFile] = await Promise.all([
-    read(`${base}/robots.txt`),
-    read(`${base}/llms.txt`),
-    read(site.sitemap),
-    read(site.contact),
-    read(`${base}/${key}.txt`),
-  ]);
+  const robots = await read(`${base}/robots.txt`);
+  const llms = await read(`${base}/llms.txt`);
+  const sitemap = await read(site.sitemap);
+  const contact = await read(site.contact);
+  const keyFile = await read(`${base}/${key}.txt`);
 
-  if (!/sitemap:/i.test(robots)) throw new Error(`${site.host}: robots.txt does not declare a sitemap`);
+  if (!robots.includes("Sitemap:") && !robots.includes("Sitemap:".toLowerCase())) {
+    throw new Error(`${site.host}: robots.txt does not declare a sitemap`);
+  }
   if (!/OAI-SearchBot|Claude-SearchBot|PerplexityBot/i.test(robots)) {
     throw new Error(`${site.host}: search-oriented AI crawlers are not explicitly covered`);
   }
@@ -43,3 +43,4 @@ for (const site of sites) {
   }
   console.log(`${site.host}: robots, llms, sitemap, IndexNow key, contact details and 5 crawler requests passed`);
 }
+
