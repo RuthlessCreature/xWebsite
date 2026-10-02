@@ -152,7 +152,7 @@ Current localized SEO page count: **168 pages** across 7 languages.
 
 ## v2.5 Project Inquiry Funnel
 
-Seven localized inquiry pages are available under `/<language>/inquiry/`.
+The unified contact entry is `/contact/`, with language-specific versions at `/<language>/contact/`. Legacy `/<language>/inquiry/` links permanently redirect.
 
 The Worker endpoint `POST /api/inquiry`:
 
@@ -164,3 +164,4 @@ The Worker endpoint `POST /api/inquiry`:
 - returns a mail-client fallback when automatic email delivery is not yet configured
 
 See `docs/INQUIRY_SYSTEM.md` for the production setup.
+
