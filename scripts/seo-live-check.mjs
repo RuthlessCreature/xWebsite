@@ -46,16 +46,16 @@ for (const site of sites) {
   }
 
   const homepage = await read(site.home);
-  const title = homepage.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)?.[1] || "";
-  const headings = [...homepage.matchAll(/<h1\\b[^>]*>([\\s\\S]*?)<\\/h1>/gi)];
-  const visibleHeading = headings[0]?.[1]?.replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").trim() || "";
-  const canonicalTag = homepage.match(/<link\\b[^>]*\\brel=["']canonical["'][^>]*>/i)?.[0] || "";
-  const canonical = canonicalTag.match(/\\bhref=["']([^"']+)["']/i)?.[1] || "";
+  const title = homepage.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || "";
+  const headings = [...homepage.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)];
+  const visibleHeading = headings[0]?.[1]?.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() || "";
+  const canonicalTag = homepage.match(/<link\b[^>]*\brel=["']canonical["'][^>]*>/i)?.[0] || "";
+  const canonical = canonicalTag.match(/\bhref=["']([^"']+)["']/i)?.[1] || "";
   if (headings.length !== 1 || !title.toLowerCase().includes(site.topic.toLowerCase()) || !visibleHeading.toLowerCase().includes(site.topic.toLowerCase())) {
     throw new Error(`${site.host}: homepage must have one H1 and title/H1 covering "${site.topic}"`);
   }
   if (canonical !== site.home) throw new Error(`${site.host}: homepage canonical "${canonical}" does not match "${site.home}"`);
-
+ 
   for (const bot of ["Googlebot", "bingbot", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) {
     try {
       await read(`${base}/`, bot);
