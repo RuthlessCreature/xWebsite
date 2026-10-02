@@ -643,6 +643,10 @@ function sitemap() {
 export default {
   async fetch(request, env) {
     const url=new URL(request.url);
+    if(url.hostname==="www.xiaodu.tech"){
+      url.hostname="xiaodu.tech";
+      return Response.redirect(url.toString(),308);
+    }
     const path=url.pathname;
 
     if(path==="/__health") return Response.json({
