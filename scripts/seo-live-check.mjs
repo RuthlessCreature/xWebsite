@@ -69,6 +69,24 @@ function inspectPage(html, requestedUrl) {
   const canonicals = [...html.matchAll(/<link\b[^>]*>/gi)].map((match) => attrs(match[0])).filter((item) => item.rel?.toLowerCase().split(/\s+/).includes("canonical")).map((item) => item.href || "");
   return { title, h1, descriptions, robots, canonicals, requestedUrl };
 }
+function structuredTypes(html) {
+  const types = new Set();
+  const errors = [];
+  for (const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const visit = (value) => {
+        if (Array.isArray(value)) return value.forEach(visit);
+        if (!value || typeof value !== "object") return;
+        for (const type of Array.isArray(value["@type"]) ? value["@type"] : [value["@type"]]) if (type) types.add(type);
+        for (const child of Object.values(value)) visit(child);
+      };
+      visit(JSON.parse(match[1]));
+    } catch (error) {
+      errors.push(String(error));
+    }
+  }
+  return { types, errors };
+}
 function validatePage(page) {
   const errors = [];
   if (page.title.length !== 1 || !page.title[0]) errors.push("title must appear exactly once and be non-empty");
@@ -129,6 +147,13 @@ for (const site of sites) {
         const { text, status } = await readSiteRoute(site, url);
         const page = inspectPage(text, url);
         const errors = validatePage(page);
+        const structured = structuredTypes(text);
+        if (structured.errors.length) errors.push(`invalid JSON-LD: ${structured.errors.join(", ")}`);
+        if (site.host === "xiaodu.tech") {
+          for (const type of ["Organization", "WebSite", "WebPage"]) {
+            if (!structured.types.has(type)) errors.push(`JSON-LD is missing ${type}`);
+          }
+        }
         if (site.host === "xiaodu.tech" && !page.title[0]?.toLowerCase().includes("zhuhai xiaodu") && !page.title[0]?.includes("珠海小度智能科技有限公司")) errors.push("title must use the distinct Zhuhai Xiaodu entity name");
         if (site.host === "xiaodu.tech" && page.title[0]?.length > 70) errors.push("title exceeds 70 characters");
         if (status !== 200 || errors.length) failures.push(`${url}: HTTP ${status}; ${errors.join("; ")}`);

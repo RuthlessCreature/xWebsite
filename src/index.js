@@ -309,14 +309,7 @@ function organizationJsonLd() {
   };
 }
 
-function orgJsonLd() {
-  return JSON.stringify({
-    "@context":"https://schema.org",
-    ...organizationJsonLd()
-  });
-}
-
-function homeJsonLd(lang, dict) {
+function sitePageJsonLd(lang, title, description, canonical) {
   const websiteId=BASE + "/#website";
   const organizationId=BASE + "/#organization";
   return JSON.stringify({
@@ -329,13 +322,15 @@ function homeJsonLd(lang, dict) {
         "url":BASE + "/",
         "name":"Zhuhai Xiaodu Intelligent Technology",
         "alternateName":"珠海小度智能科技有限公司",
-        "publisher":{"@id":organizationId}
+        "publisher":{"@id":organizationId},
+        "inLanguage":Object.values(LANGS).map(value=>value.asset)
       },
       {
         "@type":"WebPage",
-        "@id":BASE + "/" + lang + "/#webpage",
-        "url":BASE + "/" + lang + "/",
-        "name":dict.meta.title,
+        "@id":canonical + "#webpage",
+        "url":canonical,
+        "name":title,
+        "description":description,
         "inLanguage":LANGS[lang].asset,
         "isPartOf":{"@id":websiteId},
         "about":{"@id":organizationId}
@@ -387,7 +382,7 @@ ${alternates(canonicalPath)}
 <meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><meta property="og:type" content="website"><meta property="og:title" content="${esc(seoTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${esc(LANGS[lang].asset)}">
 ${image ? `<meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${esc(image)}">` : `<meta name="twitter:card" content="summary">`}
 <link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">${orgJsonLd()}</script>
+<script type="application/ld+json">${sitePageJsonLd(lang,title,description,canonical)}</script>
 ${schema ? (Array.isArray(schema) ? schema : [schema]).map(x=>`<script type="application/ld+json">${JSON.stringify(x)}</script>`).join("") : ""}
 </head>
 <body class="detail-page">
@@ -659,7 +654,7 @@ async function homePage(request, env, lang, dict) {
   const links = Object.keys(LANGS).map(code => `<link rel="alternate" hreflang="${LANGS[code].asset}" href="${BASE}/${code}/">`).join("") + `<link rel="canonical" href="${BASE}/${lang}/"><link rel="alternate" hreflang="x-default" href="${BASE}/en/">`;
   return new HTMLRewriter()
     .on("html",{element(e){e.setAttribute("lang",LANGS[lang].asset)}})
-    .on("head",{element(e){e.append(links,{html:true});e.append(`<meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><script type="application/ld+json">${homeJsonLd(lang,dict)}</script>`,{html:true})}})
+    .on("head",{element(e){e.append(links,{html:true});e.append(`<meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><script type="application/ld+json">${sitePageJsonLd(lang,dict.meta.title,dict.meta.description,BASE+"/"+lang+"/")}</script>`,{html:true})}})
     .on("title",{element(e){e.setInnerContent(dict.meta.title)}})
     .on('meta[name="description"]',{element(e){e.setAttribute("content",dict.meta.description)}})
     .on("[data-i18n]",{element(e){const v=get(dict,e.getAttribute("data-i18n"));if(typeof v==="string")e.setInnerContent(v)}})
