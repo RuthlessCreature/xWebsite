@@ -87,6 +87,8 @@ for (const site of sites) {
   ]);
   if (!/sitemap:/i.test(robots)) throw new Error(`${site.host}: robots.txt does not declare a sitemap`);
   if (!/OAI-SearchBot|Claude-SearchBot|PerplexityBot/i.test(robots)) throw new Error(`${site.host}: AI search crawlers are not explicitly covered`);
+  if (!/^User-agent:\s*Applebot\s*$[\s\S]*?^Allow:\s*\/\s*$/im.test(robots)) throw new Error(`${site.host}: Applebot search access is not explicitly allowed`);
+  if (!/^User-agent:\s*Applebot-Extended\s*$[\s\S]*?^Disallow:\s*\/\s*$/im.test(robots)) throw new Error(`${site.host}: Applebot-Extended training access is not explicitly blocked`);
   if (!llms.trim()) throw new Error(`${site.host}: llms.txt is empty`);
   if (keyFile.trim() !== key) throw new Error(`${site.host}: IndexNow key verification failed`);
   if (!contact.includes("abd.yusuf.ibrahim.mustafa@gmail.com") || !/132\D*4269\D*4270/.test(contact) || !/Yusuf/i.test(contact)) {

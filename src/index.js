@@ -702,8 +702,8 @@ export default {
       const robots = [
         "User-agent: *", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
         "User-agent: Googlebot", "User-agent: Googlebot-Image", "User-agent: Bingbot", "User-agent: Slurp", "User-agent: DuckDuckBot", "User-agent: YandexBot", "User-agent: Baiduspider", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
-        "User-agent: OAI-SearchBot", "User-agent: ChatGPT-User", "User-agent: Claude-SearchBot", "User-agent: Claude-User", "User-agent: PerplexityBot", "User-agent: Perplexity-User", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
-        "User-agent: GPTBot", "User-agent: ClaudeBot", "Disallow: /", "",
+        "User-agent: OAI-SearchBot", "User-agent: ChatGPT-User", "User-agent: Claude-SearchBot", "User-agent: Claude-User", "User-agent: PerplexityBot", "User-agent: Perplexity-User", "User-agent: Applebot", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
+        "User-agent: GPTBot", "User-agent: ClaudeBot", "User-agent: Applebot-Extended", "Disallow: /", "",
         `Sitemap: ${BASE}/sitemap.xml`, ""
       ].join("\n");
       return new Response(robots,{headers:{"content-type":"text/plain; charset=utf-8","cache-control":"public, max-age=300"}});
