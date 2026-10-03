@@ -698,7 +698,16 @@ export default {
     }
     if(path==="/contact" || path==="/contact/" || path==="/inquiry" || path==="/inquiry/") return Response.redirect(`${BASE}/zh-cn/contact/`,301);
     if(path==="/sitemap.xml") return new Response(sitemap(),{headers:{"content-type":"application/xml; charset=utf-8","cache-control":"public, max-age=3600"}});
-    if(path==="/robots.txt") return new Response(`User-agent: *\nAllow: /\nDisallow: /api/\n\nUser-agent: OAI-SearchBot\nAllow: /\nDisallow: /api/\n\nUser-agent: ChatGPT-User\nAllow: /\nDisallow: /api/\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\nDisallow: /api/\n\nUser-agent: Claude-User\nAllow: /\nDisallow: /api/\n\nUser-agent: ClaudeBot\nDisallow: /\n\nUser-agent: PerplexityBot\nAllow: /\nDisallow: /api/\n\nUser-agent: Perplexity-User\nAllow: /\nDisallow: /api/\n\nSitemap: ${BASE}/sitemap.xml\n`,{headers:{"content-type":"text/plain; charset=utf-8","cache-control":"public, max-age=300"}});
+    if(path==="/robots.txt") {
+      const robots = [
+        "User-agent: *", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
+        "User-agent: Googlebot", "User-agent: Googlebot-Image", "User-agent: Bingbot", "User-agent: Slurp", "User-agent: DuckDuckBot", "User-agent: YandexBot", "User-agent: Baiduspider", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
+        "User-agent: OAI-SearchBot", "User-agent: ChatGPT-User", "User-agent: Claude-SearchBot", "User-agent: Claude-User", "User-agent: PerplexityBot", "User-agent: Perplexity-User", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
+        "User-agent: GPTBot", "User-agent: ClaudeBot", "Disallow: /", "",
+        `Sitemap: ${BASE}/sitemap.xml`, ""
+      ].join("\n");
+      return new Response(robots,{headers:{"content-type":"text/plain; charset=utf-8","cache-control":"public, max-age=300"}});
+    }
 
     const match=path.match(/^\/(zh-cn|zh-tw|en|ja|es|pt|ru)(?:\/(.*))?$/);
     if(!match) return env.ASSETS.fetch(request);
