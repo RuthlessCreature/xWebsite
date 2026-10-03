@@ -373,7 +373,7 @@ function shellPage({lang, title, description, canonicalPath, body, dict, ui, sch
 <html lang="${esc(LANGS[lang].asset)}">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)} | Zhuhai Xiaodu Intelligent Technology</title>
+<title>${esc(title)} | Xiaodu</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">
 ${alternates(canonicalPath)}
