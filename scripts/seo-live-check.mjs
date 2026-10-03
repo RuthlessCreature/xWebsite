@@ -100,6 +100,9 @@ for (const site of sites) {
   if (homepagePage.h1.length !== 1 || !homepagePage.title[0]?.toLowerCase().includes(site.titleTopic.toLowerCase()) || !homepagePage.h1[0]?.toLowerCase().includes(site.headingTopic.toLowerCase())) {
     throw new Error(`${site.host}: homepage title/H1 do not cover the configured topic`);
   }
+  if (site.host === "xiaodu.tech" && !homepagePage.title[0]?.toLowerCase().includes("zhuhai xiaodu")) {
+    throw new Error(`${site.host}: homepage title must distinguish the Zhuhai company from the unrelated Xiaodu brand`);
+  }
   if (homepagePage.canonicals.length !== 1 || normalizedUrl(homepagePage.canonicals[0]) !== normalizedUrl(site.home)) {
     throw new Error(`${site.host}: homepage canonical does not match ${site.home}`);
   }
