@@ -107,6 +107,9 @@ for (const site of sites) {
   ]);
   if (!/sitemap:/i.test(robots)) throw new Error(`${site.host}: robots.txt does not declare a sitemap`);
   if (!/OAI-SearchBot|Claude-SearchBot|PerplexityBot/i.test(robots)) throw new Error(`${site.host}: AI search crawlers are not explicitly covered`);
+  for (const crawler of ["360Spider", "Sogou web spider", "Sogou inst spider"]) {
+    if (!robots.toLowerCase().includes(`user-agent: ${crawler.toLowerCase()}`)) throw new Error(`${site.host}: ${crawler} is not explicitly allowed in robots.txt`);
+  }
   if (!/^User-agent:\s*Applebot\s*$[\s\S]*?^Allow:\s*\/\s*$/im.test(robots)) throw new Error(`${site.host}: Applebot search access is not explicitly allowed`);
   if (!/^User-agent:\s*Applebot-Extended\s*$[\s\S]*?^Disallow:\s*\/\s*$/im.test(robots)) throw new Error(`${site.host}: Applebot-Extended training access is not explicitly blocked`);
   if (!llms.trim()) throw new Error(`${site.host}: llms.txt is empty`);
@@ -181,7 +184,7 @@ for (const site of sites) {
     console.error(`${site.host}: ${failures.length} sitemap SEO checks failed:\n${failures.slice(0, 30).join("\n")}`);
   }
 
-  for (const bot of ["Googlebot", "bingbot", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) {
+  for (const bot of ["Googlebot", "bingbot", "360Spider", "Sogou web spider/4.0", "Sogou inst spider/4.0", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) {
     try {
       const response = await readSiteRoute(site, `${base}/`, bot);
       console.log(`${site.host}: ${bot} probe returned HTTP ${response.status}`);
