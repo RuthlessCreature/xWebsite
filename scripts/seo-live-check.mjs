@@ -4,6 +4,7 @@ const sites = [
   { host: "pomerol.trade", home: "https://pomerol.trade/en/", titleTopic: "China product sourcing", headingTopic: "China product sourcing", focusPage: "https://pomerol.trade/china-sourcing-agent/", focusTopic: "China sourcing agent", contact: "https://pomerol.trade/contact/", sitemap: "https://pomerol.trade/sitemap.xml" },
 ];
 const key = "6ef27e4a81efe1ff6c679ee852d012f2";
+const monitorErrors = [];
 
 async function read(url, userAgent = "SEO-Monitor/2.0") {
   const response = await fetch(url, {
@@ -175,12 +176,27 @@ for (const site of sites) {
     if (title) titles.set(title, [...(titles.get(title) || []), page.requestedUrl]);
   }
   for (const [title, urls] of titles) if (urls.length > 1) failures.push(`${site.host}: duplicate title "${title}" on ${urls.join(", ")}`);
-  if (failures.length) throw new Error(`${site.host}: ${failures.length} sitemap SEO checks failed:\n${failures.slice(0, 30).join("\n")}`);
+  if (failures.length) {
+    monitorErrors.push(...failures);
+    console.error(`${site.host}: ${failures.length} sitemap SEO checks failed:\n${failures.slice(0, 30).join("\n")}`);
+  }
 
   for (const bot of ["Googlebot", "bingbot", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) {
-    await readSiteRoute(site, `${base}/`, bot);
+    try {
+      const response = await readSiteRoute(site, `${base}/`, bot);
+      console.log(`${site.host}: ${bot} probe returned HTTP ${response.status}`);
+    } catch (error) {
+      monitorErrors.push(`${site.host}: ${bot} probe failed: ${String(error)}`);
+      console.error(`${site.host}: ${bot} probe failed: ${String(error)}`);
+    }
   }
   console.log(`${site.host}: ${pageUrls.length} URLs passed status, unique title, H1, description, canonical and indexability checks`);
 }
+
+if (monitorErrors.length) {
+  console.error(`SEO monitor finished with ${monitorErrors.length} reported issue(s).`);
+  process.exitCode = 1;
+}
+
 
 
