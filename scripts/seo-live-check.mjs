@@ -67,7 +67,8 @@ function inspectPage(html, requestedUrl) {
   const descriptions = metas.filter((item) => item.name?.toLowerCase() === "description").map((item) => item.content || "");
   const robots = metas.filter((item) => item.name?.toLowerCase() === "robots").map((item) => item.content || "");
   const canonicals = [...html.matchAll(/<link\b[^>]*>/gi)].map((match) => attrs(match[0])).filter((item) => item.rel?.toLowerCase().split(/\s+/).includes("canonical")).map((item) => item.href || "");
-  return { title, h1, descriptions, robots, canonicals, requestedUrl };
+  const social = Object.fromEntries(metas.filter((item) => item.property?.toLowerCase().startsWith("og:") || item.name?.toLowerCase().startsWith("twitter:")).map((item) => [item.property || item.name, item.content || ""]));
+  return { title, h1, descriptions, robots, canonicals, social, requestedUrl };
 }
 function structuredTypes(html) {
   const types = new Set();
@@ -124,6 +125,11 @@ for (const site of sites) {
   if (homepagePage.canonicals.length !== 1 || normalizedUrl(homepagePage.canonicals[0]) !== normalizedUrl(site.home)) {
     throw new Error(`${site.host}: homepage canonical does not match ${site.home}`);
   }
+  for (const property of ["og:site_name", "og:title", "og:description", "og:url", "og:image", "twitter:card", "twitter:title", "twitter:description", "twitter:image"]) {
+    if (!homepagePage.social[property]) throw new Error(`${site.host}: homepage social metadata is missing ${property}`);
+  }
+  if (homepagePage.social["twitter:card"] !== "summary_large_image") throw new Error(`${site.host}: homepage twitter card must be summary_large_image`);
+  if (new URL(homepagePage.social["og:image"]).protocol !== "https:") throw new Error(`${site.host}: homepage og:image must use HTTPS`);
 
   if (site.focusPage) {
     const focusResponse = await read(site.focusPage);

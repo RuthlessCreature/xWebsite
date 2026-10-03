@@ -651,10 +651,14 @@ async function homePage(request, env, lang, dict) {
   const assetReq = new Request(new URL("/index.html", request.url), request);
   const baseRes = await env.ASSETS.fetch(assetReq);
   const ui=UI[lang];
-  const links = Object.keys(LANGS).map(code => `<link rel="alternate" hreflang="${LANGS[code].asset}" href="${BASE}/${code}/">`).join("") + `<link rel="canonical" href="${BASE}/${lang}/"><link rel="alternate" hreflang="x-default" href="${BASE}/en/">`;
+  const canonical = `${BASE}/${lang}/`;
+  const socialImage = SOLUTIONS[0].image;
+  const ogLocale = {"zh-cn":"zh_CN","zh-tw":"zh_TW",en:"en_US",ja:"ja_JP",es:"es_ES",pt:"pt_BR",ru:"ru_RU"}[lang];
+  const links = Object.keys(LANGS).map(code => `<link rel="alternate" hreflang="${LANGS[code].asset}" href="${BASE}/${code}/">`).join("") + `<link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="x-default" href="${BASE}/en/">`;
+  const socialTags = `<meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><meta property="og:type" content="website"><meta property="og:title" content="${esc(dict.meta.title)}"><meta property="og:description" content="${esc(dict.meta.description)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${ogLocale}"><meta property="og:image" content="${esc(socialImage)}"><meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="og:image:alt" content="${esc(dict.meta.title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(dict.meta.title)}"><meta name="twitter:description" content="${esc(dict.meta.description)}"><meta name="twitter:image" content="${esc(socialImage)}"><meta name="twitter:image:alt" content="${esc(dict.meta.title)}">`;
   return new HTMLRewriter()
     .on("html",{element(e){e.setAttribute("lang",LANGS[lang].asset)}})
-    .on("head",{element(e){e.append(links,{html:true});e.append(`<meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><script type="application/ld+json">${sitePageJsonLd(lang,dict.meta.title,dict.meta.description,BASE+"/"+lang+"/")}</script>`,{html:true})}})
+    .on("head",{element(e){e.append(links,{html:true});e.append(`${socialTags}<script type="application/ld+json">${sitePageJsonLd(lang,dict.meta.title,dict.meta.description,canonical)}</script>`,{html:true})}})
     .on("title",{element(e){e.setInnerContent(dict.meta.title)}})
     .on('meta[name="description"]',{element(e){e.setAttribute("content",dict.meta.description)}})
     .on("[data-i18n]",{element(e){const v=get(dict,e.getAttribute("data-i18n"));if(typeof v==="string")e.setInnerContent(v)}})
