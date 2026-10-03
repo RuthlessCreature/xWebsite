@@ -50,7 +50,7 @@ const UI = {
 
 const INQUIRY_UI = {
   "zh-cn": {
-    title:"告诉我们你的项目", intro:"有现场照片、图纸、设备清单或一个还没完全想清楚的需求，都可以先发。我们先判断可行性、边界和主要风险。",
+    title:"告诉我们你的项目", intro:"咨询工业自动化项目时，可提交产品或物料、目标节拍、现有设备与接口、现场位置和时间要求。现场照片、图纸、设备清单均可先发；我们先评估技术可行性、系统边界和主要风险，再讨论方案与交付。",
     eyebrow:"PROJECT INQUIRY", basics:"基本信息", project:"项目需求", files:"项目资料", company:"公司名称", name:"联系人", email:"邮箱", phone:"电话 / WhatsApp / 微信", country:"国家 / 地区",
     type:"项目类型", budget:"预算范围", timeline:"期望时间", contact:"首选联系方式", description:"请描述现场、问题、目标和已知约束", upload:"上传现场照片 / PDF / 图纸 / 资料", uploadHint:"最多 5 个文件；自动邮件模式下附件总量不超过 4 MB。STEP/DWG 等大文件可先提交询盘后再邮件发送。",
     consent:"我同意珠海小度智能科技有限公司使用这些信息与我联系并评估项目。", submit:"提交项目询盘", sending:"正在提交…", required:"请填写必填项并同意联系。",
@@ -61,7 +61,7 @@ const INQUIRY_UI = {
     timelines:["待评估","1个月内","1–3个月","3–6个月","6–12个月","12个月以上"]
   },
   "zh-tw": {
-    title:"告訴我們你的專案", intro:"有現場照片、圖紙、設備清單或尚未完全定義的需求，都可以先發。我們先判斷可行性、邊界與主要風險。",
+    title:"告訴我們你的專案", intro:"諮詢工業自動化專案時，可提交產品或物料、目標節拍、既有設備與介面、現場位置和時程要求。現場照片、圖紙、設備清單都可先提供；我們先評估技術可行性、系統邊界與主要風險，再討論方案與交付。",
     eyebrow:"PROJECT INQUIRY", basics:"基本資訊", project:"專案需求", files:"專案資料", company:"公司名稱", name:"聯絡人", email:"Email", phone:"電話 / WhatsApp / 微信", country:"國家 / 地區",
     type:"專案類型", budget:"預算範圍", timeline:"期望時間", contact:"首選聯絡方式", description:"請描述現場、問題、目標與已知限制", upload:"上傳現場照片 / PDF / 圖紙 / 資料", uploadHint:"最多 5 個檔案；自動郵件模式下附件總量不超過 4 MB。STEP/DWG 等大檔案可先提交詢盤後再寄送。",
     consent:"我同意珠海小度智能科技有限公司使用這些資訊與我聯絡並評估專案。", submit:"提交專案詢盤", sending:"正在提交…", required:"請填寫必填欄位並同意聯絡。",
@@ -83,7 +83,7 @@ const INQUIRY_UI = {
     timelines:["To be assessed","Within 1 month","1–3 months","3–6 months","6–12 months","More than 12 months"]
   },
   "ja": {
-    title:"プロジェクトについてお聞かせください", intro:"現場写真、図面、設備リスト、まだ整理途中の要件でも構いません。まず実現可能性、範囲、主要リスクを確認します。",
+    title:"プロジェクトについてお聞かせください", intro:"産業オートメーションのご相談には、対象製品・材料、目標タクト、既存設備とインターフェース、現場、希望時期をお知らせください。写真、図面、設備リストから技術的な実現性、システム範囲、主なリスクを確認し、構成と納入条件をご相談します。",
     eyebrow:"PROJECT INQUIRY", basics:"基本情報", project:"プロジェクト要件", files:"プロジェクト資料", company:"会社名", name:"ご担当者", email:"メール", phone:"電話 / WhatsApp / WeChat", country:"国 / 地域",
     type:"プロジェクト種別", budget:"予算範囲", timeline:"希望時期", contact:"希望連絡方法", description:"現場、課題、目標、既知の制約をご記入ください", upload:"現場写真 / PDF / 図面 / 資料をアップロード", uploadHint:"最大5ファイル。自動メール時の添付合計は4MBまで。大きなSTEP/DWGファイルは問い合わせ作成後に別送できます。",
     consent:"珠海小度智能科技有限公司が本情報を使用して連絡し、プロジェクトを評価することに同意します。", submit:"プロジェクト相談を送信", sending:"送信中…", required:"必須項目と連絡への同意をご確認ください。",
@@ -130,10 +130,10 @@ const INQUIRY_UI = {
 
 const DETAIL_UI = {
   "zh-cn": {
-    industriesTitle:"行业应用", industriesIntro:"按行业查看我们如何把自动化、视觉、控制和软件组合成完整项目。", industryLabel:"行业解决方案", industryCases:"相关行业项目", industrySolutions:"推荐解决方案", industryNames:{mining:"矿业与大宗物料",manufacturing:"精密制造",laboratory:"实验室自动化",logistics:"物流与仓储",heavy:"流程与重工业"},
+    industriesTitle:"行业应用", industriesIntro:"面向制造、矿业与散料、实验室、物流仓储和流程工业，查看工业自动化方案如何结合机器人、视觉、取制样、控制与数据系统，并对照对应项目场景和交付边界。", industryLabel:"行业解决方案", industryCases:"相关行业项目", industrySolutions:"推荐解决方案", industryNames:{mining:"矿业与大宗物料",manufacturing:"精密制造",laboratory:"实验室自动化",logistics:"物流与仓储",heavy:"流程与重工业"},
         challenge:"客户场景与核心问题", architecture:"系统方案", scope:"主要系统组成", acceptance:"验收关注点",
-    deliverables:"客户最终拿到什么", fit:"适合什么样的项目", casesTitle:"海外项目案例库", casesIntro:"按行业和应用场景查看项目思路、系统组成和交付方式。",
-    solutionsTitle:"解决方案中心", solutionsIntro:"围绕工业现场，把机器人、视觉、自动化设备、控制和软件组合成可交付系统。",
+    deliverables:"客户最终拿到什么", fit:"适合什么样的项目", casesTitle:"海外项目案例库", casesIntro:"查看海外工业自动化项目案例，了解机器人上下料、机器视觉、矿物自动取制样、实验室自动化及设备数据平台的系统组成、工况和交付方式。",
+    solutionsTitle:"解决方案中心", solutionsIntro:"面向制造、矿业、实验室与物流现场，提供机器人自动化、机器视觉、自动取制样、专用设备、控制与工业软件集成。按工艺、节拍、现有设备接口和验收要求明确系统范围。",
     projectFacts:"项目概览", market:"市场 / 行业", application:"应用场景", deliveryModel:"交付模式", turnkey:"定制工程 + 系统集成",
     keyPoints:["功能和节拍按约定工况验证","异常、联锁和恢复逻辑必须可测试","设备接口与数据记录可追溯","FAT / SAT、培训和技术资料完整交付"],
     clientGets:["完整方案与接口边界","机械 / 电气 / 控制 / 软件协同交付","出厂测试与现场验收支持","技术文档、培训与后续运维接口"],
@@ -146,10 +146,10 @@ const DETAIL_UI = {
     ]
   },
   "zh-tw": {
-    industriesTitle:"產業應用", industriesIntro:"依產業查看我們如何把自動化、視覺、控制與軟體組合成完整專案。", industryLabel:"產業解決方案", industryCases:"相關產業專案", industrySolutions:"推薦解決方案", industryNames:{mining:"礦業與大宗物料",manufacturing:"精密製造",laboratory:"實驗室自動化",logistics:"物流與倉儲",heavy:"流程與重工業"},
+    industriesTitle:"產業應用", industriesIntro:"面向製造、礦業與散裝物料、實驗室、物流倉儲及流程工業，查看工業自動化方案如何結合機器人、視覺、取製樣、控制與資料系統，並對照專案場景和交付邊界。", industryLabel:"產業解決方案", industryCases:"相關產業專案", industrySolutions:"推薦解決方案", industryNames:{mining:"礦業與大宗物料",manufacturing:"精密製造",laboratory:"實驗室自動化",logistics:"物流與倉儲",heavy:"流程與重工業"},
         challenge:"客戶場景與核心問題", architecture:"系統方案", scope:"主要系統組成", acceptance:"驗收關注點",
-    deliverables:"客戶最終拿到什麼", fit:"適合什麼樣的專案", casesTitle:"海外專案案例庫", casesIntro:"依產業與應用場景查看專案思路、系統組成與交付方式。",
-    solutionsTitle:"解決方案中心", solutionsIntro:"圍繞工業現場，把機器人、視覺、自動化設備、控制與軟體組合成可交付系統。",
+    deliverables:"客戶最終拿到什麼", fit:"適合什麼樣的專案", casesTitle:"海外專案案例庫", casesIntro:"瀏覽海外工業自動化案例，了解機器人上下料、機器視覺、礦物自動取製樣、實驗室自動化及設備資料平台的系統組成、工況與交付方式。",
+    solutionsTitle:"解決方案中心", solutionsIntro:"面向製造、礦業、實驗室與物流現場，提供機器人自動化、機器視覺、自動取製樣、專用設備、控制及工業軟體整合。依製程、節拍、既有設備介面與驗收要求界定系統範圍。",
     projectFacts:"專案概覽", market:"市場 / 產業", application:"應用場景", deliveryModel:"交付模式", turnkey:"客製工程 + 系統整合",
     keyPoints:["功能與節拍依約定工況驗證","異常、聯鎖與恢復邏輯必須可測試","設備介面與資料紀錄可追溯","FAT / SAT、培訓與技術資料完整交付"],
     clientGets:["完整方案與介面邊界","機械 / 電氣 / 控制 / 軟體協同交付","出廠測試與現場驗收支援","技術文件、培訓與後續運維介面"],
@@ -178,10 +178,10 @@ const DETAIL_UI = {
     ]
   },
   "ja": {
-    industriesTitle:"対応業界", industriesIntro:"業界ごとに、オートメーション、ビジョン、制御、ソフトウェアをどのように組み合わせるかをご覧いただけます。", industryLabel:"業界ソリューション", industryCases:"関連プロジェクト", industrySolutions:"推奨ソリューション", industryNames:{mining:"鉱業・バルク材",manufacturing:"精密製造の自動化",laboratory:"ラボ自動化",logistics:"物流・倉庫",heavy:"プロセス・重工業"},
+    industriesTitle:"対応業界", industriesIntro:"製造、鉱業・バルク材、研究所、物流・倉庫、プロセス産業向けに、ロボット、画像検査、自動サンプリング、制御、データシステムの組み合わせを用途別に紹介します。対象工程や設備連携、検収範囲もご確認いただけます。", industryLabel:"業界ソリューション", industryCases:"関連プロジェクト", industrySolutions:"推奨ソリューション", industryNames:{mining:"鉱業・バルク材",manufacturing:"精密製造の自動化",laboratory:"ラボ自動化",logistics:"物流・倉庫",heavy:"プロセス・重工業"},
         challenge:"顧客現場と主要課題", architecture:"システムアプローチ", scope:"主なシステム構成", acceptance:"検収の重点",
-    deliverables:"お客様に納入するもの", fit:"適したプロジェクト", casesTitle:"海外プロジェクト事例", casesIntro:"業界・用途別に、プロジェクトの考え方、システム構成、納入方式をご覧いただけます。",
-    solutionsTitle:"ソリューションセンター", solutionsIntro:"ロボット、ビジョン、自動化設備、制御、ソフトウェアを一つの産業システムとして設計・納入します。",
+    deliverables:"お客様に納入するもの", fit:"適したプロジェクト", casesTitle:"海外プロジェクト事例", casesIntro:"海外の産業オートメーション事例をご紹介します。ロボット搬送、画像検査、鉱物の自動サンプリング、ラボ自動化、設備データ基盤の構成、運用条件、納入範囲をご確認いただけます。",
+    solutionsTitle:"ソリューションセンター", solutionsIntro:"製造、鉱業、研究所、物流の現場に、ロボット自動化、画像検査、自動サンプリング、専用設備、制御、産業ソフトウェアを組み合わせます。工程、タクト、既存設備の接続、検収条件に基づいてシステム範囲を定義します。",
     projectFacts:"プロジェクト概要", market:"市場 / 業界", application:"用途", deliveryModel:"納入方式", turnkey:"カスタム設計 + システム統合",
     keyPoints:["合意した稼働条件で機能とタクトを検証","異常、インターロック、復帰ロジックを試験可能にする","設備インターフェースと重要記録を追跡可能にする","FAT / SAT、教育、技術資料をプロジェクト成果物として納入"],
     clientGets:["明確なシステム構成とインターフェース境界","機械・電気・制御・ソフトウェアの一体納入","出荷前試験と現地検収支援","技術資料、教育、保守可能なサービスインターフェース"],
