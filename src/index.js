@@ -302,6 +302,7 @@ function organizationJsonLd() {
     "@type":"Organization",
     "@id":BASE + "/#organization",
     "name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
+    "alternateName":"珠海小度智能科技有限公司",
     "url":BASE + "/",
     "email":"abd.yusuf.ibrahim.mustafa@gmail.com",
     "telephone":"+86 132 4269 4270",
