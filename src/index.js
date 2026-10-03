@@ -178,7 +178,7 @@ const DETAIL_UI = {
     ]
   },
   "ja": {
-    industriesTitle:"対応業界", industriesIntro:"業界ごとに、オートメーション、ビジョン、制御、ソフトウェアをどのように組み合わせるかをご覧いただけます。", industryLabel:"業界ソリューション", industryCases:"関連プロジェクト", industrySolutions:"推奨ソリューション", industryNames:{mining:"鉱業・バルク材",manufacturing:"精密製造",laboratory:"ラボ自動化",logistics:"物流・倉庫",heavy:"プロセス・重工業"},
+    industriesTitle:"対応業界", industriesIntro:"業界ごとに、オートメーション、ビジョン、制御、ソフトウェアをどのように組み合わせるかをご覧いただけます。", industryLabel:"業界ソリューション", industryCases:"関連プロジェクト", industrySolutions:"推奨ソリューション", industryNames:{mining:"鉱業・バルク材",manufacturing:"精密製造の自動化",laboratory:"ラボ自動化",logistics:"物流・倉庫",heavy:"プロセス・重工業"},
         challenge:"顧客現場と主要課題", architecture:"システムアプローチ", scope:"主なシステム構成", acceptance:"検収の重点",
     deliverables:"お客様に納入するもの", fit:"適したプロジェクト", casesTitle:"海外プロジェクト事例", casesIntro:"業界・用途別に、プロジェクトの考え方、システム構成、納入方式をご覧いただけます。",
     solutionsTitle:"ソリューションセンター", solutionsIntro:"ロボット、ビジョン、自動化設備、制御、ソフトウェアを一つの産業システムとして設計・納入します。",
