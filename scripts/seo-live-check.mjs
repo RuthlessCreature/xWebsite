@@ -83,7 +83,7 @@ function validatePage(page) {
 for (const site of sites) {
   const base = `https://${site.host}`;
   const [{ text: robots }, { text: llms }, { text: contact }, { text: keyFile }] = await Promise.all([
-    read(`${base}/robots.txt`), read(`${base}/llms.txt`), read(site.contact), read(`${base}/${key}.txt`),
+    readSiteRoute(site, `${base}/robots.txt`), readSiteRoute(site, `${base}/llms.txt`), readSiteRoute(site, site.contact), readSiteRoute(site, `${base}/${key}.txt`),
   ]);
   if (!/sitemap:/i.test(robots)) throw new Error(`${site.host}: robots.txt does not declare a sitemap`);
   if (!/OAI-SearchBot|Claude-SearchBot|PerplexityBot/i.test(robots)) throw new Error(`${site.host}: AI search crawlers are not explicitly covered`);
@@ -93,7 +93,7 @@ for (const site of sites) {
     throw new Error(`${site.host}: contact page does not contain the unified contact details`);
   }
 
-  const homepage = await read(site.home);
+  const homepage = await readSiteRoute(site, site.home);
   const homepagePage = inspectPage(homepage.text, site.home);
   if (homepagePage.h1.length !== 1 || !homepagePage.title[0]?.toLowerCase().includes(site.titleTopic.toLowerCase()) || !homepagePage.h1[0]?.toLowerCase().includes(site.headingTopic.toLowerCase())) {
     throw new Error(`${site.host}: homepage title/H1 do not cover the configured topic`);
