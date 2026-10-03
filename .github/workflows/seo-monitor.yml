@@ -1,21 +1,25 @@
-name: Weekly cross-site SEO availability check
+name: Weekly cross-site SEO health audit
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: "23 3 * * 1"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: cross-site-seo-audit
+  cancel-in-progress: true
+
 jobs:
-  verify-production:
+  audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check all production sites
+      - name: Audit live SEO endpoints and sitemap pages
         run: node scripts/seo-live-check.mjs

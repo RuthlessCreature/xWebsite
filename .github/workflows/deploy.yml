@@ -3,6 +3,12 @@ name: Cloudflare Deploy and SEO Smoke Check
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - '.github/workflows/**'
+      - 'scripts/seo-live-check.mjs'
+      - 'scripts/notify-indexnow.mjs'
   workflow_dispatch:
 
 permissions:
