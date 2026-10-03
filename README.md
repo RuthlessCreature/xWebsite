@@ -106,9 +106,18 @@ SEO endpoints:
 
 - `/sitemap.xml`
 - `/robots.txt`
+- `/llms.txt` (AI crawler and site-context overview)
+- `/contact/` (business inquiry entry)
 - canonical URLs
 - hreflang alternates
 - Organization / Service / Article structured data
+
+Public discovery URLs:
+
+- Sitemap: https://xiaodu.tech/sitemap.xml
+- Robots: https://xiaodu.tech/robots.txt
+- AI-readable overview: https://xiaodu.tech/llms.txt
+- Contact: https://xiaodu.tech/contact/
 
 Cloudflare production routing:
 
