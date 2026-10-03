@@ -129,6 +129,8 @@ for (const site of sites) {
         const { text, status } = await readSiteRoute(site, url);
         const page = inspectPage(text, url);
         const errors = validatePage(page);
+        if (site.host === "xiaodu.tech" && !page.title[0]?.toLowerCase().includes("zhuhai xiaodu") && !page.title[0]?.includes("珠海小度智能科技有限公司")) errors.push("title must use the distinct Zhuhai Xiaodu entity name");
+        if (site.host === "xiaodu.tech" && page.title[0]?.length > 70) errors.push("title exceeds 70 characters");
         if (status !== 200 || errors.length) failures.push(`${url}: HTTP ${status}; ${errors.join("; ")}`);
         pages.push(page);
       } catch (error) {

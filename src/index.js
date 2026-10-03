@@ -369,15 +369,22 @@ function contact(lang, ui) {
 
 function shellPage({lang, title, description, canonicalPath, body, dict, ui, schema, image}) {
   const canonical = `${BASE}/${lang}/${canonicalPath}`;
+  const brandSuffix = " | Zhuhai Xiaodu";
+  const titleLimit = 70 - brandSuffix.length;
+  let seoTitleCore = String(title).trim();
+  if (seoTitleCore.length > titleLimit) {
+    seoTitleCore = seoTitleCore.slice(0, titleLimit + 1).replace(/\s+\S*$/, "").trim();
+  }
+  const seoTitle = `${seoTitleCore}${brandSuffix}`;
   return `<!doctype html>
 <html lang="${esc(LANGS[lang].asset)}">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)} | Xiaodu</title>
+<title>${esc(seoTitle)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">
 ${alternates(canonicalPath)}
-<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${esc(LANGS[lang].asset)}">
+<meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><meta property="og:type" content="website"><meta property="og:title" content="${esc(seoTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${esc(LANGS[lang].asset)}">
 ${image ? `<meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${esc(image)}">` : `<meta name="twitter:card" content="summary">`}
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">${orgJsonLd()}</script>
