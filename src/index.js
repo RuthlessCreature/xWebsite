@@ -132,7 +132,7 @@ const DETAIL_UI = {
   "zh-cn": {
     industriesTitle:"行业应用", industriesIntro:"面向制造、矿业与散料、实验室、物流仓储和流程工业，查看工业自动化方案如何结合机器人、视觉、取制样、控制与数据系统，并对照对应项目场景和交付边界。", industryLabel:"行业解决方案", industryCases:"相关行业项目", industrySolutions:"推荐解决方案", industryNames:{mining:"矿业与大宗物料",manufacturing:"精密制造",laboratory:"实验室自动化",logistics:"物流与仓储",heavy:"流程与重工业"},
         challenge:"客户场景与核心问题", architecture:"系统方案", scope:"主要系统组成", acceptance:"验收关注点",
-    deliverables:"客户最终拿到什么", fit:"适合什么样的项目", casesTitle:"海外项目案例库", casesIntro:"查看海外工业自动化项目案例，了解机器人上下料、机器视觉、矿物自动取制样、实验室自动化及设备数据平台的系统组成、工况和交付方式。",
+    deliverables:"客户最终拿到什么", fit:"适合什么样的项目", casesTitle:"海外项目案例库", casesIntro:"查看海外工业自动化项目案例，了解机器人上下料、机器视觉、矿物自动取制样、实验室自动化及设备数据平台的系统组成、运行工况、接口范围、主要难点和交付方式。",
     solutionsTitle:"解决方案中心", solutionsIntro:"面向制造、矿业、实验室与物流现场，提供机器人自动化、机器视觉、自动取制样、专用设备、控制与工业软件集成。按工艺、节拍、现有设备接口和验收要求明确系统范围。",
     projectFacts:"项目概览", market:"市场 / 行业", application:"应用场景", deliveryModel:"交付模式", turnkey:"定制工程 + 系统集成",
     keyPoints:["功能和节拍按约定工况验证","异常、联锁和恢复逻辑必须可测试","设备接口与数据记录可追溯","FAT / SAT、培训和技术资料完整交付"],
@@ -148,7 +148,7 @@ const DETAIL_UI = {
   "zh-tw": {
     industriesTitle:"產業應用", industriesIntro:"面向製造、礦業與散裝物料、實驗室、物流倉儲及流程工業，查看工業自動化方案如何結合機器人、視覺、取製樣、控制與資料系統，並對照專案場景和交付邊界。", industryLabel:"產業解決方案", industryCases:"相關產業專案", industrySolutions:"推薦解決方案", industryNames:{mining:"礦業與大宗物料",manufacturing:"精密製造",laboratory:"實驗室自動化",logistics:"物流與倉儲",heavy:"流程與重工業"},
         challenge:"客戶場景與核心問題", architecture:"系統方案", scope:"主要系統組成", acceptance:"驗收關注點",
-    deliverables:"客戶最終拿到什麼", fit:"適合什麼樣的專案", casesTitle:"海外專案案例庫", casesIntro:"瀏覽海外工業自動化案例，了解機器人上下料、機器視覺、礦物自動取製樣、實驗室自動化及設備資料平台的系統組成、工況與交付方式。",
+    deliverables:"客戶最終拿到什麼", fit:"適合什麼樣的專案", casesTitle:"海外專案案例庫", casesIntro:"瀏覽海外工業自動化案例，了解機器人上下料、機器視覺、礦物自動取製樣、實驗室自動化及設備資料平台的系統組成、運行工況、介面範圍、主要難點與交付方式。",
     solutionsTitle:"解決方案中心", solutionsIntro:"面向製造、礦業、實驗室與物流現場，提供機器人自動化、機器視覺、自動取製樣、專用設備、控制及工業軟體整合。依製程、節拍、既有設備介面與驗收要求界定系統範圍。",
     projectFacts:"專案概覽", market:"市場 / 產業", application:"應用場景", deliveryModel:"交付模式", turnkey:"客製工程 + 系統整合",
     keyPoints:["功能與節拍依約定工況驗證","異常、聯鎖與恢復邏輯必須可測試","設備介面與資料紀錄可追溯","FAT / SAT、培訓與技術資料完整交付"],
