@@ -191,7 +191,7 @@ for (const site of sites) {
     console.error(`${site.host}: ${failures.length} sitemap SEO checks failed:\n${failures.slice(0, 30).join("\n")}`);
   }
 
-  for (const bot of ["Googlebot", "bingbot", "360Spider", "Sogou web spider/4.0", "Sogou inst spider/4.0", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) {
+  for (const bot of ["Googlebot", "bingbot", "Baiduspider", "YandexBot", "DuckDuckBot", "Applebot", "360Spider", "Sogou web spider/4.0", "Sogou inst spider/4.0", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) {
     try {
       const response = await readSiteRoute(site, `${base}/`, bot);
       console.log(`${site.host}: ${bot} probe returned HTTP ${response.status}`);
