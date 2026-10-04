@@ -1,6 +1,12 @@
 name: Weekly cross-site SEO health audit
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - scripts/seo-live-check.mjs
+      - .github/workflows/seo-monitor.yml
   schedule:
     - cron: "23 3 * * 1"
   workflow_dispatch:
