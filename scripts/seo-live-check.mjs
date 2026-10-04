@@ -1,7 +1,7 @@
 const sites = [
-  { host: "xiaodu.tech", home: "https://xiaodu.tech/en/", titleTopic: "industrial automation", headingTopic: "industrial automation", contact: "https://xiaodu.tech/zh-cn/contact/", sitemap: "https://xiaodu.tech/sitemap.xml" },
-  { host: "www.staychina.org", home: "https://www.staychina.org/en", titleTopic: "China company setup", headingTopic: "company in China", contact: "https://www.staychina.org/en/contact", sitemap: "https://www.staychina.org/sitemap-index.xml", workerOrigin: "https://pwebsite.nostalgia-ho.workers.dev" },
-  { host: "pomerol.trade", home: "https://pomerol.trade/en/", titleTopic: "China product sourcing", headingTopic: "China product sourcing", focusPage: "https://pomerol.trade/china-sourcing-agent/", focusTopic: "China sourcing agent", contact: "https://pomerol.trade/contact/", sitemap: "https://pomerol.trade/sitemap.xml" },
+  { host: "xiaodu.tech", home: "https://xiaodu.tech/en/", titleTopic: "industrial automation", headingTopic: "industrial automation", contact: "https://xiaodu.tech/zh-cn/contact/" },
+  { host: "www.staychina.org", home: "https://www.staychina.org/en", titleTopic: "China company setup", headingTopic: "company in China", contact: "https://www.staychina.org/en/contact", workerOrigin: "https://pwebsite.nostalgia-ho.workers.dev" },
+  { host: "pomerol.trade", home: "https://pomerol.trade/en/", titleTopic: "China product sourcing", headingTopic: "China product sourcing", focusPage: "https://pomerol.trade/china-sourcing-agent/", focusTopic: "China sourcing agent", contact: "https://pomerol.trade/contact/" },
 ];
 const key = "6ef27e4a81efe1ff6c679ee852d012f2";
 const monitorErrors = [];
@@ -105,7 +105,8 @@ for (const site of sites) {
   const [{ text: robots }, { text: llms }, { text: contact }, { text: keyFile }] = await Promise.all([
     readSiteRoute(site, `${base}/robots.txt`), readSiteRoute(site, `${base}/llms.txt`), readSiteRoute(site, site.contact), readSiteRoute(site, `${base}/${key}.txt`),
   ]);
-  if (!/sitemap:/i.test(robots)) throw new Error(`${site.host}: robots.txt does not declare a sitemap`);
+  const sitemapUrls = [...robots.matchAll(/^Sitemap:\s*(\S+)\s*$/gim)].map((match) => match[1]);
+  if (!sitemapUrls.length) throw new Error(`${site.host}: robots.txt does not declare a sitemap`);
   if (!/^Content-Signal:\s*search=yes,\s*ai-input=yes,\s*ai-train=no\s*$/im.test(robots)) throw new Error(`${site.host}: robots.txt content signals must allow search and AI input while blocking training`);
   if (!/OAI-SearchBot|Claude-SearchBot|PerplexityBot/i.test(robots)) throw new Error(`${site.host}: AI search crawlers are not explicitly covered`);
   for (const crawler of ["360Spider", "Sogou web spider", "Sogou inst spider"]) {
@@ -146,7 +147,7 @@ for (const site of sites) {
       throw new Error(`${site.host}: focused landing page canonical does not match its URL`);
     }
   }
-  const pageUrls = [...new Set(await collectPageUrls(site, site.sitemap))];
+  const pageUrls = [...new Set((await Promise.all(sitemapUrls.map((url) => collectPageUrls(site, url)))).flat())];
   if (!pageUrls.length) throw new Error(`${site.host}: sitemap contains no canonical page URLs`);
   const failures = [];
   const pages = [];
