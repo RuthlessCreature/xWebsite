@@ -304,6 +304,7 @@ function organizationJsonLd() {
     "name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
     "alternateName":"珠海小度智能科技有限公司",
     "url":BASE + "/",
+    "sameAs":["https://www.youtube.com/@XiaoduAutomation"],
     "email":"abd.yusuf.ibrahim.mustafa@gmail.com",
     "telephone":"+86 132 4269 4270",
     "contactPoint":{"@type":"ContactPoint","name":"Yusuf","telephone":"+86 132 4269 4270","email":"abd.yusuf.ibrahim.mustafa@gmail.com","contactType":"sales"}
@@ -390,7 +391,7 @@ ${schema ? (Array.isArray(schema) ? schema : [schema]).map(x=>`<script type="app
 ${header(lang,ui,dict)}
 <main>${body}</main>
 ${contact(lang,ui)}
-<footer class="site-footer"><div class="shell footer-layout"><div><strong>${esc(dict.companyName)}</strong><small>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</small></div><div class="footer-contact"><span>Yusuf</span><a href="tel:+8613242694270">+86 132 4269 4270</a><a href="mailto:abd.yusuf.ibrahim.mustafa@gmail.com">abd.yusuf.ibrahim.mustafa@gmail.com</a></div><p>© 2026 Zhuhai Xiaodu Intelligent Technology Co., Ltd.</p></div></footer>
+<footer class="site-footer"><div class="shell footer-layout"><div><strong>${esc(dict.companyName)}</strong><small>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</small><a href="https://www.youtube.com/@XiaoduAutomation" target="_blank" rel="noopener noreferrer">YouTube</a></div><div class="footer-contact"><span>Yusuf</span><a href="tel:+8613242694270">+86 132 4269 4270</a><a href="mailto:abd.yusuf.ibrahim.mustafa@gmail.com">abd.yusuf.ibrahim.mustafa@gmail.com</a></div><p>© 2026 Zhuhai Xiaodu Intelligent Technology Co., Ltd.</p></div></footer>
 <script src="/app.js" defer></script>
 </body></html>`;
 }
