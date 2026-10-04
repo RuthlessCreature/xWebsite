@@ -679,7 +679,16 @@ function sitemap() {
     for(const s of SOLUTIONS) urls.push(`${BASE}/${lang}/solutions/${s.slug}/`);
     for(const c of CASES) urls.push(`${BASE}/${lang}/cases/${c.slug}/`);
   }
-  return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${u}</loc><changefreq>monthly</changefreq><priority>${u.split("/").length<=5?"1.0":"0.8"}</priority></url>`).join("")}</urlset>`;
+  const baseline="2026-10-03T22:37:05.000Z";
+  const updatedAt=(url)=>{
+    const path=new URL(url).pathname;
+    if(/^\/(zh-cn|zh-tw|ja)\/(contact)\/$/.test(path)) return "2026-10-03T23:20:55.000Z";
+    if(/^\/(zh-cn|zh-tw)\/cases\/$/.test(path)) return "2026-10-03T23:24:36.000Z";
+    if(/^\/(zh-cn|zh-tw|ja)\/(solutions|cases)\/[^/]+\/$/.test(path)) return "2026-10-03T23:52:05.000Z";
+    if(/^\/(zh-cn|en)\/solutions\/$/.test(path)) return "2026-10-04T04:39:57.000Z";
+    return baseline;
+  };
+  return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${u}</loc><lastmod>${updatedAt(u)}</lastmod><changefreq>monthly</changefreq><priority>${u.split("/").length<=5?"1.0":"0.8"}</priority></url>`).join("")}</urlset>`;
 }
 
 export default {
