@@ -75,7 +75,7 @@ function structuredTypes(html) {
   const types = new Set();
   const nodes = [];
   const errors = [];
-  for (const match of html.matchAll(/<script\\b[^>]*type=["']application\\/ld\\+json["'][^>]*>([\\s\\S]*?)<\\/script>/gi)) {
+  for (const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
     try {
       const visit = (value) => {
         if (Array.isArray(value)) return value.forEach(visit);
@@ -95,7 +95,7 @@ function structuredTypes(html) {
 function normalizedEntityId(value) {
   try {
     const url = new URL(value);
-    return `${url.origin}${url.pathname.replace(/\\/$/, "")}${url.hash}`;
+    return `${url.origin}${url.pathname.replace(/\/$/, "")}${url.hash}`;
   } catch {
     return "";
   }
@@ -112,9 +112,9 @@ function validateSiteEntities(html, site) {
   else {
     if (!organization.name) errors.push("Organization is missing name");
     if (organization.email !== "abd.yusuf.ibrahim.mustafa@gmail.com") errors.push("Organization email does not match Yusuf's unified contact");
-    if (!/132\\D*4269\\D*4270/.test(organization.telephone || "")) errors.push("Organization telephone does not match Yusuf's unified contact");
+    if (!/132\D*4269\D*4270/.test(organization.telephone || "")) errors.push("Organization telephone does not match Yusuf's unified contact");
     const points = Array.isArray(organization.contactPoint) ? organization.contactPoint : [organization.contactPoint];
-    if (!points.some((point) => point?.name === "Yusuf" && point.email === "abd.yusuf.ibrahim.mustafa@gmail.com" && /132\\D*4269\\D*4270/.test(point.telephone || ""))) {
+    if (!points.some((point) => point?.name === "Yusuf" && point.email === "abd.yusuf.ibrahim.mustafa@gmail.com" && /132\D*4269\D*4270/.test(point.telephone || ""))) {
       errors.push("Organization ContactPoint is missing Yusuf's unified contact details");
     }
   }
