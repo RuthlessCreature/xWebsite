@@ -300,16 +300,20 @@ function faqJsonLd(du) {
 }
 
 function organizationJsonLd() {
+  const languages=Object.values(LANGS).map(value=>value.asset);
   return {
     "@type":"Organization",
     "@id":BASE + "/#organization",
     "name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
+    "legalName":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.",
     "alternateName":"珠海小度智能科技有限公司",
     "url":BASE + "/",
     "sameAs":["https://www.youtube.com/@XiaoduAutomation"],
     "email":"abd.yusuf.ibrahim.mustafa@gmail.com",
     "telephone":"+86 132 4269 4270",
-    "contactPoint":{"@type":"ContactPoint","name":"Yusuf","telephone":"+86 132 4269 4270","email":"abd.yusuf.ibrahim.mustafa@gmail.com","contactType":"sales"}
+    "address":{"@type":"PostalAddress","addressLocality":"Zhuhai","addressRegion":"Guangdong","addressCountry":"CN"},
+    "areaServed":"Worldwide",
+    "contactPoint":{"@type":"ContactPoint","name":"Yusuf","telephone":"+86 132 4269 4270","email":"abd.yusuf.ibrahim.mustafa@gmail.com","contactType":"sales","availableLanguage":languages,"areaServed":"Worldwide"}
   };
 }
 
