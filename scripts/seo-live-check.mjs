@@ -7,15 +7,24 @@ const key = "6ef27e4a81efe1ff6c679ee852d012f2";
 const monitorErrors = [];
 
 async function read(url, userAgent = "SEO-Monitor/2.0") {
-  const response = await fetch(url, {
-    headers: { "user-agent": userAgent, "cache-control": "no-cache" },
-    redirect: "follow",
-    signal: AbortSignal.timeout(20_000),
-  });
-  if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
-  return { text: await response.text(), status: response.status, finalUrl: response.url };
+  let lastError;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: { "user-agent": userAgent, "cache-control": "no-cache" },
+        redirect: "follow",
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+      return { text: await response.text(), status: response.status, finalUrl: response.url };
+    } catch (error) {
+      lastError = error;
+      if (String(error).includes("HTTP ") || attempt === 1) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 500));
+    }
+  }
+  throw lastError;
 }
-
 async function readSiteRoute(site, url, userAgent) {
   try {
     return await read(url, userAgent);
