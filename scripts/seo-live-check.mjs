@@ -106,6 +106,7 @@ for (const site of sites) {
     readSiteRoute(site, `${base}/robots.txt`), readSiteRoute(site, `${base}/llms.txt`), readSiteRoute(site, site.contact), readSiteRoute(site, `${base}/${key}.txt`),
   ]);
   if (!/sitemap:/i.test(robots)) throw new Error(`${site.host}: robots.txt does not declare a sitemap`);
+  if (!/^Content-Signal:\s*search=yes,\s*ai-input=yes,\s*ai-train=no\s*$/im.test(robots)) throw new Error(`${site.host}: robots.txt content signals must allow search and AI input while blocking training`);
   if (!/OAI-SearchBot|Claude-SearchBot|PerplexityBot/i.test(robots)) throw new Error(`${site.host}: AI search crawlers are not explicitly covered`);
   for (const crawler of ["360Spider", "Sogou web spider", "Sogou inst spider"]) {
     if (!robots.toLowerCase().includes(`user-agent: ${crawler.toLowerCase()}`)) throw new Error(`${site.host}: ${crawler} is not explicitly allowed in robots.txt`);

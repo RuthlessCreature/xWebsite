@@ -707,7 +707,7 @@ export default {
     if(path==="/sitemap.xml") return new Response(sitemap(),{headers:{"content-type":"application/xml; charset=utf-8","cache-control":"public, max-age=3600"}});
     if(path==="/robots.txt") {
       const robots = [
-        "User-agent: *", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
+        "User-agent: *", "Content-Signal: search=yes, ai-input=yes, ai-train=no", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
         "User-agent: Googlebot", "User-agent: Googlebot-Image", "User-agent: Bingbot", "User-agent: Slurp", "User-agent: DuckDuckBot", "User-agent: YandexBot", "User-agent: Baiduspider", "User-agent: 360Spider", "User-agent: Sogou web spider", "User-agent: Sogou inst spider", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
         "User-agent: OAI-SearchBot", "User-agent: ChatGPT-User", "User-agent: Claude-SearchBot", "User-agent: Claude-User", "User-agent: PerplexityBot", "User-agent: Perplexity-User", "User-agent: Applebot", "Allow: /", "Allow: /api/social-image/", "Disallow: /api/", "",
         "User-agent: GPTBot", "User-agent: ClaudeBot", "User-agent: Applebot-Extended", "Disallow: /", "",
