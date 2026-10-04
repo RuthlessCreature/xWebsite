@@ -30,4 +30,6 @@
 - XML sitemap: https://xiaodu.tech/sitemap.xml
 
 Use the public pages as the source of truth. Project fit, delivery scope, schedule and pricing depend on the specific requirements and are confirmed after review.
+## Machine-readable business overview
 
+- https://xiaodu.tech/ai-overview.md — concise first-party service summary, scope limits and canonical pages.
