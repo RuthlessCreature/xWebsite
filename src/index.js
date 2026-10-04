@@ -1,3 +1,5 @@
+import { AUTOMATION_GUIDE, AUTOMATION_GUIDE_SLUG } from "./industrial-automation-guide.js";
+
 const BASE = "https://xiaodu.tech";
 
 const LANGS = {
@@ -259,14 +261,14 @@ async function loadDict(env, lang) {
   return res.json();
 }
 
-function languageOptions(current) {
-  return Object.entries(LANGS).map(([key,value]) =>
+function languageOptions(current, availableLanguages = Object.keys(LANGS)) {
+  return availableLanguages.map(key => [key, LANGS[key]]).map(([key,value]) =>
     `<option value="${key}" ${key===current?"selected":""}>${esc(value.label)}</option>`
   ).join("");
 }
 
-function alternates(path) {
-  const items = Object.keys(LANGS).map(lang =>
+function alternates(path, availableLanguages = Object.keys(LANGS)) {
+  const items = availableLanguages.map(lang =>
     `<link rel="alternate" hreflang="${LANGS[lang].asset}" href="${BASE}/${lang}/${path}">`
   ).join("");
   return items + `<link rel="alternate" hreflang="x-default" href="${BASE}/en/${path}">`;
@@ -341,7 +343,7 @@ function sitePageJsonLd(lang, title, description, canonical) {
   });
 }
 
-function header(lang, ui, dict) {
+function header(lang, ui, dict, availableLanguages = Object.keys(LANGS)) {
   const du=DETAIL_UI[lang];
   return `
   <header class="site-header">
@@ -349,7 +351,7 @@ function header(lang, ui, dict) {
     <div class="shell nav-shell detail-nav-shell">
       <a class="brand" href="/${lang}/"><span class="brand-mark">XD</span><span class="brand-copy"><strong>${esc(dict.companyName)}</strong><small>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</small></span></a>
       <nav class="detail-nav"><a href="/${lang}/solutions/">${esc(ui.solutions)}</a><a href="/${lang}/cases/">${esc(ui.cases)}</a><a href="/${lang}/industries/">${esc(du?.industriesTitle || "Industries")}</a><a href="/${lang}/#about">${esc(ui.about)}</a></nav>
-      <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language>${languageOptions(lang)}</select></label><a class="header-cta" href="/${lang}/contact/">${esc(ui.contact)}</a></div>
+      <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language>${languageOptions(lang,availableLanguages)}</select></label><a class="header-cta" href="/${lang}/contact/">${esc(ui.contact)}</a></div>
     </div>
   </header>`;
 }
@@ -364,7 +366,7 @@ function contact(lang, ui) {
   </section>`;
 }
 
-function shellPage({lang, title, description, canonicalPath, body, dict, ui, schema, image}) {
+function shellPage({lang, title, description, canonicalPath, body, dict, ui, schema, image, availableLanguages = Object.keys(LANGS)}) {
   const canonical = `${BASE}/${lang}/${canonicalPath}`;
   const brandSuffix = " | Zhuhai Xiaodu";
   const titleLimit = 70 - brandSuffix.length;
@@ -380,7 +382,7 @@ function shellPage({lang, title, description, canonicalPath, body, dict, ui, sch
 <title>${esc(seoTitle)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">
-${alternates(canonicalPath)}
+${alternates(canonicalPath,availableLanguages)}
 <meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><meta property="og:type" content="website"><meta property="og:title" content="${esc(seoTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${esc(LANGS[lang].asset)}">
 ${image ? `<meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${esc(image)}">` : `<meta name="twitter:card" content="summary">`}
 <link rel="stylesheet" href="/styles.css">
@@ -388,7 +390,7 @@ ${image ? `<meta property="og:image" content="${esc(image)}"><meta name="twitter
 ${schema ? (Array.isArray(schema) ? schema : [schema]).map(x=>`<script type="application/ld+json">${JSON.stringify(x)}</script>`).join("") : ""}
 </head>
 <body class="detail-page">
-${header(lang,ui,dict)}
+${header(lang,ui,dict,availableLanguages)}
 <main>${body}</main>
 ${contact(lang,ui)}
 <footer class="site-footer"><div class="shell footer-layout"><div><strong>${esc(dict.companyName)}</strong><small>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</small><a href="https://www.youtube.com/@XiaoduAutomation" target="_blank" rel="noopener noreferrer">YouTube</a></div><div class="footer-contact"><span>Yusuf</span><a href="tel:+8613242694270">+86 132 4269 4270</a><a href="mailto:abd.yusuf.ibrahim.mustafa@gmail.com">abd.yusuf.ibrahim.mustafa@gmail.com</a></div><p>© 2026 Zhuhai Xiaodu Intelligent Technology Co., Ltd.</p></div></footer>
@@ -472,8 +474,29 @@ function casesIndexPage(lang, dict) {
 function solutionsIndexPage(lang, dict) {
   const ui=UI[lang], du=DETAIL_UI[lang];
   const cards=SOLUTIONS.map(s=>`<a class="case-card" href="/${lang}/solutions/${s.slug}/"><img src="${s.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(ui.solution)}</span><h3>${esc(dict.solution[s.id].title)}</h3><p>${esc(dict.solution[s.id].text)}</p></div></a>`).join("");
-  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">SOLUTIONS</span><h1>${esc(du.solutionsTitle)}</h1><p>${esc(du.solutionsIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>`;
+  const guide=AUTOMATION_GUIDE[lang];
+  const guideLink=guide ? `<section class="section guide-callout"><div class="shell"><span class="eyebrow">${esc(guide.eyebrow)}</span><h2>${esc(guide.title)}</h2><p>${esc(guide.intro)}</p><a class="btn btn-primary" href="/${lang}/resources/${AUTOMATION_GUIDE_SLUG}/">${esc(lang==="zh-cn"?"查看项目清单":"Read the project checklist")} →</a></div></section>` : "";
+  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">SOLUTIONS</span><h1>${esc(du.solutionsTitle)}</h1><p>${esc(du.solutionsIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>${guideLink}`;
   return shellPage({lang,title:du.solutionsTitle,description:du.solutionsIntro,canonicalPath:"solutions/",body,dict,ui});
+}
+
+function automationGuidePage(lang, dict) {
+  const guide=AUTOMATION_GUIDE[lang], ui=UI[lang];
+  const canonicalPath=`resources/${AUTOMATION_GUIDE_SLUG}/`;
+  const sections=guide.sections.map((section,index)=>`<section class="guide-block"><span class="guide-number">0${index+1}</span><h2>${esc(section.title)}</h2><p>${esc(section.body)}</p><ul>${section.checks.map(check=>`<li>${esc(check)}</li>`).join("")}</ul></section>`).join("");
+  const questions=guide.questions.map(question=>`<li>${esc(question)}</li>`).join("");
+  const sources=guide.sources.map(source=>`<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}</a></li>`).join("");
+  const links=guide.links.map(link=>`<li><a href="/${lang}/${link.path}">${esc(link.label)}</a></li>`).join("");
+  const body=`
+  <section class="library-hero guide-hero"><div class="shell"><a class="breadcrumb" href="/${lang}/solutions/">← ${esc(ui.solutions)}</a><span class="eyebrow">${esc(guide.eyebrow)}</span><h1>${esc(guide.title)}</h1><p>${esc(guide.intro)}</p></div></section>
+  <article class="section guide-content"><div class="shell guide-layout"><div class="guide-main">${sections}<section class="guide-block"><h2>${esc(guide.decisionTitle)}</h2><ul>${questions}</ul></section><section class="guide-note"><h2>${esc(guide.noteTitle)}</h2><p>${esc(guide.note)}</p></section><section class="guide-sources"><h2>${esc(guide.sourcesTitle)}</h2><ul>${sources}</ul></section><p class="guide-attribution">${esc(guide.sourceNote)}</p></div><aside class="guide-sidebar"><h2>${esc(guide.relatedTitle)}</h2><ul>${links}</ul><a class="btn btn-primary" href="/${lang}/contact/">${esc(ui.contactYusuf)} →</a></aside></div></article>`;
+  const canonical=`${BASE}/${lang}/${canonicalPath}`;
+  const org={"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.","url":BASE+"/"};
+  const schema=[
+    {"@context":"https://schema.org","@type":"Article","headline":guide.title,"description":guide.description,"inLanguage":LANGS[lang].asset,"datePublished":"2026-10-04","dateModified":"2026-10-04","author":org,"publisher":org,"mainEntityOfPage":canonical,"about":["industrial automation","system integration","project acceptance testing"]},
+    breadcrumbJsonLd(lang,[{name:ui.home,path:`/${lang}/`},{name:ui.solutions,path:`/${lang}/solutions/`},{name:guide.title,path:`/${lang}/${canonicalPath}`}])
+  ];
+  return shellPage({lang,title:guide.title,description:guide.description,canonicalPath,body,dict,ui,schema,image:SOLUTIONS[0].image,availableLanguages:Object.keys(AUTOMATION_GUIDE)});
 }
 
 function industriesIndexPage(lang, dict) {
@@ -676,6 +699,7 @@ function sitemap() {
     urls.push(`${BASE}/${lang}/solutions/`);
     urls.push(`${BASE}/${lang}/cases/`);
     urls.push(`${BASE}/${lang}/industries/`);
+    if (AUTOMATION_GUIDE[lang]) urls.push(`${BASE}/${lang}/resources/${AUTOMATION_GUIDE_SLUG}/`);
     for(const i of INDUSTRIES) urls.push(`${BASE}/${lang}/industries/${i.slug}/`);
     for(const s of SOLUTIONS) urls.push(`${BASE}/${lang}/solutions/${s.slug}/`);
     for(const c of CASES) urls.push(`${BASE}/${lang}/cases/${c.slug}/`);
@@ -683,6 +707,7 @@ function sitemap() {
   const baseline="2026-10-03T22:37:05.000Z";
   const updatedAt=(url)=>{
     const path=new URL(url).pathname;
+    if(/^\/(en|zh-cn)\/resources\/industrial-automation-project-checklist\/$/.test(path)) return "2026-10-04";
     if(/^\/(zh-cn|zh-tw|ja)\/(contact)\/$/.test(path)) return "2026-10-03T23:20:55.000Z";
     if(/^\/(zh-cn|zh-tw)\/cases\/$/.test(path)) return "2026-10-03T23:24:36.000Z";
     if(/^\/(zh-cn|zh-tw|ja)\/(solutions|cases)\/[^/]+\/$/.test(path)) return "2026-10-03T23:52:05.000Z";
@@ -738,6 +763,7 @@ export default {
     if(rest==="cases") return new Response(casesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     if(rest==="solutions") return new Response(solutionsIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     if(rest==="industries") return new Response(industriesIndexPage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
+    if(rest===`resources/${AUTOMATION_GUIDE_SLUG}` && AUTOMATION_GUIDE[lang]) return new Response(automationGuidePage(lang,dict),{headers:{"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=600"}});
     const industryMatch=rest.match(/^industries\/([^/]+)$/);
     if(industryMatch){
       const item=INDUSTRIES.find(x=>x.slug===industryMatch[1]);

@@ -26,7 +26,7 @@ Each language exposes:
 - 6 solution pages
 - 8 project-case pages
 
-Total indexable localized pages: **168**.
+Total indexable localized pages: **168**, plus an English and Simplified Chinese project-planning resource.
 
 ## Solution slugs
 
@@ -89,4 +89,10 @@ Per language:
 - 8 project case-study pages
 - 5 industry landing pages
 
-Total: **24 pages per language × 7 languages = 168 localized pages**.
+## Project-planning resource
+
+- `/{lang}/resources/industrial-automation-project-checklist/` is published in English and Simplified Chinese only.
+- The two language versions link to each other with matching canonical and hreflang declarations; the page is included in the XML sitemap and `llms.txt`.
+- The resource covers process requirements, interface boundaries, exception handling, acceptance evidence, and handover. It cites ISA and CSIA references without claiming certification or standards compliance.
+
+Total: **24 pages per language × 7 languages + 2 resource pages = 170 indexable URLs**.
