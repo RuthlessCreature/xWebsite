@@ -143,6 +143,7 @@ function validatePage(page) {
 }
 
 for (const site of sites) {
+  try {
   const base = `https://${site.host}`;
   const [{ text: robots }, { text: llms }, { text: contact }, { text: keyFile }] = await Promise.all([
     readSiteRoute(site, `${base}/robots.txt`), readSiteRoute(site, `${base}/llms.txt`), readSiteRoute(site, site.contact), readSiteRoute(site, `${base}/${key}.txt`),
@@ -243,6 +244,10 @@ for (const site of sites) {
     }
   }
   console.log(`${site.host}: ${pageUrls.length - pageFailures}/${pageUrls.length} URLs passed status, unique title, H1, description, canonical and indexability checks`);
+  } catch (error) {
+    monitorErrors.push(`${site.host}: site audit failed: ${String(error)}`);
+    console.error(`${site.host}: site audit failed: ${String(error)}`);
+  }
 }
 
 if (monitorErrors.length) {
