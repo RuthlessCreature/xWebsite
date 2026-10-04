@@ -1,4 +1,5 @@
 import { AUTOMATION_GUIDE, AUTOMATION_GUIDE_SLUG } from "./industrial-automation-guide.js";
+import { SOLUTION_OVERVIEW } from "./industrial-automation-overview.js";
 
 const BASE = "https://xiaodu.tech";
 
@@ -477,10 +478,13 @@ function casesIndexPage(lang, dict) {
 
 function solutionsIndexPage(lang, dict) {
   const ui=UI[lang], du=DETAIL_UI[lang];
+  const overview=SOLUTION_OVERVIEW[lang];
   const cards=SOLUTIONS.map(s=>`<a class="case-card" href="/${lang}/solutions/${s.slug}/"><img src="${s.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(ui.solution)}</span><h3>${esc(dict.solution[s.id].title)}</h3><p>${esc(dict.solution[s.id].text)}</p></div></a>`).join("");
+  const integrationCards=overview.layers.map((item,index)=>`<article><span>0${index+1}</span><strong>${esc(item.title)}</strong><p>${esc(item.text)}</p></article>`).join("");
+  const briefCards=overview.briefItems.map((item,index)=>`<article><span>0${index+1}</span><strong>${esc(item)}</strong></article>`).join("");
   const guide=AUTOMATION_GUIDE[lang];
   const guideLink=guide ? `<section class="section guide-callout"><div class="shell"><span class="eyebrow">${esc(guide.eyebrow)}</span><h2>${esc(guide.title)}</h2><p>${esc(guide.intro)}</p><a class="btn btn-primary" href="/${lang}/resources/${AUTOMATION_GUIDE_SLUG}/">${esc(lang==="zh-cn"?"查看项目清单":"Read the project checklist")} →</a></div></section>` : "";
-  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">SOLUTIONS</span><h1>${esc(du.solutionsTitle)}</h1><p>${esc(du.solutionsIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>${guideLink}`;
+  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">SOLUTIONS</span><h1>${esc(du.solutionsTitle)}</h1><p>${esc(du.solutionsIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section><section class="section detail-scope"><div class="shell"><div class="section-head"><div><span class="eyebrow">${esc(overview.eyebrow)}</span><h2>${esc(overview.title)}</h2></div><p>${esc(overview.intro)}</p></div><div class="detail-cap-grid detail-cap-grid-four">${integrationCards}</div></div></section><section class="section process-section"><div class="shell"><div class="section-head"><div><span class="eyebrow">${esc(overview.briefEyebrow)}</span><h2>${esc(overview.briefTitle)}</h2></div><p>${esc(overview.briefIntro)}</p></div><div class="process-grid">${briefCards}</div></div></section>${guideLink}`;
   return shellPage({lang,title:du.solutionsTitle,description:du.solutionsIntro,canonicalPath:"solutions/",body,dict,ui});
 }
 
