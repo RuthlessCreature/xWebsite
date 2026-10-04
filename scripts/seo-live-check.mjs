@@ -73,13 +73,16 @@ function inspectPage(html, requestedUrl) {
 }
 function structuredTypes(html) {
   const types = new Set();
+  const nodes = [];
   const errors = [];
-  for (const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+  for (const match of html.matchAll(/<script\\b[^>]*type=["']application\\/ld\\+json["'][^>]*>([\\s\\S]*?)<\\/script>/gi)) {
     try {
       const visit = (value) => {
         if (Array.isArray(value)) return value.forEach(visit);
         if (!value || typeof value !== "object") return;
-        for (const type of Array.isArray(value["@type"]) ? value["@type"] : [value["@type"]]) if (type) types.add(type);
+        const nodeTypes = Array.isArray(value["@type"]) ? value["@type"] : [value["@type"]];
+        for (const type of nodeTypes) if (type) types.add(type);
+        if (nodeTypes.some((type) => ["Organization", "WebSite"].includes(type))) nodes.push(value);
         for (const child of Object.values(value)) visit(child);
       };
       visit(JSON.parse(match[1]));
@@ -87,7 +90,37 @@ function structuredTypes(html) {
       errors.push(String(error));
     }
   }
-  return { types, errors };
+  return { types, nodes, errors };
+}
+function normalizedEntityId(value) {
+  try {
+    const url = new URL(value);
+    return `${url.origin}${url.pathname.replace(/\\/$/, "")}${url.hash}`;
+  } catch {
+    return "";
+  }
+}
+function validateSiteEntities(html, site) {
+  const { nodes } = structuredTypes(html);
+  const root = new URL(site.home).origin;
+  const organizationId = `${root}#organization`;
+  const websiteId = `${root}#website`;
+  const organization = nodes.find((node) => normalizedEntityId(node["@id"]) === organizationId && (Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]]).includes("Organization"));
+  const website = nodes.find((node) => normalizedEntityId(node["@id"]) === websiteId && (Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]]).includes("WebSite"));
+  const errors = [];
+  if (!organization) errors.push(`JSON-LD is missing the site-root Organization entity ${organizationId}`);
+  else {
+    if (!organization.name) errors.push("Organization is missing name");
+    if (organization.email !== "abd.yusuf.ibrahim.mustafa@gmail.com") errors.push("Organization email does not match Yusuf's unified contact");
+    if (!/132\\D*4269\\D*4270/.test(organization.telephone || "")) errors.push("Organization telephone does not match Yusuf's unified contact");
+    const points = Array.isArray(organization.contactPoint) ? organization.contactPoint : [organization.contactPoint];
+    if (!points.some((point) => point?.name === "Yusuf" && point.email === "abd.yusuf.ibrahim.mustafa@gmail.com" && /132\\D*4269\\D*4270/.test(point.telephone || ""))) {
+      errors.push("Organization ContactPoint is missing Yusuf's unified contact details");
+    }
+  }
+  if (!website) errors.push(`JSON-LD is missing the site-root WebSite entity ${websiteId}`);
+  else if (normalizedEntityId(website.publisher?.["@id"]) !== organizationId) errors.push("WebSite publisher does not reference the site-root Organization entity");
+  return errors;
 }
 function validatePage(page) {
   const errors = [];
@@ -165,11 +198,8 @@ for (const site of sites) {
         const errors = validatePage(page);
         const structured = structuredTypes(text);
         if (structured.errors.length) errors.push(`invalid JSON-LD: ${structured.errors.join(", ")}`);
-        if (site.host === "xiaodu.tech") {
-          for (const type of ["Organization", "WebSite", "WebPage"]) {
-            if (!structured.types.has(type)) errors.push(`JSON-LD is missing ${type}`);
-          }
-        }
+        errors.push(...validateSiteEntities(text, site));
+        if (site.host === "xiaodu.tech" && !structured.types.has("WebPage")) errors.push("JSON-LD is missing WebPage");
         if (site.host === "xiaodu.tech" && !page.title[0]?.toLowerCase().includes("zhuhai xiaodu") && !page.title[0]?.includes("珠海小度智能科技有限公司")) errors.push("title must use the distinct Zhuhai Xiaodu entity name");
         if (site.host === "xiaodu.tech" && page.title[0]?.length > 70) errors.push("title exceeds 70 characters");
         if (status !== 200 || errors.length) {
