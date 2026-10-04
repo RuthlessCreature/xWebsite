@@ -150,6 +150,7 @@ for (const site of sites) {
   const pageUrls = [...new Set((await Promise.all(sitemapUrls.map((url) => collectPageUrls(site, url)))).flat())];
   if (!pageUrls.length) throw new Error(`${site.host}: sitemap contains no canonical page URLs`);
   const failures = [];
+  let pageFailures = 0;
   const pages = [];
   let next = 0;
   await Promise.all(Array.from({ length: 12 }, async () => {
@@ -168,9 +169,13 @@ for (const site of sites) {
         }
         if (site.host === "xiaodu.tech" && !page.title[0]?.toLowerCase().includes("zhuhai xiaodu") && !page.title[0]?.includes("珠海小度智能科技有限公司")) errors.push("title must use the distinct Zhuhai Xiaodu entity name");
         if (site.host === "xiaodu.tech" && page.title[0]?.length > 70) errors.push("title exceeds 70 characters");
-        if (status !== 200 || errors.length) failures.push(`${url}: HTTP ${status}; ${errors.join("; ")}`);
+        if (status !== 200 || errors.length) {
+          pageFailures += 1;
+          failures.push(`${url}: HTTP ${status}; ${errors.join("; ")}`);
+        }
         pages.push(page);
       } catch (error) {
+        pageFailures += 1;
         failures.push(`${url}: ${String(error)}`);
       }
     }
@@ -195,7 +200,7 @@ for (const site of sites) {
       console.error(`${site.host}: ${bot} probe failed: ${String(error)}`);
     }
   }
-  console.log(`${site.host}: ${pageUrls.length} URLs passed status, unique title, H1, description, canonical and indexability checks`);
+  console.log(`${site.host}: ${pageUrls.length - pageFailures}/${pageUrls.length} URLs passed status, unique title, H1, description, canonical and indexability checks`);
 }
 
 if (monitorErrors.length) {
