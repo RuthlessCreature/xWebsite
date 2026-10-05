@@ -23,6 +23,7 @@
 - Chinese home: https://xiaodu.tech/zh-cn/
 - English home: https://xiaodu.tech/en/
 - Solutions: https://xiaodu.tech/zh-cn/solutions/
+- English industrial automation system integrator in China overview: https://xiaodu.tech/en/solutions/
 - Industrial automation project checklist (简体中文): https://xiaodu.tech/zh-cn/resources/industrial-automation-project-checklist/
 - Industrial automation project checklist (English): https://xiaodu.tech/en/resources/industrial-automation-project-checklist/
 - Industries: https://xiaodu.tech/zh-cn/industries/
