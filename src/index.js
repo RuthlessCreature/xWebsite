@@ -408,7 +408,7 @@ function processCards(dict) {
 }
 
 function solutionPage(lang, dict, item) {
-  const ui=UI[lang], data=dict.solution[item.id];
+  const ui=UI[lang], du=DETAIL_UI[lang], data=dict.solution[item.id];
   const related = CASES.filter(c=>c.related.includes(item.id)).slice(0,3);
   const body=`
   <section class="detail-hero"><div class="detail-hero-image" style="background-image:linear-gradient(90deg,rgba(9,27,40,.9),rgba(9,27,40,.28)),url('${item.image}')"></div><div class="shell detail-hero-inner"><div><a class="breadcrumb" href="/${lang}/">← ${esc(ui.back)}</a><span class="detail-type">${esc(ui.solution)}</span><h1>${esc(data.title)}</h1><p>${esc(data.text)}</p><a class="btn btn-primary" href="#contact">${esc(ui.discuss)} →</a></div></div></section>
