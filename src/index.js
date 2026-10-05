@@ -583,6 +583,7 @@ function inquiryPage(lang, dict) {
     <aside class="inquiry-side">
       <span class="eyebrow">DIRECT CONTACT</span><h2>Yusuf</h2>
       <a href="tel:+8613242694270">+86 132 4269 4270</a><a href="mailto:abd.yusuf.ibrahim.mustafa@gmail.com">abd.yusuf.ibrahim.mustafa@gmail.com</a>
+      <a href="mailto:contact@xiaodu.tech">contact@xiaodu.tech</a>
       <p>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</p>
     </aside>
   </div></section>
