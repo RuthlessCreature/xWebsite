@@ -717,7 +717,7 @@ function sitemap() {
   const updatedAt=(url)=>{
     const path=new URL(url).pathname;
     if(/^\/(en|zh-cn)\/resources\/industrial-automation-project-checklist\/$/.test(path)) return "2026-10-04";
-    if(/^\/(zh-cn|zh-tw|ja)\/(contact)\/$/.test(path)) return "2026-10-03T23:20:55.000Z";
+    if(/^\/(zh-cn|zh-tw|en|ja|es|pt|ru)\/contact\/$/.test(path)) return "2026-10-05T03:35:04.000Z";
     if(/^\/(zh-cn|zh-tw)\/cases\/$/.test(path)) return "2026-10-03T23:24:36.000Z";
     if(/^\/(zh-cn|zh-tw|ja)\/(solutions|cases)\/[^/]+\/$/.test(path)) return "2026-10-03T23:52:05.000Z";
     if(/^\/en\/solutions\/$/.test(path)) return "2026-10-05";
