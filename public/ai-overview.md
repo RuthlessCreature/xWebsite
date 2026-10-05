@@ -21,4 +21,5 @@ Project scope, suitability, schedule and pricing depend on the production proces
 
 Yusuf  
 Phone / WhatsApp: +86 132 4269 4270  
-Email: abd.yusuf.ibrahim.mustafa@gmail.com
+Business email: contact@xiaodu.tech  
+Direct email: abd.yusuf.ibrahim.mustafa@gmail.com
