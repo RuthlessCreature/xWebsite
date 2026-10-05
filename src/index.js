@@ -314,7 +314,7 @@ function organizationJsonLd() {
     "telephone":"+86 132 4269 4270",
     "address":{"@type":"PostalAddress","addressLocality":"Zhuhai","addressRegion":"Guangdong","addressCountry":"CN"},
     "areaServed":"Worldwide",
-    "contactPoint":{"@type":"ContactPoint","name":"Yusuf","telephone":"+86 132 4269 4270","email":"abd.yusuf.ibrahim.mustafa@gmail.com","contactType":"sales","availableLanguage":languages,"areaServed":"Worldwide"}
+    "contactPoint":[{"@type":"ContactPoint","name":"Yusuf","telephone":"+86 132 4269 4270","email":"contact@xiaodu.tech","contactType":"sales","availableLanguage":languages,"areaServed":"Worldwide"},{"@type":"ContactPoint","name":"Yusuf","telephone":"+86 132 4269 4270","email":"abd.yusuf.ibrahim.mustafa@gmail.com","contactType":"sales","availableLanguage":languages,"areaServed":"Worldwide"}]
   };
 }
 
@@ -588,7 +588,7 @@ function inquiryPage(lang, dict) {
     </aside>
   </div></section>
   <script src="/inquiry.js" defer></script>`;
-  const schema={"@context":"https://schema.org","@type":"ContactPage","name":q.title,"description":q.intro,"mainEntity":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.","email":"abd.yusuf.ibrahim.mustafa@gmail.com","telephone":"+86 132 4269 4270"}};
+  const schema={"@context":"https://schema.org","@type":"ContactPage","name":q.title,"description":q.intro,"mainEntity":{"@type":"Organization","name":"Zhuhai Xiaodu Intelligent Technology Co., Ltd.","email":"abd.yusuf.ibrahim.mustafa@gmail.com","telephone":"+86 132 4269 4270","contactPoint":organizationJsonLd().contactPoint}};
   return shellPage({lang,title:q.title,description:q.intro,canonicalPath:"contact/",body,dict,ui,schema});
 }
 
