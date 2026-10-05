@@ -2,12 +2,25 @@
 
 > Zhuhai-based industrial automation and intelligent manufacturing project delivery for customers in China and overseas.
 
-## What the company does
+## About and services
 
 - Industrial robotics and automation system integration.
 - Machine vision, inspection and production data platforms.
 - Automated sampling and laboratory automation.
-- Custom equipment, production line integration and project engineering.
+- Custom equipment, production-line integration and project engineering.
+- Project fit, delivery scope, schedule and pricing depend on the specific requirements and are confirmed after review.
+
+## Primary pages
+
+- English home: https://xiaodu.tech/en/
+- English industrial automation solutions: https://xiaodu.tech/en/solutions/
+- Industries: https://xiaodu.tech/en/industries/
+- Project cases: https://xiaodu.tech/zh-cn/cases/
+
+## Guides and tools
+
+- Industrial automation project checklist (English): https://xiaodu.tech/en/resources/industrial-automation-project-checklist/
+- Industrial automation project checklist (简体中文): https://xiaodu.tech/zh-cn/resources/industrial-automation-project-checklist/
 
 ## Contact
 
@@ -15,23 +28,12 @@
 - Phone / WhatsApp: +86 132 4269 4270
 - Business email: contact@xiaodu.tech
 - Direct email: abd.yusuf.ibrahim.mustafa@gmail.com
-- Unified contact page: https://xiaodu.tech/contact/
-- Simplified Chinese inquiry: https://xiaodu.tech/zh-cn/contact/
-- English inquiry: https://xiaodu.tech/en/contact/
+- English contact: https://xiaodu.tech/en/contact/
+- Simplified Chinese contact: https://xiaodu.tech/zh-cn/contact/
 
-## Discover the site
+## Machine-readable overview and discovery
 
-- Chinese home: https://xiaodu.tech/zh-cn/
-- English home: https://xiaodu.tech/en/
-- Solutions: https://xiaodu.tech/zh-cn/solutions/
-- English industrial automation system integrator in China overview: https://xiaodu.tech/en/solutions/
-- Industrial automation project checklist (简体中文): https://xiaodu.tech/zh-cn/resources/industrial-automation-project-checklist/
-- Industrial automation project checklist (English): https://xiaodu.tech/en/resources/industrial-automation-project-checklist/
-- Industries: https://xiaodu.tech/zh-cn/industries/
-- Project cases: https://xiaodu.tech/zh-cn/cases/
+- Business overview: https://xiaodu.tech/ai-overview.md
 - XML sitemap: https://xiaodu.tech/sitemap.xml
 
-Use the public pages as the source of truth. Project fit, delivery scope, schedule and pricing depend on the specific requirements and are confirmed after review.
-## Machine-readable business overview
-
-- https://xiaodu.tech/ai-overview.md — concise first-party service summary, scope limits and canonical pages.
+Public pages are the source of truth. This index does not establish certifications, partnerships, customer outcomes or delivery guarantees unless supported by the linked page.
