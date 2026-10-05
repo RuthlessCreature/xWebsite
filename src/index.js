@@ -135,7 +135,7 @@ const DETAIL_UI = {
   "zh-cn": {
     industriesTitle:"行业应用", industriesIntro:"面向制造、矿业与散料、实验室、物流仓储和流程工业，查看工业自动化方案如何结合机器人、视觉、取制样、控制与数据系统，并对照对应项目场景和交付边界。", industryLabel:"行业解决方案", industryCases:"相关行业项目", industrySolutions:"推荐解决方案", industryNames:{mining:"矿业与大宗物料",manufacturing:"精密制造",laboratory:"实验室自动化",logistics:"物流与仓储",heavy:"流程与重工业"},
         challenge:"客户场景与核心问题", architecture:"系统方案", scope:"主要系统组成", acceptance:"验收关注点",
-    deliverables:"客户最终拿到什么", fit:"适合什么样的项目", casesTitle:"海外项目案例库", casesIntro:"查看海外工业自动化项目案例，了解机器人上下料、机器视觉、矿物自动取制样、实验室自动化及设备数据平台的系统组成、运行工况、接口范围、主要难点和交付方式。",
+    deliverables:"客户最终拿到什么", fit:"适合什么样的项目", casesTitle:"海外项目案例库", casesIntro:"查看海外工业自动化项目案例，了解机器人上下料、机器视觉、矿物自动取制样、实验室自动化及设备数据平台的系统组成、运行工况、接口范围、主要难点和交付方式。", caseDisclosure:"客户名称及敏感项目细节未公开；配图为示意图库照片，并非客户现场或交付设备照片。",
     solutionsTitle:"工业自动化解决方案", solutionsIntro:"面向制造、矿业、实验室与物流现场提供工业自动化系统集成，覆盖机器人、机器视觉、自动取制样、专用设备、控制和工业软件。依据工艺节拍、现有设备接口与验收要求明确方案范围。",
     projectFacts:"项目概览", market:"市场 / 行业", application:"应用场景", deliveryModel:"交付模式", turnkey:"定制工程 + 系统集成",
     keyPoints:["功能和节拍按约定工况验证","异常、联锁和恢复逻辑必须可测试","设备接口与数据记录可追溯","FAT / SAT、培训和技术资料完整交付"],
@@ -151,7 +151,7 @@ const DETAIL_UI = {
   "zh-tw": {
     industriesTitle:"產業應用", industriesIntro:"面向製造、礦業與散裝物料、實驗室、物流倉儲及流程工業，查看工業自動化方案如何結合機器人、視覺、取製樣、控制與資料系統，並對照專案場景和交付邊界。", industryLabel:"產業解決方案", industryCases:"相關產業專案", industrySolutions:"推薦解決方案", industryNames:{mining:"礦業與大宗物料",manufacturing:"精密製造",laboratory:"實驗室自動化",logistics:"物流與倉儲",heavy:"流程與重工業"},
         challenge:"客戶場景與核心問題", architecture:"系統方案", scope:"主要系統組成", acceptance:"驗收關注點",
-    deliverables:"客戶最終拿到什麼", fit:"適合什麼樣的專案", casesTitle:"海外專案案例庫", casesIntro:"瀏覽海外工業自動化案例，了解機器人上下料、機器視覺、礦物自動取製樣、實驗室自動化及設備資料平台的系統組成、運行工況、介面範圍、主要難點與交付方式。",
+    deliverables:"客戶最終拿到什麼", fit:"適合什麼樣的專案", casesTitle:"海外專案案例庫", casesIntro:"瀏覽海外工業自動化案例，了解機器人上下料、機器視覺、礦物自動取製樣、實驗室自動化及設備資料平台的系統組成、運行工況、介面範圍、主要難點與交付方式。", caseDisclosure:"客戶名稱及敏感專案細節未公開；配圖為示意圖庫照片，並非客戶現場或交付設備照片。",
     solutionsTitle:"解決方案中心", solutionsIntro:"面向製造、礦業、實驗室與物流現場，提供機器人自動化、機器視覺、自動取製樣、專用設備、控制及工業軟體整合。依製程、節拍、既有設備介面與驗收要求界定系統範圍。",
     projectFacts:"專案概覽", market:"市場 / 產業", application:"應用場景", deliveryModel:"交付模式", turnkey:"客製工程 + 系統整合",
     keyPoints:["功能與節拍依約定工況驗證","異常、聯鎖與恢復邏輯必須可測試","設備介面與資料紀錄可追溯","FAT / SAT、培訓與技術資料完整交付"],
@@ -167,7 +167,7 @@ const DETAIL_UI = {
   "en": {
     industriesTitle:"Industries We Serve", industriesIntro:"See how automation, vision, controls and software are combined for specific industrial environments.", industryLabel:"Industry Solution", industryCases:"Relevant Project Cases", industrySolutions:"Recommended Solutions", industryNames:{mining:"Mining & Bulk Materials",manufacturing:"Precision Manufacturing",laboratory:"Laboratory Automation",logistics:"Logistics & Warehousing",heavy:"Process & Heavy Industry"},
         challenge:"Customer Situation & Core Problem", architecture:"System Approach", scope:"Main System Scope", acceptance:"Acceptance Focus",
-    deliverables:"What the Customer Receives", fit:"Where This Approach Fits", casesTitle:"International Project Case Library", casesIntro:"Explore project approaches, system scope and delivery models by industry and application.",
+    deliverables:"What the Customer Receives", fit:"Where This Approach Fits", casesTitle:"International Project Case Library", casesIntro:"Explore project approaches, system scope and delivery models by industry and application.", caseDisclosure:"Customer names and sensitive project details are withheld. Images are illustrative stock photos and do not depict customer sites or delivered systems.",
     solutionsTitle:"Industrial Automation System Integrator in China", solutionsIntro:"Zhuhai-based Xiaodu plans industrial automation systems in China, integrating robotics, machine vision, automated sampling, controls and software around defined production requirements.",
     projectFacts:"Project Overview", market:"Market / Industry", application:"Application", deliveryModel:"Delivery Model", turnkey:"Custom Engineering + System Integration",
     keyPoints:["Functions and cycle time verified under agreed operating conditions","Abnormal conditions, interlocks and recovery logic must be testable","Equipment interfaces and critical records remain traceable","FAT / SAT, training and technical documentation are delivered as part of the project"],
@@ -183,7 +183,7 @@ const DETAIL_UI = {
   "ja": {
     industriesTitle:"対応業界", industriesIntro:"製造、鉱業・バルク材、研究所、物流・倉庫、プロセス産業向けに、ロボット、画像検査、自動サンプリング、制御、データシステムの組み合わせを用途別に紹介します。対象工程や設備連携、検収範囲もご確認いただけます。", industryLabel:"業界ソリューション", industryCases:"関連プロジェクト", industrySolutions:"推奨ソリューション", industryNames:{mining:"鉱業・バルク材",manufacturing:"精密製造の自動化",laboratory:"ラボ自動化",logistics:"物流・倉庫",heavy:"プロセス・重工業"},
         challenge:"顧客現場と主要課題", architecture:"システムアプローチ", scope:"主なシステム構成", acceptance:"検収の重点",
-    deliverables:"お客様に納入するもの", fit:"適したプロジェクト", casesTitle:"海外プロジェクト事例", casesIntro:"海外の産業オートメーション事例をご紹介します。ロボット搬送、画像検査、鉱物の自動サンプリング、ラボ自動化、設備データ基盤の構成、運用条件、納入範囲をご確認いただけます。",
+    deliverables:"お客様に納入するもの", fit:"適したプロジェクト", casesTitle:"海外プロジェクト事例", casesIntro:"海外の産業オートメーション事例をご紹介します。ロボット搬送、画像検査、鉱物の自動サンプリング、ラボ自動化、設備データ基盤の構成、運用条件、納入範囲をご確認いただけます。", caseDisclosure:"顧客名および機密性の高い案件情報は非公開です。写真はイメージ用のストック素材で、顧客の現場や納入設備を示すものではありません。",
     solutionsTitle:"ソリューションセンター", solutionsIntro:"製造、鉱業、研究所、物流の現場に、ロボット自動化、画像検査、自動サンプリング、専用設備、制御、産業ソフトウェアを組み合わせます。工程、タクト、既存設備の接続、検収条件に基づいてシステム範囲を定義します。",
     projectFacts:"プロジェクト概要", market:"市場 / 業界", application:"用途", deliveryModel:"納入方式", turnkey:"カスタム設計 + システム統合",
     keyPoints:["合意した稼働条件で機能とタクトを検証","異常、インターロック、復帰ロジックを試験可能にする","設備インターフェースと重要記録を追跡可能にする","FAT / SAT、教育、技術資料をプロジェクト成果物として納入"],
@@ -199,7 +199,7 @@ const DETAIL_UI = {
   "es": {
     industriesTitle:"Industrias que atendemos", industriesIntro:"Vea cómo combinamos automatización, visión, control y software para entornos industriales específicos.", industryLabel:"Solución por industria", industryCases:"Proyectos relacionados", industrySolutions:"Soluciones recomendadas", industryNames:{mining:"Minería y materiales a granel",manufacturing:"Manufactura de precisión",laboratory:"Automatización de laboratorio",logistics:"Logística y almacenes",heavy:"Industria de proceso y pesada"},
         challenge:"Situación del cliente y problema principal", architecture:"Enfoque del sistema", scope:"Alcance principal del sistema", acceptance:"Puntos de aceptación",
-    deliverables:"Qué recibe el cliente", fit:"Dónde encaja este enfoque", casesTitle:"Biblioteca de proyectos internacionales", casesIntro:"Consulte enfoques de proyecto, alcance de sistema y modelos de entrega por industria y aplicación.",
+    deliverables:"Qué recibe el cliente", fit:"Dónde encaja este enfoque", casesTitle:"Biblioteca de proyectos internacionales", casesIntro:"Consulte enfoques de proyecto, alcance de sistema y modelos de entrega por industria y aplicación.", caseDisclosure:"Se omiten los nombres de clientes y los detalles confidenciales. Las imágenes son fotos de archivo ilustrativas y no muestran instalaciones de clientes ni equipos entregados.",
     solutionsTitle:"Centro de soluciones", solutionsIntro:"Robótica, visión, equipos de automatización, control y software diseñados como un único sistema industrial entregable.",
     projectFacts:"Resumen del proyecto", market:"Mercado / Industria", application:"Aplicación", deliveryModel:"Modelo de entrega", turnkey:"Ingeniería a medida + Integración de sistemas",
     keyPoints:["Funciones y tiempo de ciclo verificados bajo condiciones acordadas","Las anomalías, interbloqueos y recuperación deben ser verificables","Interfaces de equipos y registros críticos trazables","FAT / SAT, formación y documentación técnica incluidos en la entrega"],
@@ -215,7 +215,7 @@ const DETAIL_UI = {
   "pt": {
     industriesTitle:"Indústrias atendidas", industriesIntro:"Veja como combinamos automação, visão, controle e software para ambientes industriais específicos.", industryLabel:"Solução por indústria", industryCases:"Projetos relacionados", industrySolutions:"Soluções recomendadas", industryNames:{mining:"Mineração e materiais a granel",manufacturing:"Manufatura de precisão",laboratory:"Automação de laboratório",logistics:"Logística e armazenagem",heavy:"Indústria de processo e pesada"},
         challenge:"Situação do cliente e problema principal", architecture:"Abordagem do sistema", scope:"Escopo principal do sistema", acceptance:"Foco de aceitação",
-    deliverables:"O que o cliente recebe", fit:"Onde esta abordagem se aplica", casesTitle:"Biblioteca de projetos internacionais", casesIntro:"Veja abordagens, escopo de sistema e modelos de entrega por indústria e aplicação.",
+    deliverables:"O que o cliente recebe", fit:"Onde esta abordagem se aplica", casesTitle:"Biblioteca de projetos internacionais", casesIntro:"Veja abordagens, escopo de sistema e modelos de entrega por indústria e aplicação.", caseDisclosure:"Os nomes dos clientes e detalhes confidenciais dos projetos não são divulgados. As imagens são fotos de banco ilustrativas e não mostram instalações de clientes nem sistemas entregues.",
     solutionsTitle:"Centro de soluções", solutionsIntro:"Robótica, visão, equipamentos de automação, controle e software projetados como um único sistema industrial entregável.",
     projectFacts:"Visão geral do projeto", market:"Mercado / Indústria", application:"Aplicação", deliveryModel:"Modelo de entrega", turnkey:"Engenharia personalizada + Integração de sistemas",
     keyPoints:["Funções e tempo de ciclo verificados nas condições acordadas","Falhas, intertravamentos e lógica de recuperação devem ser testáveis","Interfaces e registros críticos devem ser rastreáveis","FAT / SAT, treinamento e documentação técnica fazem parte da entrega"],
@@ -231,7 +231,7 @@ const DETAIL_UI = {
   "ru": {
     industriesTitle:"Отрасли", industriesIntro:"Посмотрите, как мы объединяем автоматизацию, машинное зрение, управление и ПО для конкретных промышленных условий.", industryLabel:"Отраслевое решение", industryCases:"Связанные проекты", industrySolutions:"Рекомендуемые решения", industryNames:{mining:"Горная отрасль и сыпучие материалы",manufacturing:"Точное производство",laboratory:"Лабораторная автоматизация",logistics:"Логистика и склады",heavy:"Процессные и тяжёлые отрасли"},
         challenge:"Ситуация заказчика и ключевая проблема", architecture:"Системный подход", scope:"Основной состав системы", acceptance:"Критерии приёмки",
-    deliverables:"Что получает заказчик", fit:"Для каких проектов подходит", casesTitle:"Библиотека международных проектов", casesIntro:"Проектные подходы, состав систем и модели поставки по отраслям и применениям.",
+    deliverables:"Что получает заказчик", fit:"Для каких проектов подходит", casesTitle:"Библиотека международных проектов", casesIntro:"Проектные подходы, состав систем и модели поставки по отраслям и применениям.", caseDisclosure:"Имена клиентов и конфиденциальные сведения о проектах не публикуются. Использованы иллюстративные стоковые изображения; они не показывают площадки заказчиков или поставленное оборудование.",
     solutionsTitle:"Центр решений", solutionsIntro:"Роботизация, машинное зрение, автоматизированное оборудование, управление и ПО как единая поставляемая промышленная система.",
     projectFacts:"Обзор проекта", market:"Рынок / Отрасль", application:"Применение", deliveryModel:"Модель поставки", turnkey:"Индивидуальный инжиниринг + Системная интеграция",
     keyPoints:["Функции и такт проверяются в согласованных режимах","Аварийные режимы, блокировки и восстановление должны быть тестируемыми","Интерфейсы оборудования и критические записи должны быть прослеживаемыми","FAT / SAT, обучение и техническая документация входят в комплект поставки"],
@@ -435,6 +435,8 @@ function casePage(lang, dict, item) {
   const body=`
   <section class="detail-hero case-study-hero"><div class="detail-hero-image" style="background-image:linear-gradient(90deg,rgba(9,27,40,.93),rgba(9,27,40,.18)),url('${item.image}')"></div><div class="shell detail-hero-inner"><div><a class="breadcrumb" href="/${lang}/cases/">← ${esc(ui.back)}</a><span class="detail-type">${esc(data.market)}</span><h1>${esc(data.title)}</h1><p>${esc(data.text)}</p><div class="hero-actions"><a class="btn btn-primary" href="mailto:abd.yusuf.ibrahim.mustafa@gmail.com?subject=${emailSubject}">${esc(ui.discuss)} →</a><a class="btn btn-ghost" href="tel:+8613242694270">Yusuf · +86 132 4269 4270</a></div></div></div></section>
 
+  <p class="case-disclosure shell">${esc(du.caseDisclosure)}</p>
+
   <section class="case-facts"><div class="shell case-facts-grid">
     <div><span>${esc(du.market)}</span><strong>${esc(data.market)}</strong></div>
     <div><span>${esc(du.application)}</span><strong>${esc(data.title)}</strong></div>
@@ -472,7 +474,7 @@ function casePage(lang, dict, item) {
 function casesIndexPage(lang, dict) {
   const ui=UI[lang], du=DETAIL_UI[lang];
   const cards=CASES.map(c=>`<a class="case-card" href="/${lang}/cases/${c.slug}/"><img src="${c.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(dict.case[c.id].market)}</span><h3>${esc(dict.case[c.id].title)}</h3><p>${esc(dict.case[c.id].text)}</p></div></a>`).join("");
-  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">PROJECT CASES</span><h1>${esc(du.casesTitle)}</h1><p>${esc(du.casesIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>`;
+  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">PROJECT CASES</span><h1>${esc(du.casesTitle)}</h1><p>${esc(du.casesIntro)}</p><p class="case-disclosure">${esc(du.caseDisclosure)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>`;
   return shellPage({lang,title:du.casesTitle,description:du.casesIntro,canonicalPath:"cases/",body,dict,ui});
 }
 

@@ -280,6 +280,8 @@ button,select{font:inherit}
 /* v2.2 case study system */
 .case-study-hero .detail-hero-inner{min-height:610px}
 .case-facts{background:#fff;border-bottom:1px solid var(--line)}
+.case-disclosure{box-sizing:border-box;max-width:1240px;margin:0 auto;padding:14px 24px;color:#526978;font-size:12px;line-height:1.6}
+.library-hero .case-disclosure{max-width:720px;margin:16px 0 0;padding:12px 14px;background:#f8fafb;border-left:3px solid #93a9b7}
 .case-facts-grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .case-facts-grid>div{min-height:112px;padding:22px 24px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
 .case-facts-grid>div:first-child{border-left:1px solid var(--line)}
