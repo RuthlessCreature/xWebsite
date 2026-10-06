@@ -30,6 +30,11 @@
 - Direct email: abd.yusuf.ibrahim.mustafa@gmail.com
 - English contact: https://xiaodu.tech/en/contact/
 - Simplified Chinese contact: https://xiaodu.tech/zh-cn/contact/
+- Traditional Chinese contact: https://xiaodu.tech/zh-tw/contact/
+- Japanese contact: https://xiaodu.tech/ja/contact/
+- Spanish contact: https://xiaodu.tech/es/contact/
+- Portuguese contact: https://xiaodu.tech/pt/contact/
+- Russian contact: https://xiaodu.tech/ru/contact/
 
 ## Machine-readable overview and discovery
 
