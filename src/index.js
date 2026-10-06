@@ -517,12 +517,36 @@ function industriesIndexPage(lang, dict) {
     const firstCase=CASES.find(c=>c.id===x.cases[0]);
     const title=du.industryNames[x.key];
     const desc=dict.case[x.cases[0]].text;
-    return `<a class="case-card industry-card" href="/${lang}/industries/${x.slug}/"><img src="${firstCase.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(du.industryLabel)}</span><h3>${esc(title)}</h3><p>${esc(desc)}</p></div></a>`;
+    return "<a class=\"case-card industry-card\" href=\"/"+lang+"/industries/"+x.slug+"/\"><img src=\""+firstCase.image+"\" alt=\"\" loading=\"lazy\"><div class=\"case-body\"><span class=\"case-market\">"+esc(du.industryLabel)+"</span><h3>"+esc(title)+"</h3><p>"+esc(desc)+"</p></div></a>";
   }).join("");
-  const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">INDUSTRIES</span><h1>${esc(du.industriesTitle)}</h1><p>${esc(du.industriesIntro)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>`;
-  return shellPage({lang,title:du.industriesTitle,description:du.industriesIntro,canonicalPath:"industries/",body,dict,ui});
+  const title=lang==="en" ? "Industrial Automation by Industry" : du.industriesTitle;
+  const description=lang==="en"
+    ? "Industrial automation system integration for manufacturing, mining, laboratory, logistics and process industries. Compare applications, system scopes and project examples by operating environment."
+    : du.industriesIntro;
+  const editorial=lang==="en" ? [
+    "<section class=\"section\"><div class=\"shell\"><div class=\"section-head\"><div><span class=\"eyebrow\">SYSTEM INTEGRATION</span><h2>What industrial automation integration covers</h2></div></div>",
+    "<p>An industrial automation system integrator connects equipment, controls, software and operating procedures around a defined production requirement. The engineering task is to agree what the system must do, how it exchanges signals and data with existing assets, how abnormal conditions are handled, and how the result will be accepted.</p>",
+    "<p>Xiaodu’s solution areas include <a href=\"/en/solutions/robotic-automation/\">robotic automation</a>, <a href=\"/en/solutions/machine-vision/\">machine vision</a>, <a href=\"/en/solutions/automated-sampling-lab/\">automated sampling and laboratory automation</a>, <a href=\"/en/solutions/custom-equipment-integration/\">custom equipment integration</a>, <a href=\"/en/solutions/industrial-software-data/\">industrial software and production data</a>, and <a href=\"/en/solutions/intelligent-workflow-automation/\">intelligent workflow automation</a>. The right combination depends on the process, materials, throughput, existing machinery and acceptance criteria.</p>",
+    "<h2>Plan around the operating environment</h2>",
+    "<ul><li><strong>Manufacturing:</strong> define part presentation, machine tending, assembly steps, inspection points, changeovers and traceability before selecting a robot or cell layout.</li>",
+    "<li><strong>Mining and bulk materials:</strong> map material flow, sampling points, sample preparation, transfer routes, dust or moisture constraints and laboratory handoff.</li>",
+    "<li><strong>Laboratories:</strong> specify sample identity, preparation steps, weighing or dosing, instrument interfaces, exception handling and result recording.</li>",
+    "<li><strong>Logistics and warehousing:</strong> document receiving, identification, routing, conveyor or palletizing interfaces, order data and how operators recover from blocked flows.</li>",
+    "<li><strong>Process and heavy industry:</strong> establish the control boundary, field signals, operating states, interlocks, alarms and the information operators need to act safely.</li></ul>",
+    "<h2>Define interfaces and acceptance before detailed design</h2>",
+    "<p>A useful project brief identifies the process owner, production target, product or material range, existing equipment, utilities, floor layout, communications protocols and safety responsibilities. It also describes normal operation, startup, shutdown, changeover, fault recovery and manual fallback. These details let the buyer and integrator compare alternatives on the same scope instead of comparing equipment prices that include different assumptions.</p>",
+    "<p>Acceptance should be written in observable terms: the sequence to demonstrate, the operating conditions to test, the quality or cycle-time measures that matter, the records to retain and the documents to hand over. Factory and site acceptance testing (FAT/SAT) can then be planned against the agreed requirements. Specific standards, certifications, performance guarantees and site work must be confirmed for each project; this overview does not imply that any particular certification or result is included.</p>",
+    "<h2>What to prepare for an initial review</h2>",
+    "<p>Share a process description, photos or video, available drawings, product and material details, target capacity, current control architecture, known constraints, destination country and desired delivery window. If some information is missing, state the assumptions that need checking. A structured inquiry helps identify open engineering questions before a commercial scope is finalized.</p>",
+    "<p><em>Project pages linked from this hub are illustrative system scenarios and scope examples; they are not evidence of named customers or completed installations. Confirm project-specific capabilities, deliverables and responsibilities in a written proposal.</em></p></div></section>"
+  ].join("") : "";
+  const body=[
+    "<section class=\"library-hero\"><div class=\"shell\"><span class=\"eyebrow\">INDUSTRIES</span><h1>"+esc(title)+"</h1><p>"+esc(du.industriesIntro)+"</p></div></section>",
+    "<section class=\"section cases-section\"><div class=\"shell\"><div class=\"case-grid library-grid\">"+cards+"</div></div></section>",
+    editorial
+  ].join("");
+  return shellPage({lang,title,description,canonicalPath:"industries/",body,dict,ui});
 }
-
 function industryPage(lang, dict, item) {
   const ui=UI[lang], du=DETAIL_UI[lang], title=du.industryNames[item.key];
   const caseItems=item.cases.map(id=>CASES.find(c=>c.id===id)).filter(Boolean);
