@@ -763,8 +763,10 @@ function sitemap() {
 export default {
   async fetch(request, env) {
     const url=new URL(request.url);
-    if(url.hostname==="www.xiaodu.tech"){
-      url.hostname="xiaodu.tech";
+    if(url.hostname==="www.xiaodu.tech" || url.protocol!=="https:" || url.pathname==="/"){
+      if(url.hostname==="www.xiaodu.tech") url.hostname="xiaodu.tech";
+      url.protocol="https:";
+      if(url.pathname==="/") url.pathname="/zh-cn/";
       return Response.redirect(url.toString(),308);
     }
     const path=url.pathname;
