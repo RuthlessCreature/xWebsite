@@ -523,6 +523,9 @@ function industriesIndexPage(lang, dict) {
   const description=lang==="en"
     ? "Industrial automation system integration for manufacturing, mining, laboratory, logistics and process industries. Compare applications, system scopes and project examples by operating environment."
     : du.industriesIntro;
+  const guide=AUTOMATION_GUIDE[lang];
+  const checklistLabel={"zh-cn":"查看项目清单","zh-tw":"查看專案清單",en:"Read the project checklist",ja:"チェックリストを見る",es:"Ver la lista del proyecto",pt:"Ver a lista do projeto",ru:"Открыть список проекта"}[lang] || "View the project checklist";
+  const checklistLink=guide && lang!=="en" ? `<section class="section guide-callout"><div class="shell"><span class="eyebrow">${esc(guide.eyebrow)}</span><h2>${esc(guide.title)}</h2><p>${esc(guide.intro)}</p><a class="btn btn-primary" href="/${lang}/resources/${AUTOMATION_GUIDE_SLUG}/">${esc(checklistLabel)} →</a></div></section>` : "";
   const editorial=lang==="en" ? [
     "<section class=\"section\"><div class=\"shell\"><div class=\"section-head\"><div><span class=\"eyebrow\">SYSTEM INTEGRATION</span><h2>What industrial automation integration covers</h2></div></div>",
     "<p>An industrial automation system integrator connects equipment, controls, software and operating procedures around a defined production requirement. The engineering task is to agree what the system must do, how it exchanges signals and data with existing assets, how abnormal conditions are handled, and how the result will be accepted.</p>",
@@ -544,7 +547,8 @@ function industriesIndexPage(lang, dict) {
   const body=[
     "<section class=\"library-hero\"><div class=\"shell\"><span class=\"eyebrow\">INDUSTRIES</span><h1>"+esc(title)+"</h1><p>"+esc(du.industriesIntro)+"</p></div></section>",
     "<section class=\"section cases-section\"><div class=\"shell\"><div class=\"case-grid library-grid\">"+cards+"</div></div></section>",
-    editorial
+    editorial,
+    checklistLink
   ].join("");
   return shellPage({lang,title,description,canonicalPath:"industries/",body,dict,ui});
 }
