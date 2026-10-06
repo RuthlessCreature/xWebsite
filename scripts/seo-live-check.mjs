@@ -1,6 +1,6 @@
 const sites = [
   { host: "xiaodu.tech", home: "https://xiaodu.tech/en/", titleTopic: "industrial automation", headingTopic: "industrial automation", contact: "https://xiaodu.tech/zh-cn/contact/", sitemap: "https://xiaodu.tech/sitemap.xml" },
-  { host: "www.staychina.org", home: "https://www.staychina.org/en", titleTopic: "China company setup", headingTopic: "company in China", contact: "https://www.staychina.org/en/contact", sitemap: "https://www.staychina.org/sitemap-index.xml", workerOrigin: "https://pwebsite.nostalgia-ho.workers.dev" },
+  { host: "www.staychina.org", home: "https://www.staychina.org/en", titleTopic: "China company setup", headingTopic: "company in China", contact: "https://www.staychina.org/en/contact", sitemap: "https://www.staychina.org/sitemap.xml", workerOrigin: "https://pwebsite.nostalgia-ho.workers.dev" },
   { host: "pomerol.trade", home: "https://pomerol.trade/en/", titleTopic: "China product sourcing", headingTopic: "China product sourcing", focusPage: "https://pomerol.trade/china-sourcing-agent/", focusTopic: "China sourcing agent", contact: "https://pomerol.trade/contact/", sitemap: "https://pomerol.trade/sitemap.xml" },
 ];
 const key = "6ef27e4a81efe1ff6c679ee852d012f2";
