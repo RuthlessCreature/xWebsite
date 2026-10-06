@@ -371,7 +371,7 @@ function contact(lang, ui) {
   </section>`;
 }
 
-function shellPage({lang, title, description, canonicalPath, body, dict, ui, schema, image, availableLanguages = Object.keys(LANGS)}) {
+function shellPage({lang, title, description, canonicalPath, body, dict, ui, schema, image = SOLUTIONS[0].image, availableLanguages = Object.keys(LANGS)}) {
   const canonical = `${BASE}/${lang}/${canonicalPath}`;
   const brandSuffix = " | Zhuhai Xiaodu";
   const titleLimit = 70 - brandSuffix.length;
