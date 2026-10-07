@@ -40,6 +40,12 @@ export const AUTOMATION_GUIDE = {
       "What must the customer provide, and when must the production site be ready?",
       "What documentation, training and support are included at handover?"
     ],
+    faq: [
+      { question: "What does an industrial automation system integrator do?", answer: "An industrial automation system integrator coordinates the equipment, controls, software and interfaces needed for a defined production task. The project team agrees the system boundary, operating requirements, abnormal-state behavior and acceptance evidence for the specific site." },
+      { question: "What information should I prepare before requesting an automation proposal?", answer: "Prepare the product or material, current process steps, target throughput and measurement method, existing machines and controls, available layout or interface information, site constraints, and expected acceptance criteria. Mark assumptions and unknowns so they can be confirmed during discovery." },
+      { question: "How should an automation project define acceptance testing?", answer: "Agree representative products and operating cases, measurable cycle-time and quality criteria, the measurement and sampling method, fault and recovery checks, required records, test locations, sign-off owners and retest rules before detailed design is complete. The applicable standards and scope depend on the project." },
+      { question: "Does this checklist certify a machine or prove standards compliance?", answer: "No. It is a planning aid for an initial project discussion, not a design, safety specification, inspection report or certificate. Qualified project stakeholders must determine applicable laws, standards, risk controls and validation evidence for the site and equipment." }
+    ],
     noteTitle: "Use standards in the right context",
     note: "Factory, site and integration testing should be agreed for the project and industry. ISA publishes guidance and standards for FAT, SAT and SIT; the applicable edition and scope must be confirmed by the project team. This checklist does not claim compliance with any standard.",
     sourcesTitle: "Further reading",
@@ -54,7 +60,7 @@ export const AUTOMATION_GUIDE = {
       { label: "Machine vision and inspection", path: "solutions/machine-vision/" },
       { label: "Custom equipment integration", path: "solutions/custom-equipment-integration/" }
     ],
-    sourceNote: "Prepared by Zhuhai Xiaodu Intelligent Technology Co., Ltd. from its published service scope and the linked industry references. Last reviewed: October 4, 2026."
+    sourceNote: "Prepared by Zhuhai Xiaodu Intelligent Technology Co., Ltd. from its published service scope and the linked industry references. Content and source links reviewed: October 8, 2026."
   },
   "zh-cn": {
     title: "工业自动化项目需求与验收清单",
@@ -95,6 +101,12 @@ export const AUTOMATION_GUIDE = {
       "客户需要提供什么资料，现场需在何时具备哪些条件？",
       "交付时包含哪些文件、培训和后续支持？"
     ],
+    faq: [
+      { question: "工业自动化系统集成商主要做什么？", answer: "系统集成商围绕明确的生产任务，协调所需设备、控制系统、软件及接口。项目相关方需要结合具体现场确定系统边界、运行要求、异常处理方式和验收证据。" },
+      { question: "咨询自动化方案前应准备哪些信息？", answer: "建议准备产品或物料、当前工序、目标产能及测量口径、现有设备和控制系统、布局或接口资料、现场限制及预期验收条件。对暂时未知的信息和假设单独标注，便于前期确认。" },
+      { question: "自动化项目应如何定义验收测试？", answer: "在详细设计完成前，约定代表性产品与工况、可测量的节拍和质量标准、测量与抽样方法、故障和恢复检查、所需记录、测试地点、签署人及复测规则。适用标准和范围需按具体项目确定。" },
+      { question: "这份清单能否作为设备认证或符合标准的证明？", answer: "不能。这是一份用于项目前期沟通的策划参考，不是设计文件、安全规范、检验报告或认证证书。具备相应能力的项目相关方需结合现场和设备确认适用法规、标准、风险控制及验证证据。" }
+    ],
     noteTitle: "结合项目适用标准制定测试",
     note: "出厂、现场和系统集成测试应结合项目与行业约定。ISA 发布了关于 FAT、SAT、SIT 的相关标准与指南；项目团队应确认适用版本和范围。本清单不代表符合任何标准。",
     sourcesTitle: "延伸阅读",
@@ -109,6 +121,6 @@ export const AUTOMATION_GUIDE = {
       { label: "机器视觉与检测", path: "solutions/machine-vision/" },
       { label: "专用设备与系统集成", path: "solutions/custom-equipment-integration/" }
     ],
-    sourceNote: "由珠海小度智能科技有限公司依据官网公开服务范围及所链接的行业资料编写。最近核对：2026 年 10 月 4 日。"
+    sourceNote: "由珠海小度智能科技有限公司依据官网公开服务范围及所链接的行业资料编写。内容及来源链接核对：2026 年 10 月 8 日。"
   }
 };
