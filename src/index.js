@@ -766,7 +766,7 @@ function sitemap() {
   const baseline="2026-10-03T22:37:05.000Z";
   const updatedAt=(url)=>{
     const path=new URL(url).pathname;
-    if(/^\/(en|zh-cn)\/resources\/industrial-automation-project-checklist\/$/.test(path)) return "2026-10-04";
+    if(/^\/(en|zh-cn)\/resources\/industrial-automation-project-checklist\/$/.test(path)) return "2026-10-08";
     if(/^\/(zh-cn|zh-tw|en|ja|es|pt|ru)\/contact\/$/.test(path)) return "2026-10-05T03:35:04.000Z";
     if(/^\/(zh-cn|zh-tw)\/cases\/$/.test(path)) return "2026-10-03T23:24:36.000Z";
     if(/^\/(zh-cn|zh-tw|ja)\/(solutions|cases)\/[^/]+\/$/.test(path)) return "2026-10-03T23:52:05.000Z";
