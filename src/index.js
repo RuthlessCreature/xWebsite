@@ -371,7 +371,21 @@ function contact(lang, ui) {
   </section>`;
 }
 
+function compactSearchDescription(value, limit = 160) {
+  const text = String(value ?? "").replace(/\s+/gu, " ").trim();
+  const characters = Array.from(text);
+  if (characters.length <= limit) return text;
+
+  const head = characters.slice(0, limit - 1).join("");
+  const sentenceEnds = [...head.matchAll(/(?:[。！？]|[.!?](?=\s|$))/gu)].map((match) => match.index + match[0].length);
+  const sentenceEnd = sentenceEnds[sentenceEnds.length - 1] ?? 0;
+  const wordEnd = head.lastIndexOf(" ");
+  const cutAt = sentenceEnd >= 80 ? sentenceEnd : wordEnd >= 80 ? wordEnd : limit - 1;
+  return `${characters.slice(0, cutAt).join("").trimEnd().replace(/[\s,;:—–-]+$/u, "")}…`;
+}
+
 function shellPage({lang, title, description, canonicalPath, body, dict, ui, schema, image = SOLUTIONS[0].image, availableLanguages = Object.keys(LANGS)}) {
+  const searchDescription = compactSearchDescription(description);
   const canonical = `${BASE}/${lang}/${canonicalPath}`;
   const brandSuffix = " | Zhuhai Xiaodu";
   const titleLimit = 70 - brandSuffix.length;
@@ -385,13 +399,13 @@ function shellPage({lang, title, description, canonicalPath, body, dict, ui, sch
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(seoTitle)}</title>
-<meta name="description" content="${esc(description)}">
+<meta name="description" content="${esc(searchDescription)}">
 <link rel="canonical" href="${canonical}">
 ${alternates(canonicalPath,availableLanguages)}
-<meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><meta property="og:type" content="website"><meta property="og:title" content="${esc(seoTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${esc(LANGS[lang].asset)}">
+<meta property="og:site_name" content="Zhuhai Xiaodu Intelligent Technology"><meta property="og:type" content="website"><meta property="og:title" content="${esc(seoTitle)}"><meta property="og:description" content="${esc(searchDescription)}"><meta property="og:url" content="${canonical}"><meta property="og:locale" content="${esc(LANGS[lang].asset)}">
 ${image ? `<meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${esc(image)}">` : `<meta name="twitter:card" content="summary">`}
 <link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">${sitePageJsonLd(lang,title,description,canonical)}</script>
+<script type="application/ld+json">${sitePageJsonLd(lang,title,searchDescription,canonical)}</script>
 ${schema ? (Array.isArray(schema) ? schema : [schema]).map(x=>`<script type="application/ld+json">${JSON.stringify(x)}</script>`).join("") : ""}
 </head>
 <body class="detail-page">
