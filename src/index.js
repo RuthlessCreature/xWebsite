@@ -356,7 +356,7 @@ function header(lang, ui, dict, availableLanguages = Object.keys(LANGS)) {
     <div class="shell nav-shell detail-nav-shell">
       <a class="brand" href="/${lang}/"><span class="brand-mark">XD</span><span class="brand-copy"><strong>${esc(dict.companyName)}</strong><small>Zhuhai Xiaodu Intelligent Technology Co., Ltd.</small></span></a>
       <nav class="detail-nav"><a href="/${lang}/solutions/">${esc(ui.solutions)}</a><a href="/${lang}/cases/">${esc(ui.cases)}</a><a href="/${lang}/industries/">${esc(du?.industriesTitle || "Industries")}</a><a href="/${lang}/#about">${esc(ui.about)}</a></nav>
-      <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language>${languageOptions(lang,availableLanguages)}</select></label><a class="header-cta" href="/${lang}/contact/">${esc(ui.contact)}</a></div>
+      <div class="nav-actions"><label class="language-picker"><span>🌐</span><select data-language aria-label="Language">${languageOptions(lang,availableLanguages)}</select></label><a class="header-cta" href="/${lang}/contact/">${esc(ui.contact)}</a></div>
     </div>
   </header>`;
 }
@@ -398,6 +398,7 @@ function shellPage({lang, title, description, canonicalPath, body, dict, ui, sch
 <html lang="${esc(LANGS[lang].asset)}">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <title>${esc(seoTitle)}</title>
 <meta name="description" content="${esc(searchDescription)}">
 <link rel="canonical" href="${canonical}">
@@ -489,7 +490,7 @@ function casePage(lang, dict, item) {
 
 function casesIndexPage(lang, dict) {
   const ui=UI[lang], du=DETAIL_UI[lang];
-  const cards=CASES.map(c=>`<a class="case-card" href="/${lang}/cases/${c.slug}/"><img src="${c.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(du.scenarioLabel)} · ${esc(dict.case[c.id].market)}</span><h3>${esc(dict.case[c.id].title)}</h3><p>${esc(dict.case[c.id].text)}</p></div></a>`).join("");
+  const cards=CASES.map(c=>`<a class="case-card" href="/${lang}/cases/${c.slug}/"><img src="${c.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(du.scenarioLabel)} · ${esc(dict.case[c.id].market)}</span><h2>${esc(dict.case[c.id].title)}</h2><p>${esc(dict.case[c.id].text)}</p></div></a>`).join("");
   const body=`<section class="library-hero"><div class="shell"><span class="eyebrow">PROJECT CASES</span><h1>${esc(du.casesTitle)}</h1><p>${esc(du.casesIntro)}</p><p class="case-disclosure">${esc(du.caseDisclosure)}</p></div></section><section class="section cases-section"><div class="shell"><div class="case-grid library-grid">${cards}</div></div></section>`;
   return shellPage({lang,title:du.casesTitle,description:du.casesIntro,canonicalPath:"cases/",body,dict,ui});
 }
@@ -497,7 +498,7 @@ function casesIndexPage(lang, dict) {
 function solutionsIndexPage(lang, dict) {
   const ui=UI[lang], du=DETAIL_UI[lang];
   const overview=SOLUTION_OVERVIEW[lang];
-  const cards=SOLUTIONS.map(s=>`<a class="case-card" href="/${lang}/solutions/${s.slug}/"><img src="${s.image}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(ui.solution)}</span><h3>${esc(dict.solution[s.id].title)}</h3><p>${esc(dict.solution[s.id].text)}</p></div></a>`).join("");
+  const cards=SOLUTIONS.map(s=>`<a class="case-card" href="/${lang}/solutions/${s.slug}/"><img src="${s.image.replace("h=900&w=1600","h=506&w=900")}" alt="" loading="lazy"><div class="case-body"><span class="case-market">${esc(ui.solution)}</span><h2>${esc(dict.solution[s.id].title)}</h2><p>${esc(dict.solution[s.id].text)}</p></div></a>`).join("");
   const integrationCards=overview.layers.map((item,index)=>`<article><span>0${index+1}</span><strong>${esc(item.title)}</strong><p>${esc(item.text)}</p></article>`).join("");
   const briefCards=overview.briefItems.map((item,index)=>`<article><span>0${index+1}</span><strong>${esc(item)}</strong></article>`).join("");
   const guide=AUTOMATION_GUIDE[lang];

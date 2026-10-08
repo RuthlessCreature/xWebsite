@@ -112,7 +112,7 @@ button,select{font:inherit}
 .case-card:hover>img{transform:scale(1.035)}
 .case-body{padding:19px 20px 21px}
 .case-market{display:block;color:var(--blue);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-.case-body h3{margin:6px 0 8px;font-size:18px;line-height:1.35}
+.case-body h2,.case-body h3{margin:6px 0 8px;font-size:18px;line-height:1.35}
 .case-body p{margin:0;color:#687985;font-size:11px}
 .case-card-large{min-height:440px;border:0}
 .case-card-large>img{position:absolute;inset:0;height:100%}
@@ -316,8 +316,9 @@ button,select{font:inherit}
 .faq-list details[open] summary:after{content:"−"}
 .faq-list details p{margin:0;padding:0 20px 20px;color:#647682;font-size:12px;line-height:1.75}
 .library-hero{padding:84px 0 54px;background:#e8eef2;border-bottom:1px solid var(--line)}
+.library-hero .eyebrow,.detail-scope .section-head .eyebrow{color:#47606e}
 .library-hero h1{margin:8px 0 14px;font-size:clamp(38px,5vw,64px);line-height:1.08;letter-spacing:-.045em}
-.library-hero p{max-width:720px;margin:0;color:#627581;font-size:14px}
+.library-hero p{max-width:720px;margin:0;color:#53646e;font-size:14px}
 .library-grid{grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){
   .case-facts-grid{grid-template-columns:1fr}
